@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\FallbackController;
+use App\Http\Controllers\PagesController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostsController;
 
@@ -18,9 +20,13 @@ use App\Http\Controllers\PostsController;
 //     return view('index');
 // });
 
-Route::get('/show', function () {
-    return view('pages.show');
-});
+
+Route::get('posts/wishlist', [PagesController::class, 'wishlist'])->name('posts.wishlist');
+Route::get('posts/checkout', [PagesController::class, 'checkout'])->name('posts.checkout');
+Route::get('/register', [PagesController::class, 'register'])->name('register');
+Route::get('/login', [PagesController::class, 'login'])->name('login');
+Route::fallback(FallbackController::class);
+
 
 
 Route::resource('posts', PostsController::class);

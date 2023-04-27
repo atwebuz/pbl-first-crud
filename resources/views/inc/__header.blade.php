@@ -256,17 +256,17 @@
 
                 <li class=" nav-item"><a href="#"><i class="feather icon-shopping-cart"></i><span class="menu-title" data-i18n="Ecommerce">Ecommerce</span></a>
                     <ul class="menu-content">
-                        <li class="active"><a href="/posts"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="Shop">Shop</span></a>
+                        <li class="{{ (request()->is('posts')) ? 'active' : '' }} "><a href="{{route('posts.index')}}"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="Shop">Shop</span></a>
                         </li>
                       
-                        <li><a href="/create"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="Wish List">Create</span></a>
+                        <li class="{{ (request()->is('posts/create')) ? 'active' : '' }}"><a href="{{route('posts.create')}}"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="Wish List">Create</span></a>
                         </li>
 
 
-                        <li><a href="app-ecommerce-wishlist.html"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="Wish List">Wish List</span></a>
+                        <li class="{{ (request()->is('posts/wishlist')) ? 'active' : '' }}"><a href="{{route('posts.wishlist')}}"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="Wish List">Wish List</span></a>
                         </li>
 
-                        <li><a href="app-ecommerce-checkout.html"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="Checkout">Checkout</span></a>
+                        <li class="{{ (request()->is('posts/checkout')) ? 'active' : '' }}"><a href="{{route('posts.checkout')}}"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="Checkout">Checkout</span></a>
                         </li>
                     </ul>
                 </li>
@@ -303,9 +303,9 @@
               
                 <li class=" nav-item"><a href="#"><i class="feather icon-unlock"></i><span class="menu-title" data-i18n="Authentication">Authentication</span></a>
                     <ul class="menu-content">
-                        <li><a href="auth-login.html"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="Login">Login</span></a>
+                        <li class="{{ (request()->is('login')) ? 'active' : '' }}"><a href="{{route('login')}}"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="Login">Login</span></a>
                         </li>
-                        <li><a href="auth-register.html"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="Register">Register</span></a>
+                        <li class="{{ (request()->is('register')) ? 'active' : '' }}"><a href="{{route('register')}}"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="Register">Register</span></a>
                         </li>
                         <li><a href="auth-forgot-password.html"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="Forgot Password">Forgot Password</span></a>
                         </li>

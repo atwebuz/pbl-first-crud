@@ -10,8 +10,8 @@
     <meta name="keywords" content="admin template, Vuexy admin template, dashboard template, flat admin template, responsive admin template, web app">
     <meta name="author" content="PIXINVENT">
     <title>Shop - Vuexy - Bootstrap HTML admin template</title>
-    <link rel="apple-touch-icon" href="../../../app-assets/images/ico/apple-icon-120.png')}}">
-    <link rel="shortcut icon" type="image/x-icon" href="../../../app-assets/images/ico/favicon.ico">
+    <link rel="apple-touch-icon" href="{{asset('assets/images/ico/apple-icon-120.png')}}">
+    <link rel="shortcut icon" type="image/x-icon" href="{{asset('assets/images/ico/favicon.ico')}}">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600" rel="stylesheet">
 
     <!-- BEGIN: Vendor CSS-->
@@ -34,6 +34,11 @@
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/core/colors/palette-gradient.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/plugins/extensions/noui-slider.min.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/pages/app-ecommerce-shop.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('assets/css/pages/authentication.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('assets/css/pages/error.css')}}">
+
+   
+
     <!-- END: Page CSS-->
 
     <!-- BEGIN: Custom CSS-->
