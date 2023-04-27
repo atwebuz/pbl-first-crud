@@ -256,12 +256,16 @@
 
                 <li class=" nav-item"><a href="#"><i class="feather icon-shopping-cart"></i><span class="menu-title" data-i18n="Ecommerce">Ecommerce</span></a>
                     <ul class="menu-content">
-                        <li class="active"><a href="app-ecommerce-shop.html"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="Shop">Shop</span></a>
+                        <li class="active"><a href="/posts"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="Shop">Shop</span></a>
                         </li>
-                        <li><a href="app-ecommerce-details.html"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="Details">Details</span></a>
+                      
+                        <li><a href="/create"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="Wish List">Create</span></a>
                         </li>
+
+
                         <li><a href="app-ecommerce-wishlist.html"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="Wish List">Wish List</span></a>
                         </li>
+
                         <li><a href="app-ecommerce-checkout.html"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="Checkout">Checkout</span></a>
                         </li>
                     </ul>

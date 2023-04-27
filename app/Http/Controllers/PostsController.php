@@ -14,7 +14,7 @@ class PostsController extends Controller
     {
         
         return view('pages.index',[
-            'posts' => Post::paginate(9)
+            'posts' => Post::orderBy('created_at', 'DESC')->paginate(9)
         ]);
     }
 
@@ -31,7 +31,40 @@ class PostsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+     
+
+        $this->validate($request, [
+            'title' => 'required',
+            'paragraph' => 'required',
+            'color' => 'required',
+            'price' => 'required',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+
+        ]);
+
+        $post = $request->all();
+  
+        if ($image = $request->file('image')) {
+            $destinationPath = 'image/';
+            $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
+            $image->move($destinationPath, $profileImage);
+            $post['image'] = "$profileImage";
+        }
+
+        Post::create($post);
+
+
+        // dd('qwd'); 
+        // $post = new Post;
+        // $post->title = $request->input('title');
+        // $post->paragraph = $request->input('paragraph');
+        // $post->color = $request->input('color');
+        // $post->price = $request->input('price');
+        // $post->save();
+
+        return redirect()->route('posts.index')->with('success', 'waw it was created successfully');
+
+    
     }
 
     /**
@@ -40,7 +73,7 @@ class PostsController extends Controller
     public function show(string $id)
     {
         return view('pages.show',[
-            'post' => Post::find($id)
+            'post' => Post::findOrFail($id)
         ]);
     }
 
@@ -49,22 +82,45 @@ class PostsController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        return view('pages.edit', [
+            'post' => Post::findOrFail($id)
+        ]); 
+
+
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Post $post)
     {
-        //
+        $this->validate($request, [
+            'title' => 'required',
+            'paragraph' => 'required',
+            'color' => 'required',
+            'price' => 'required',
+        ]);
+
+        if ($image = $request->file('image')) {
+            $destinationPath = 'image/';
+            $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
+            $image->move($destinationPath, $profileImage);
+            $post['image'] = "$profileImage";
+        }
+
+        $post->update($request->all());
+
+        return redirect()->route('posts.index')->with('success', 'waw it was updated successfully');
+
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Post $post)
     {
-        //
+        $post->delete();
+         
+        return redirect()->route('posts.index')->with('success','waw it was deleted successfully');
     }
 }

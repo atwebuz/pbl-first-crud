@@ -1,6 +1,7 @@
 @extends('layouts.layout')
 
 @section('section__content')
+
     <!-- BEGIN: Content-->
     <div class="app-content content">
         <div class="content-overlay"></div>
@@ -36,6 +37,8 @@
             <div class="content-detached content-right">
                 <div class="content-body">
                     <!-- Ecommerce Content Section Starts -->
+       
+
                     <section id="ecommerce-header">
                         <div class="row">
                             <div class="col-sm-12">
@@ -86,7 +89,7 @@
                         </div>
                     </section>
                     <!-- Ecommerce Search Bar Ends -->
-
+               
                     <!-- Ecommerce Products Starts -->
                     <section id="ecommerce-products" class="grid-view">
                         @if(count($posts) > 1)
@@ -95,7 +98,8 @@
                             <div class="card-content">
                                 <div class="item-img text-center">
                                     <a href="{{route('posts.show', $post->id)}}">
-                                        <img class="img-fluid" src="{{asset('assets/images/pages/eCommerce/1.png')}}" alt="img-placeholder"></a>
+                                        <img class="img-fluid" src="{{$post->image ? asset('image/' . $post->image) : asset('assets/images/no-image.png')}}" alt="image not-found" />
+                                      
                                 </div>
                                 <div class="card-body">
                                     <div class="item-wrapper">
@@ -158,17 +162,11 @@
                     <section id="ecommerce-pagination">
                         <div class="row">
                             <div class="col-sm-12">
+
                                 <nav aria-label="Page navigation example">
                                     <ul class="pagination justify-content-center mt-2">
-                                        <li class="page-item prev-item"><a class="page-link" href="#"></a></li>
-                                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                        <li class="page-item" aria-current="page"><a class="page-link" href="#">4</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">5</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">6</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">7</a></li>
-                                        <li class="page-item next-item"><a class="page-link" href="#"></a></li>
+                                        {{$posts->links()}}
+                                       
                                     </ul>
                                 </nav>
                             </div>
@@ -178,10 +176,11 @@
 
                 </div>
             </div>
-           
             @include('../inc/__sidebar')
-
+            
         </div>
     </div>
+    @include('../inc/__messages')
+    
     <!-- END: Content-->
 @endsection

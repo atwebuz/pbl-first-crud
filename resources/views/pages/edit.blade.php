@@ -42,11 +42,12 @@
                         <div class="col-md-6 col-12">
                             <div class="card" style="">
                                 <div class="card-header">
-                                    <h4 class="card-title">Create Form</h4>
+                                    <h4 class="card-title">Edit Form</h4>
                                 </div>
                                 <div class="card-content">
                                     <div class="card-body">
-                                        <form class="form form-horizontal" action="{{route('posts.store')}}" method="POST" enctype="multipart/form-data">
+                                        <form class="form form-horizontal" action="{{route('posts.update',$post->id)}}" method="POST" enctype="multipart/form-data">
+                                            @method('put')
                                             @csrf
                                             <div class="form-body">
                                                 
@@ -57,7 +58,7 @@
                                                                 <span>Title</span>
                                                             </div>
                                                             <div class="col-md-8">
-                                                                <input type="text" id="contact-info" class="form-control py-2" value="{{old('title')}}" name="title" placeholder="Title">
+                                                                <input type="text" id="contact-info" class="form-control py-2" value="{{$post->title}}" name="title">
                                                             </div>
                                                         </div>
                                                     </div>
@@ -67,7 +68,7 @@
                                                                 <span>Paragraph</span>
                                                             </div>
                                                             <div class="col-md-8">
-                                                                <input type="text" id="contact-info" class="form-control py-2" value="{{old('paragraph')}}" name="paragraph" placeholder="paragraph">
+                                                                <input type="text" id="contact-info" class="form-control py-2" value="{{$post->paragraph}}" name="paragraph">
                                                             </div>
                                                         </div>
                                                     </div>
@@ -77,7 +78,7 @@
                                                                 <span>Color</span>
                                                             </div>
                                                             <div class="col-md-8">
-                                                                <input type="text" id="contact-info" class="form-control py-2" value="{{old('color')}}" name="color" placeholder="Color">
+                                                                <input type="text" id="contact-info" class="form-control py-2" value="{{$post->color}}" name="color">
                                                             </div>
                                                         </div>
                                                     </div>
@@ -87,7 +88,7 @@
                                                                 <span>Price</span>
                                                             </div>
                                                             <div class="col-md-8">
-                                                                <input type="text" id="contact-info" class="form-control py-2" value="{{old('price')}}" name="price" placeholder="price">
+                                                                <input type="text" id="contact-info" class="form-control py-2" value="{{$post->price}}" name="price">
                                                             </div>
                                                         </div>
                                                     </div>

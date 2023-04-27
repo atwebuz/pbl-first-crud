@@ -43,7 +43,7 @@
                             <div class="row mb-5 mt-2">
                                 <div class="col-12 col-md-5 d-flex align-items-center justify-content-center mb-2 mb-md-0">
                                     <div class="d-flex align-items-center justify-content-center">
-                                        <img src="{{asset('assets/images/pages/eCommerce/1.png')}}" class="img-fluid" alt="product image">
+                                        <img src="/image/{{ $post->image }}" class="img-fluid" alt="product image">
                                     </div>
                                 </div>
                                 <div class="col-12 col-md-6">
@@ -71,34 +71,9 @@
                                     <div class="form-group">
                                         <label class="font-weight-bold">Color</label>
                                         {{$post->color}}
-                                        <ul class="list-unstyled mb-0 product-color-options">
-                                            <li class="d-inline-block selected">
-                                                <div class="color-option b-primary">
-                                                    <div class="filloption bg-primary"></div>
-                                                </div>
-                                            </li>
-                                            <li class="d-inline-block">
-                                                <div class="color-option b-success">
-                                                    <div class="filloption bg-success"></div>
-                                                </div>
-                                            </li>
-                                            <li class="d-inline-block">
-                                                <div class="color-option b-danger">
-                                                    <div class="filloption bg-danger"></div>
-                                                </div>
-                                            </li>
-                                            <li class="d-inline-block">
-                                                <div class="color-option b-warning">
-                                                    <div class="filloption bg-warning"></div>
-                                                </div>
-                                            </li>
-                                            <li class="d-inline-block">
-                                                <div class="color-option b-black">
-                                                    <div class="filloption bg-black"></div>
-                                                </div>
-                                            </li>
-                                        </ul>
                                     </div>
+
+                                    <p><b>Created at:</b> {{$post->created_at}}</p>
                                     <hr>
                                     <p>Available - <span class="text-success">In stock</span></p>
 
@@ -107,6 +82,17 @@
                                         <button class="btn btn-outline-danger"><i class="feather icon-heart mr-25"></i>WISHLIST</button>
                                     </div>
                                     <hr>
+                                    
+                                    
+                                    <form class="my-3" action="{{ route('posts.destroy',$post->id) }}" method="POST">
+                                        
+                                        @csrf
+                                        @method('DELETE')
+                                        
+                                        <a class="btn btn-primary" href="{{ route('posts.edit',$post->id) }}">Edit</a>
+                                        <button type="submit" class="btn btn-danger">Delete</button>
+                                    </form>
+
                                     <button type="button" class="btn btn-icon rounded-circle btn-outline-primary mr-1 mb-1"><i class="feather icon-facebook"></i></button>
                                     <button type="button" class="btn btn-icon rounded-circle btn-outline-info mr-1 mb-1"><i class="feather icon-twitter"></i></button>
                                     <button type="button" class="btn btn-icon rounded-circle btn-outline-danger mr-1 mb-1"><i class="feather icon-youtube"></i></button>
