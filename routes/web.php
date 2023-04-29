@@ -23,6 +23,8 @@ use App\Http\Controllers\PostsController;
 
 Route::get('posts/wishlist', [PagesController::class, 'wishlist'])->name('posts.wishlist');
 Route::get('posts/checkout', [PagesController::class, 'checkout'])->name('posts.checkout');
+Route::get('posts/settings', [PagesController::class, 'settings'])->name('posts.settings');
+Route::get('posts/faq', [PagesController::class, 'faq'])->name('posts.faq');
 Route::get('/register', [PagesController::class, 'register'])->name('register');
 Route::get('/login', [PagesController::class, 'login'])->name('login');
 Route::fallback(FallbackController::class);

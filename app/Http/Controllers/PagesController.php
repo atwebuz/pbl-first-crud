@@ -16,6 +16,17 @@ class PagesController extends Controller
         return view('pages.checkout');
     }
 
+    public function settings()
+    {
+        return view('pages.settings');
+    }
+
+    public function faq()
+    {
+        return view('pages.faq');
+    }
+
+
 
     public function register()
     {
