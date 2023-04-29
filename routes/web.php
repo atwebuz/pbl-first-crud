@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\FallbackController;
 use App\Http\Controllers\PagesController;
 use Illuminate\Support\Facades\Route;
@@ -29,7 +30,13 @@ Route::get('/register', [PagesController::class, 'register'])->name('register');
 Route::get('/login', [PagesController::class, 'login'])->name('login');
 Route::fallback(FallbackController::class);
 
-
-
 Route::resource('posts', PostsController::class);
+Route::resource('comments', CommentController::class);
 
+
+
+// Route::resources([
+//     'posts', PostsController::class,
+//     'comments', PostsController::class,
+// ]);
+    

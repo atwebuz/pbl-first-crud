@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Post;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,11 +18,14 @@ class PostFactory extends Factory
     public function definition(): array
     {
         return [
+            'user_id' => 1,
             'title' => fake()->unique()->word(),
-            'paragraph' => fake()->sentence(),
+            'paragraph' => fake()->paragraph(13),
             'price' => fake()->numberBetween( 1000, 10000),
             'rating' =>  fake()->numberBetween( 10, 100),
             'color' =>  fake()->colorName(),
         ];
+
+
     }
 }

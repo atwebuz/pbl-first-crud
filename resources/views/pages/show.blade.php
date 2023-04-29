@@ -102,6 +102,63 @@
                                 </div>
                             </div>
                         </div>
+
+                        <div class="col-md-6 col-12">
+                            <div class="card" style="">
+                                <div class="card-header">
+                                    <h4 class="card-title">Review Message Form</h4>
+                                </div>
+                                <div class="card-content">
+                                    <div class="card-body">
+                                        <form class="form form-horizontal" action="{{route('comments.store')}}" method="POST" >
+                                            @csrf
+                                               
+                                                <div class="row">
+                                                    <div class="col-12">
+                                                        <div class="form-group row">
+                                                          
+                                                            <div class="col-md-8">
+                                                                <input type="text" id="contact-info" class="form-control py-2" value="" name="message" placeholder="message">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <input type="hidden" name="post_id" value="{{$post->id}}">
+                                             
+                                                    
+                                                    <div class="col-md-8 ">
+                                                        <button type="submit" class="btn btn-primary mr-1 mb-1 waves-effect waves-light">Submit</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                     
+                        
+
+                        <div class="row d-flex container">
+
+                            
+                            <div class="col-lg-6 w-100">
+                                <h2>Count of comments <span>{{ $post->comments()->count()}}</span></h2>
+                                @foreach ($post->comments as $comment)
+                                    <span class="d-flex">
+                                         <img class="round" src="{{asset('assets/images/portrait/small/avatar-s-11.jpg')}}" alt="avatar" height="40" width="40">
+                                         <div class="user-nav p-1"><span class="user-name text-bold-600 pr-1">{{$comment->user->name}}</span>{{$comment->created_at}}</div>
+                                 </span> 
+                                 <span class="d-flex">
+                                     <p>{{ $comment->message}}</p>
+                                 </span> 
+                                @endforeach
+                                 
+                             </div> 
+                     </div>
+                    </div>
+
+                    </div>
+                     
                     
                     </div>
                 </section>
