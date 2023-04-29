@@ -13,31 +13,12 @@
                         <!-- li.nav-item.mobile-menu.d-xl-none.mr-auto-->
                         <!--   a.nav-link.nav-menu-main.menu-toggle.hidden-xs(href='#')-->
                         <!--     i.ficon.feather.icon-menu-->
-                        <li class="nav-item d-none d-lg-block"><a class="nav-link" href="app-todo.html"
-                                data-toggle="tooltip" data-placement="top" title="Todo"><i
-                                    class="ficon feather icon-check-square"></i></a></li>
-                        <li class="nav-item d-none d-lg-block"><a class="nav-link" href="app-chat.html"
-                                data-toggle="tooltip" data-placement="top" title="Chat"><i
-                                    class="ficon feather icon-message-square"></i></a></li>
-                        <li class="nav-item d-none d-lg-block"><a class="nav-link" href="app-email.html"
-                                data-toggle="tooltip" data-placement="top" title="Email"><i
-                                    class="ficon feather icon-mail"></i></a></li>
+                      
                         <li class="nav-item d-none d-lg-block"><a class="nav-link" href="app-calender.html"
                                 data-toggle="tooltip" data-placement="top" title="Calendar"><i
                                     class="ficon feather icon-calendar"></i></a></li>
                     </ul>
-                    <ul class="nav navbar-nav">
-                        <li class="nav-item d-none d-lg-block"><a class="nav-link bookmark-star"><i
-                                    class="ficon feather icon-star warning"></i></a>
-                            <div class="bookmark-input search-input">
-                                <div class="bookmark-input-icon"><i class="feather icon-search primary"></i></div>
-                                <input class="form-control input" type="text" placeholder="Explore Vuexy..."
-                                    tabindex="0" data-search="template-list">
-                                <ul class="search-list search-list-bookmark"></ul>
-                            </div>
-
-                        </li>
-                    </ul>
+               
                 </div>
                 <ul class="nav navbar-nav float-right">
                     <li class="dropdown dropdown-language nav-item"><a class="dropdown-toggle nav-link"
@@ -402,7 +383,7 @@
     <div class="navbar-header">
         <ul class="nav navbar-nav flex-row">
             <li class="nav-item mr-auto"><a class="navbar-brand"
-                    href="../../../html/ltr/vertical-menu-template/index.html">
+                    href="{{route('posts.index')}}">
                     <div class="brand-logo"></div>
                     <h2 class="brand-text mb-0">Vuexy</h2>
                 </a></li>
@@ -473,15 +454,8 @@
             <li class="{{ (request()->is('posts/faq')) ? 'nav-item active' : '' }}"><a href="{{route('posts.faq')}}"><i class="feather icon-help-circle"></i><span
                         class="menu-title" data-i18n="FAQ">FAQ</span></a>
             </li>
-            <li class=" nav-item"><a href="page-knowledge-base.html"><i class="feather icon-info"></i><span
-                        class="menu-title" data-i18n="Knowledge Base">Knowledge Base</span></a>
-            </li>
-            <li class=" nav-item"><a href="page-search.html"><i class="feather icon-search"></i><span class="menu-title"
-                        data-i18n="Search">Search</span></a>
-            </li>
-            <li class=" nav-item"><a href="page-invoice.html"><i class="feather icon-file"></i><span class="menu-title"
-                        data-i18n="Invoice">Invoice</span></a>
-            </li>
+    
+         
 
             <li class=" nav-item"><a href="#"><i class="feather icon-unlock"></i><span class="menu-title"
                         data-i18n="Authentication">Authentication</span></a>

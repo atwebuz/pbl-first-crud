@@ -43,12 +43,12 @@
                             <div class="row mb-5 mt-2">
                                 <div class="col-12 col-md-5 d-flex align-items-center justify-content-center mb-2 mb-md-0">
                                     <div class="d-flex align-items-center justify-content-center">
-                                        <img src="/image/{{ $post->image }}" class="img-fluid" alt="product image">
+                                        <img class="img-fluid" src="{{$post->image ? asset('image/' . $post->image) : asset('assets/images/no-image.png')}}" alt="image not-found" />
                                     </div>
                                 </div>
                                 <div class="col-12 col-md-6">
                                     <h5>{{$post->title}}</h5>
-                                    <p class="text-muted">by Apple</p>
+                                    <p class="text-muted">by Apple</p> 
                                     <div class="ecommerce-details-price d-flex flex-wrap">
 
                                         <p class="text-primary font-medium-3 mr-1 mb-0">${{$post->price}}</p>
@@ -91,6 +91,8 @@
                                         
                                         <a class="btn btn-primary" href="{{ route('posts.edit',$post->id) }}">Edit</a>
                                         <button type="submit" class="btn btn-danger">Delete</button>
+                                        {{-- <button type="submit" class="btn btn-outline-primary mb-2 waves-effect waves-light">Delete</button> --}}
+                                        
                                     </form>
 
                                     <button type="button" class="btn btn-icon rounded-circle btn-outline-primary mr-1 mb-1"><i class="feather icon-facebook"></i></button>

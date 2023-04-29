@@ -34,30 +34,7 @@
                 </div>
             </div>
             <div class="content-body">
-                <section id="faq-search">
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="card faq-bg white">
-                                <div class="card-content">
-                                    <div class="card-body p-sm-4 p-2">
-                                        <h1 class="white">Have Any Questions?</h1>
-                                        <p class="card-text mb-2">
-                                            Bonbon sesame snaps lemon drops marshmallow ice cream carrot cake croissant wafer.
-                                        </p>
-                                        <form>
-                                            <fieldset class="form-group position-relative has-icon-left mb-0">
-                                                <input type="text" class="form-control form-control-lg" id="searchbar" placeholder="Search">
-                                                <div class="form-control-position">
-                                                    <i class="feather icon-search px-1"></i>
-                                                </div>
-                                            </fieldset>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
+              
                 <section class="faq">
                     <div class="row">
                         <div class="col-xl-3 col-md-5 col-12">

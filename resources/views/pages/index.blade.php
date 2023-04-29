@@ -99,7 +99,7 @@
                                 <div class="item-img text-center">
                                     <a href="{{route('posts.show', $post->id)}}">
                                         <img class="img-fluid" src="{{$post->image ? asset('image/' . $post->image) : asset('assets/images/no-image.png')}}" alt="image not-found" />
-                                      
+                                    </a>
                                 </div>
                                 <div class="card-body">
                                     <div class="item-wrapper">
@@ -115,8 +115,7 @@
                                         </div>
                                     </div>
                                     <div class="item-name">
-                                        <a href="{{route('posts.show', $post->id)}}">{{$post->title}}
-                                        </a>
+                                        <a href="{{route('posts.show', $post->id)}}">{{$post->title}}</a>
                                         <p class="item-company">By <span class="company-name">Google</span></p>
                                     </div>
                                     <div>
@@ -146,6 +145,7 @@
                                     </div>
                                 </div>
                             </div>
+                            
                         </div>
                         @endforeach
 

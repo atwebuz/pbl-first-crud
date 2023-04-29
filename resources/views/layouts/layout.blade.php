@@ -37,6 +37,8 @@
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/pages/authentication.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/pages/error.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/pages/faq.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('assets/css/pages/search.css')}}">
+
 
     <link rel="stylesheet" type="text/css" href="{{asset('ssets/css/plugins/forms/validation/form-validation.css')}}">
 
@@ -45,7 +47,7 @@
     <!-- END: Page CSS-->
 
     <!-- BEGIN: Custom CSS-->
-    <link rel="stylesheet" type="text/css" href="{{asset('assets/../../assets/css/style.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('assets/css/style.css')}}">
     <!-- END: Custom CSS-->
 
 </head>
