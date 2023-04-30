@@ -262,16 +262,29 @@
                     </li>
                     <li class="dropdown dropdown-user nav-item"><a class="dropdown-toggle nav-link dropdown-user-link"
                             href="#" data-toggle="dropdown">
-                            <div class="user-nav d-sm-flex d-none"><span class="user-name text-bold-600">John
-                                    Doe</span><span class="user-status">Available</span></div><span><img class="round"
+                            @auth
+                                <div class="user-nav d-sm-flex d-none"><span class="user-name text-bold-600">{{auth()->user()->name}}</span><span class="user-status">Available</span></div><span><img class="round"
                                     src="{{asset('assets/images/portrait/small/avatar-s-11.jpg')}}" alt="avatar"
                                     height="40" width="40"></span>
+
+                            @endauth
+                            
+                            {{-- <div class="user-nav d-sm-flex d-none"><span class="user-name text-bold-600">Guest</span><span class="user-status">Available</span></div><span><img class="round"
+                                    src="{{asset('assets/images/portrait/small/avatar-s-11.jpg')}}" alt="avatar"
+                                    height="40" width="40"></span> --}}
                         </a>
                         <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item"
                                 href="{{route('posts.settings')}}"><i class="feather icon-user"></i> Edit Profile</a><a class="dropdown-item"
                                 href="app-chat.html"><i class="feather icon-message-square"></i> Chats</a>
-                            <div class="dropdown-divider"></div><a class="dropdown-item" href="auth-login.html"><i
-                                    class="feather icon-power"></i> Logout</a>
+
+                            <div class="dropdown-divider"></div>
+                            <form action="{{route('logout')}}" method="POST">
+                                @csrf
+                                <button type="submit" class="dropdown-item" href="">
+                                    <i class="feather icon-power"></i> Logout
+                                </button>
+                            </form>
+
                         </div>
                     </li>
                 </ul>
@@ -406,10 +419,19 @@
                                 class="feather icon-circle"></i><span class="menu-item" data-i18n="Shop">Shop</span></a>
                     </li>
 
-                    <li class="{{ (request()->is('posts/create')) ? 'active' : '' }}"><a
-                            href="{{route('posts.create')}}"><i class="feather icon-circle"></i><span class="menu-item"
-                                data-i18n="Wish List">Create</span></a>
-                    </li>
+                    @auth
+                        <li class="{{ (request()->is('posts/create')) ? 'active' : '' }}"><a
+                                href="{{route('posts.create')}}"><i class="feather icon-circle"></i><span class="menu-item"
+                                    data-i18n="Wish List">Create</span></a>
+                        </li>
+
+                    @else
+                            <li class="{{ (request()->is('login')) ? 'active' : '' }}"><a href="{{route('login')}}"><i
+                                class="feather icon-circle"></i><span class="menu-item"
+                                data-i18n="Login">Login</span></a>
+                            </li>                        
+                    @endauth
+
 
 
                     <li class="{{ (request()->is('posts/wishlist')) ? 'active' : '' }}"><a

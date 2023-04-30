@@ -13,6 +13,9 @@ class PostsController extends Controller
      * Display a listing of the resource.
      */
 
+     public function __construct(){
+        $this->middleware('auth')->except(['index', 'show']);
+     }
     
     public function index()
     {
@@ -57,7 +60,7 @@ class PostsController extends Controller
      
 
         $post = Post::create([
-            'user_id' => 1,
+            'user_id' => auth()->id(),
             'category_id' => $request->category_id,
             'title' => $request->title,
             'paragraph' => $request->paragraph,

@@ -49,7 +49,9 @@
                                 </div>
                                 <div class="col-12 col-md-6">
                                     <h5>{{$post->title}}</h5>
-                                    <p class="text-muted">by Apple</p> 
+                                    <p class="text-muted">by {{$post->user->name}}</p> 
+
+                                    {{-- @dd($post->user) --}}
                                     <div class="ecommerce-details-price d-flex flex-wrap">
 
                                         <p class="text-primary font-medium-3 mr-1 mb-0">${{$post->price}}</p>
@@ -94,18 +96,18 @@
                                     </div>
                                     <hr>
                                     
-                                    
-                                    <form class="my-3" action="{{ route('posts.destroy',$post->id) }}" method="POST">
-                                        
-                                        @csrf
-                                        @method('DELETE')
-                                        
-                                        <a class="btn btn-primary" href="{{ route('posts.edit',$post->id) }}">Edit</a>
-                                        <button type="submit" class="btn btn-danger">Delete</button>
-                                        {{-- <button type="submit" class="btn btn-outline-primary mb-2 waves-effect waves-light">Delete</button> --}}
-                                        
-                                    </form>
-
+                                    @auth
+                                        <form class="my-3" action="{{ route('posts.destroy',$post->id) }}" method="POST">
+                                            
+                                            @csrf
+                                            @method('DELETE')
+                                            
+                                            <a class="btn btn-primary" href="{{ route('posts.edit',$post->id) }}">Edit</a>
+                                            <button type="submit" class="btn btn-danger">Delete</button>
+                                            {{-- <button type="submit" class="btn btn-outline-primary mb-2 waves-effect waves-light">Delete</button> --}}
+                                            
+                                        </form>
+                                    @endauth
                                     <button type="button" class="btn btn-icon rounded-circle btn-outline-primary mr-1 mb-1"><i class="feather icon-facebook"></i></button>
                                     <button type="button" class="btn btn-icon rounded-circle btn-outline-info mr-1 mb-1"><i class="feather icon-twitter"></i></button>
                                     <button type="button" class="btn btn-icon rounded-circle btn-outline-danger mr-1 mb-1"><i class="feather icon-youtube"></i></button>
@@ -121,29 +123,36 @@
                                 </div>
                                 <div class="card-content">
                                     <div class="card-body">
-                                        <form class="form form-horizontal" action="{{route('comments.store')}}" method="POST" >
-                                            @csrf
-                                               
-                                                <div class="row">
-                                                    <div class="col-12">
-                                                        <div class="form-group row">
-                                                          
-                                                            <div class="col-md-8">
-                                                                {{-- <input type="text" id="contact-info" class="form-control py-2" value="" name="message" placeholder="message"> --}}
-                                                                <textarea name="message" id=" " class="form-control" cols="30" rows="3"></textarea>
+                                        @auth    
+                                            <form class="form form-horizontal" action="{{route('comments.store')}}" method="POST" >
+                                                @csrf
+                                                
+                                                    <div class="row">
+                                                        <div class="col-12">
+                                                            <div class="form-group row">
+                                                            
+                                                                <div class="col-md-8">
+                                                                    {{-- <input type="text" id="contact-info" class="form-control py-2" value="" name="message" placeholder="message"> --}}
+                                                                    <textarea name="message" id=" " class="form-control" cols="30" rows="3"></textarea>
+                                                                </div>
                                                             </div>
                                                         </div>
-                                                    </div>
 
-                                                    <input type="hidden" name="post_id" value="{{$post->id}}">
-                                             
-                                                    
-                                                    <div class="col-md-8 ">
-                                                        <button type="submit" class="btn btn-primary mr-1 mb-1 waves-effect waves-light">Submit</button>
+                                                        <input type="hidden" name="post_id" value="{{$post->id}}">
+                                                
+                                                        
+                                                        <div class="col-md-8 ">
+                                                            <button type="submit" class="btn btn-primary mr-1 mb-1 waves-effect waves-light">Submit</button>
+                                                        </div>
                                                     </div>
                                                 </div>
+                                            </form>
+                                            @else
+                                            <div class="d-flex align-items-center justify-content-between col-6">
+                                                <p>For sending messages pleace   </p>
+                                                <a href="/login" type="submit" class="btn btn-primary mr-1 mb-1 waves-effect waves-light">Log in</a>                                              
                                             </div>
-                                        </form>
+                                        @endauth
                                     </div>
                                 </div>
                             </div>

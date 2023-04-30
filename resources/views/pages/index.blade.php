@@ -125,8 +125,8 @@
                                         <p class="item-description">
                                           {{$post->paragraph}}
                                         </p>
-                                        <p><b>Created at:</b> {{$post->created_at}}</p>
                                         <p><b>Category: </b> {{$post->category->name}}</p>
+                                        <p><b>Created at:</b> {{$post->created_at}}</p>
                                     </div>
                                 </div>
                                 <div class="item-options text-center">

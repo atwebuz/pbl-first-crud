@@ -12,7 +12,7 @@ class CommentController extends Controller
         $comment = Comment::create([
             'message' => $request->message,
             'post_id' => $request->post_id,
-            'user_id' => 1
+            'user_id' => auth()->id(),
         ]);
 
         // dd($comment);

@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 
 class PagesController extends Controller
 {
+    public function __construct(){
+        $this->middleware('auth')->except(['index', 'show']);
+     }
     public function wishlist()
     {
         return view('pages.wishlist');
@@ -28,13 +31,5 @@ class PagesController extends Controller
 
 
 
-    public function register()
-    {
-        return view('auth.register');
-    }
 
-    public function login()
-    {
-        return view('auth.login');
-    }
 }
