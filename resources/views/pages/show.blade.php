@@ -74,6 +74,7 @@
                                     </div>
 
                                     <p><b>Created at:</b> {{$post->created_at}}</p>
+                                    <p><b>Category: </b> {{$post->category->name}}</p>
                                     <hr>
                                     <p>Available - <span class="text-success">In stock</span></p>
 
@@ -118,7 +119,8 @@
                                                         <div class="form-group row">
                                                           
                                                             <div class="col-md-8">
-                                                                <input type="text" id="contact-info" class="form-control py-2" value="" name="message" placeholder="message">
+                                                                {{-- <input type="text" id="contact-info" class="form-control py-2" value="" name="message" placeholder="message"> --}}
+                                                                <textarea name="message" id=" " class="form-control" cols="30" rows="3"></textarea>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -136,12 +138,8 @@
                                 </div>
                             </div>
                      
-                        
-
-                        <div class="row d-flex container">
-
-                            
-                            <div class="col-lg-6 w-100">
+                        <div class="row d-flex container">                       
+                            <div class="col-lg-6 w-100 px-3">
                                 <h2>Count of comments <span>{{ $post->comments()->count()}}</span></h2>
                                 @foreach ($post->comments as $comment)
                                     <span class="d-flex">

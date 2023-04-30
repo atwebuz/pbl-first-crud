@@ -19,6 +19,7 @@ class PostFactory extends Factory
     {
         return [
             'user_id' => 1,
+            'category_id' => rand(1,3),
             'title' => fake()->unique()->word(),
             'paragraph' => fake()->paragraph(13),
             'price' => fake()->numberBetween( 1000, 10000),

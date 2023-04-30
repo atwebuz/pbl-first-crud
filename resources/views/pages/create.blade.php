@@ -61,6 +61,24 @@
                                                             </div>
                                                         </div>
                                                     </div>
+
+                                                    <div class="col-12">
+                                                        <div class="form-group row">
+                                                            <div class="col-md-4">
+                                                                <span>Category</span>
+                                                            </div>
+                                                            <div class="col-md-8">
+                                                                <select class="custom-select form-control" id="location" name="category_id" aria-invalid="false">
+                                                                    @foreach($categories as $category)
+                                                                        <option value="{{$category->id}}">{{$category->name}}</option>
+                                                                    @endforeach
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                            
+
                                                     <div class="col-12">
                                                         <div class="form-group row">
                                                             <div class="col-md-4">

@@ -15,6 +15,7 @@ class PostSeeder extends Seeder
     {
         Post::create([
             'user_id' => 1,
+            'category_id' => 1,
             'title' => 'Mercedes Benz',
             'paragraph' => 'xolati alo',
             'image' => null,
@@ -24,6 +25,7 @@ class PostSeeder extends Seeder
         ]);
         Post::create([
             'user_id' => 1,
+            'category_id' => 2,
             'title' => 'Bmw',
             'paragraph' => 'Xolati alo',
             'image' => null,

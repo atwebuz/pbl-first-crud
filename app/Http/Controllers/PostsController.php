@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Post;
 use Illuminate\Http\Request;
 
@@ -25,7 +26,9 @@ class PostsController extends Controller
      */
     public function create()
     {
-        return view('pages.create'); 
+        return view('pages.create')->with([
+            'categories' => Category::all(),
+        ]); 
     }
 
     /**
@@ -33,27 +36,46 @@ class PostsController extends Controller
      */
     public function store(Request $request)
     {
-     
 
-        $this->validate($request, [
-            'title' => 'required',
-            'paragraph' => 'required',
-            'color' => 'required',
-            'price' => 'required',
-            // 'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
 
+        $post = Post::create([
+            'user_id' => 1,
+            'category_id' => $request->category_id,
+            'title' => $request->title,
+            'paragraph' => $request->paragraph,
+            'color' => $request->color,
+            'price' => $request->price,
+            // 'image' => $post->image
         ]);
 
-        $post = $request->all();
-  
+                // $post = $request->all();
+
+
+
         if ($image = $request->file('image')) {
             $destinationPath = 'image/';
             $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
             $image->move($destinationPath, $profileImage);
             $post['image'] = "$profileImage";
         }
+     
 
-        Post::create($post);
+        return redirect()->route('posts.index')->with('success', 'waw it was created successfully');
+
+
+        // $post = $request->all();
+  
+        // Post::create($post);
+
+           // $this->validate($request, [
+        
+        //     'title' => 'required',
+        //     'paragraph' => 'required',
+        //     'color' => 'required',
+        //     'price' => 'required',
+        //     // 'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+
+        // ]);
 
 
         // dd('qwd'); 
@@ -64,7 +86,6 @@ class PostsController extends Controller
         // $post->price = $request->input('price');
         // $post->save();
 
-        return redirect()->route('posts.index')->with('success', 'waw it was created successfully');
 
     
     }
