@@ -44,6 +44,7 @@
                                 <div class="col-12 col-md-5 d-flex align-items-center justify-content-center mb-2 mb-md-0">
                                     <div class="d-flex align-items-center justify-content-center">
                                         <img class="img-fluid" src="{{$post->image ? asset('image/' . $post->image) : asset('assets/images/no-image.png')}}" alt="image not-found" />
+                                        {{-- <img class="img-fluid" src="{{$post->image ? asset('image/' . $post->image) : asset('assets/images/no-image.png')}}" alt="image not-found" /> --}}
                                     </div>
                                 </div>
                                 <div class="col-12 col-md-6">
@@ -73,8 +74,17 @@
                                         {{$post->color}}
                                     </div>
 
+                                    <b>Tags: </b> <ul class="d-flex m-0 p-0">
+                                       
+                                        @foreach ($post->tags as $tag)
+                                            <li class="my-1" style="list-style-type: none;"><a class="btn btn-primary mr-1" href="#">{{$tag->name}}</a></li>
+                                        @endforeach
+                                      </ul>
+
+                                   
+
                                     <p><b>Created at:</b> {{$post->created_at}}</p>
-                                    <p><b>Category: </b> {{$post->category->name}}</p>
+                                    <p><b>Category Type: </b> {{$post->category->name}}</p>
                                     <hr>
                                     <p>Available - <span class="text-success">In stock</span></p>
 

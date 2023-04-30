@@ -95,106 +95,16 @@
                         </div>
                         <ul class="list-unstyled categories-list">
                             <li>
-                                <span class="vs-radio-con vs-radio-primary py-25">
-                                    <input type="radio" name="category-filter" value="false" checked>
-                                    <span class="vs-radio">
-                                        <span class="vs-radio--border"></span>
-                                        <span class="vs-radio--circle"></span>
+                                @foreach($categories as $category)  
+                                    <span class="vs-radio-con vs-radio-primary py-25">
+                                        <input type="radio" name="category-filter" value="false" checked>
+                                        <span class="vs-radio">
+                                            <span class="vs-radio--border"></span>
+                                            <span class="vs-radio--circle"></span>
+                                        </span>
+                                        <span class="ml-50">{{$category->name}}</span>
                                     </span>
-                                    <span class="ml-50">Appliances</span>
-                                </span>
-                            </li>
-                            <li>
-                                <span class="vs-radio-con vs-radio-primary py-25">
-                                    <input type="radio" name="category-filter" value="false">
-                                    <span class="vs-radio">
-                                        <span class="vs-radio--border"></span>
-                                        <span class="vs-radio--circle"></span>
-                                    </span>
-                                    <span class="ml-50"> Audio</span>
-                                </span>
-                            </li>
-                            <li>
-                                <span class="vs-radio-con vs-radio-primary py-25">
-                                    <input type="radio" name="category-filter" value="false">
-                                    <span class="vs-radio">
-                                        <span class="vs-radio--border"></span>
-                                        <span class="vs-radio--circle"></span>
-                                    </span>
-                                    <span class="ml-50">Cameras & Camcorders</span>
-                                </span>
-                            </li>
-                            <li>
-                                <span class="vs-radio-con vs-radio-primary py-25">
-                                    <input type="radio" name="category-filter" value="false">
-                                    <span class="vs-radio">
-                                        <span class="vs-radio--border"></span>
-                                        <span class="vs-radio--circle"></span>
-                                    </span>
-                                    <span class="ml-50">Car Electronics & GPS</span>
-                                </span>
-                            </li>
-                            <li>
-                                <span class="vs-radio-con vs-radio-primary py-25">
-                                    <input type="radio" name="category-filter" value="false">
-                                    <span class="vs-radio">
-                                        <span class="vs-radio--border"></span>
-                                        <span class="vs-radio--circle"></span>
-                                    </span>
-                                    <span class="ml-50">Cell Phones</span>
-                                </span>
-                            </li>
-                            <li>
-                                <span class="vs-radio-con vs-radio-primary py-25">
-                                    <input type="radio" name="category-filter" value="false">
-                                    <span class="vs-radio">
-                                        <span class="vs-radio--border"></span>
-                                        <span class="vs-radio--circle"></span>
-                                    </span>
-                                    <span class="ml-50">Computers & Tablets</span>
-                                </span>
-                            </li>
-                            <li>
-                                <span class="vs-radio-con vs-radio-primary py-25">
-                                    <input type="radio" name="category-filter" value="false">
-                                    <span class="vs-radio">
-                                        <span class="vs-radio--border"></span>
-                                        <span class="vs-radio--circle"></span>
-                                    </span>
-                                    <span class="ml-50"> Health, Fitness & Beauty</span>
-                                </span>
-                            </li>
-                            <li>
-                                <span class="vs-radio-con vs-radio-primary py-25">
-                                    <input type="radio" name="category-filter" value="false">
-                                    <span class="vs-radio">
-                                        <span class="vs-radio--border"></span>
-                                        <span class="vs-radio--circle"></span>
-                                    </span>
-                                    <span class="ml-50">Office & School Supplies</span>
-                                </span>
-                            </li>
-                            <li>
-                                <span class="vs-radio-con vs-radio-primary py-25">
-                                    <input type="radio" name="category-filter" value="false">
-                                    <span class="vs-radio">
-                                        <span class="vs-radio--border"></span>
-                                        <span class="vs-radio--circle"></span>
-                                    </span>
-                                    <span class="ml-50">TV & Home Theater</span>
-                                </span>
-                            </li>
-                            <li>
-                                <span class="vs-radio-con vs-radio-primary py-25">
-                                    <input type="radio" name="category-filter" value="false">
-                                    <span class="vs-radio">
-                                        <span class="vs-radio--border"></span>
-                                        <span class="vs-radio--circle"></span>
-                                    </span>
-                                    <span class="ml-50">Video Games
-                                    </span>
-                                </span>
-                            </li>
+                                @endforeach
 
                         </ul>
                     </div>

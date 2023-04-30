@@ -98,6 +98,9 @@
                             <div class="card-content">
                                 <div class="item-img text-center">
                                     <a href="{{route('posts.show', $post->id)}}">
+                                        @php
+                                            // dd($post->image)
+                                        @endphp
                                         <img class="img-fluid" src="{{$post->image ? asset('image/' . $post->image) : asset('assets/images/no-image.png')}}" alt="image not-found" />
                                     </a>
                                 </div>
@@ -122,6 +125,8 @@
                                         <p class="item-description">
                                           {{$post->paragraph}}
                                         </p>
+                                        <p><b>Created at:</b> {{$post->created_at}}</p>
+                                        <p><b>Category: </b> {{$post->category->name}}</p>
                                     </div>
                                 </div>
                                 <div class="item-options text-center">

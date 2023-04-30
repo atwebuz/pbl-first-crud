@@ -77,6 +77,21 @@
                                                         </div>
                                                     </div>
 
+                                                    <div class="col-12">
+                                                        <div class="form-group row">
+                                                            <div class="col-md-4">
+                                                                <span>Tags</span>
+                                                            </div>
+                                                            <div class="col-md-8">
+                                                                <select class="select form-control" id="location" name="tags[]" aria-invalid="false" multiple>
+                                                                    <option value="">choose your tag</option>
+                                                                    @foreach($tags as $tag)
+                                                                        <option value="{{$tag->id}}">{{$tag->name}}</option>
+                                                                    @endforeach
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                             
 
                                                     <div class="col-12">

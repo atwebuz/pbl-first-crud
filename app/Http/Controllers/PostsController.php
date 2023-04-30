@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Post;
+use App\Models\Tag;
 use Illuminate\Http\Request;
 
 class PostsController extends Controller
@@ -17,7 +18,10 @@ class PostsController extends Controller
     {
         
         return view('pages.index',[
-            'posts' => Post::orderBy('created_at', 'DESC')->paginate(9)
+            'posts' => Post::orderBy('created_at', 'DESC')->paginate(9),
+            'categories' => Category::all(),
+            'tags' => Tag::all(),
+
         ]);
     }
 
@@ -28,6 +32,7 @@ class PostsController extends Controller
     {
         return view('pages.create')->with([
             'categories' => Category::all(),
+            'tags' => Tag::all(),
         ]); 
     }
 
@@ -37,6 +42,19 @@ class PostsController extends Controller
     public function store(Request $request)
     {
 
+        // dd($request);
+
+        $this->validate($request, [
+        
+            'title' => 'required',
+            'paragraph' => 'required',
+            'color' => 'required',
+            'price' => 'required',
+            // 'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+
+        ]);
+
+     
 
         $post = Post::create([
             'user_id' => 1,
@@ -45,13 +63,20 @@ class PostsController extends Controller
             'paragraph' => $request->paragraph,
             'color' => $request->color,
             'price' => $request->price,
+            
             // 'image' => $post->image
         ]);
+
+        if(isset($request->tags)){
+            foreach($request->tags as $tag){
+                $post->tags()->attach($tag);
+            }
+        }
 
                 // $post = $request->all();
 
 
-
+ 
         if ($image = $request->file('image')) {
             $destinationPath = 'image/';
             $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
@@ -96,7 +121,9 @@ class PostsController extends Controller
     public function show(string $id)
     {
         return view('pages.show',[
-            'post' => Post::findOrFail($id)
+            'post' => Post::findOrFail($id),
+            'tags' => Tag::all(),
+            'categories' => Category::all()
         ]);
     }
 
