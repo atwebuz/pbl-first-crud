@@ -141,12 +141,13 @@ class PostsController extends Controller
         //     abort(403);
         // }
 
-        $this->authorize('edit', $id);
+        // $this->authorize('edit', $id);
 
         return view('pages.edit', [
             'post' => Post::findOrFail($id)
         ]); 
 
+        
 
     }
 
