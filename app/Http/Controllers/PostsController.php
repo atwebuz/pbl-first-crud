@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\PostCreated;
 use App\Models\Category;
 use App\Models\Post;
 use App\Models\Tag;
@@ -88,6 +89,8 @@ class PostsController extends Controller
             $image->move($destinationPath, $profileImage);
             $post['image'] = "$profileImage";
         }
+
+        PostCreated::dispatch($post);
      
 
         return redirect()->route('posts.index')->with('success', 'waw it was created successfully');
