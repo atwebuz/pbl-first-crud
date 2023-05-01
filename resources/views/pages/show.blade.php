@@ -97,16 +97,18 @@
                                     <hr>
                                     
                                     @auth
-                                        <form class="my-3" action="{{ route('posts.destroy',$post->id) }}" method="POST">
-                                            
-                                            @csrf
-                                            @method('DELETE')
-                                            
-                                            <a class="btn btn-primary" href="{{ route('posts.edit',$post->id) }}">Edit</a>
-                                            <button type="submit" class="btn btn-danger">Delete</button>
-                                            {{-- <button type="submit" class="btn btn-outline-primary mb-2 waves-effect waves-light">Delete</button> --}}
-                                            
-                                        </form>
+                                        @canany(['update', 'delete'], $post)
+                                            <form class="my-3" action="{{ route('posts.destroy',$post->id) }}" method="POST">
+                                                
+                                                @csrf
+                                                @method('DELETE')
+                                                
+                                                <a class="btn btn-primary" href="{{ route('posts.edit',$post->id) }}">Edit</a>
+                                                <button type="submit" class="btn btn-danger">Delete</button>
+                                                {{-- <button type="submit" class="btn btn-outline-primary mb-2 waves-effect waves-light">Delete</button> --}}
+                                                
+                                            </form>
+                                        @endcanany
                                     @endauth
                                     <button type="button" class="btn btn-icon rounded-circle btn-outline-primary mr-1 mb-1"><i class="feather icon-facebook"></i></button>
                                     <button type="button" class="btn btn-icon rounded-circle btn-outline-info mr-1 mb-1"><i class="feather icon-twitter"></i></button>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\Post;
 use App\Models\Tag;
+use Gate;
 use Illuminate\Http\Request;
 
 class PostsController extends Controller
@@ -15,6 +16,7 @@ class PostsController extends Controller
 
      public function __construct(){
         $this->middleware('auth')->except(['index', 'show']);
+        // $this->authorizeResource(Post::class, 'post');
      }
     
     public function index()
@@ -135,6 +137,12 @@ class PostsController extends Controller
      */
     public function edit(string $id)
     {
+        // if (! Gate::allows('edit-post', $id)) {
+        //     abort(403);
+        // }
+
+        $this->authorize('edit', $id);
+
         return view('pages.edit', [
             'post' => Post::findOrFail($id)
         ]); 
@@ -147,6 +155,12 @@ class PostsController extends Controller
      */
     public function update(Request $request, Post $post)
     {
+
+
+        // Gate::authorize('update', $post);
+        $this->authorize('update', $post);
+
+
         $this->validate($request, [
             'title' => 'required',
             'paragraph' => 'required',
@@ -172,6 +186,8 @@ class PostsController extends Controller
      */
     public function destroy(Post $post)
     {
+        // Gate::authorize('delete', $post);
+
         $post->delete();
          
         return redirect()->route('posts.index')->with('success','waw it was deleted successfully');
