@@ -8,6 +8,7 @@ use App\Models\Post;
 use App\Models\Tag;
 use Gate;
 use Illuminate\Http\Request;
+use Storage;
 
 class PostsController extends Controller
 {
@@ -56,11 +57,16 @@ class PostsController extends Controller
             'paragraph' => 'required',
             'color' => 'required',
             'price' => 'required',
-            // 'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
 
         ]);
 
-     
+        if($request->hasfile('image')){  
+          $name = $request->file('image')->getClientOriginalName();
+          $image = $request->file('image')->move('image/', $name);
+          $image = $name;
+        }
+
 
         $post = Post::create([
             'user_id' => auth()->id(),
@@ -69,8 +75,7 @@ class PostsController extends Controller
             'paragraph' => $request->paragraph,
             'color' => $request->color,
             'price' => $request->price,
-            
-            // 'image' => $post->image
+            'image' => $image ?? null,
         ]);
 
         if(isset($request->tags)){
@@ -83,12 +88,14 @@ class PostsController extends Controller
 
 
  
-        if ($image = $request->file('image')) {
-            $destinationPath = 'image/';
-            $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
-            $image->move($destinationPath, $profileImage);
-            $post['image'] = "$profileImage";
-        }
+        // if ($image = $request->file('image')) {
+        //     $destinationPath = 'image/';
+        //     $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
+        //     $image->move($destinationPath, $profileImage);
+        //     $post['image'] = "$profileImage";
+        // }
+
+      
 
         PostCreated::dispatch($post);
      
@@ -147,7 +154,9 @@ class PostsController extends Controller
         // $this->authorize('edit', $id);
 
         return view('pages.edit', [
-            'post' => Post::findOrFail($id)
+            'post' => Post::findOrFail($id),
+            'categories' => Category::all()
+
         ]); 
 
         

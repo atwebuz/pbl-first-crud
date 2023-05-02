@@ -476,32 +476,6 @@
             <li class="{{ (request()->is('posts/faq')) ? 'nav-item active' : '' }}"><a href="{{route('posts.faq')}}"><i class="feather icon-help-circle"></i><span
                         class="menu-title" data-i18n="FAQ">FAQ</span></a>
             </li>
-    
-         
-
-            <li class=" nav-item"><a href="#"><i class="feather icon-unlock"></i><span class="menu-title"
-                        data-i18n="Authentication">Authentication</span></a>
-                <ul class="menu-content">
-                    <li class="{{ (request()->is('login')) ? 'active' : '' }}"><a href="{{route('login')}}"><i
-                                class="feather icon-circle"></i><span class="menu-item"
-                                data-i18n="Login">Login</span></a>
-                    </li>
-                    <li class="{{ (request()->is('register')) ? 'active' : '' }}"><a href="{{route('register')}}"><i
-                                class="feather icon-circle"></i><span class="menu-item"
-                                data-i18n="Register">Register</span></a>
-                    </li>
-                    <li><a href="auth-forgot-password.html"><i class="feather icon-circle"></i><span class="menu-item"
-                                data-i18n="Forgot Password">Forgot Password</span></a>
-                    </li>
-                    <li><a href="auth-reset-password.html"><i class="feather icon-circle"></i><span class="menu-item"
-                                data-i18n="Reset Password">Reset Password</span></a>
-                    </li>
-                    <li><a href="auth-lock-screen.html"><i class="feather icon-circle"></i><span class="menu-item"
-                                data-i18n="Lock Screen">Lock Screen</span></a>
-                    </li>
-                </ul>
-            </li>
-
 
             <li class="disabled nav-item"><a href="#"><i class="feather icon-eye-off"></i><span class="menu-title"
                         data-i18n="Disabled Menu">Disabled Menu</span></a>

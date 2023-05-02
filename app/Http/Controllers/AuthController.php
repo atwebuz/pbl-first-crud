@@ -21,6 +21,12 @@ class AuthController extends Controller
         return view('auth.login');
     }
 
+    public function secret()
+    {
+        return view('auth.confirmation');
+    }
+
+
     // login
      public function authenticate(Request $request): RedirectResponse
     {

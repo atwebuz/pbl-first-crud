@@ -102,6 +102,7 @@
                                             // dd($post->image)
                                         @endphp
                                         <img class="img-fluid" src="{{$post->image ? asset('image/' . $post->image) : asset('assets/images/no-image.png')}}" alt="image not-found" />
+                                        {{-- <img class="img-fluid" src="{{$post->image ? asset('image/' . $post->image) : asset('assets/images/no-image.png')}}" alt="image not-found" /> --}}
                                     </a>
                                 </div>
                                 <div class="card-body">

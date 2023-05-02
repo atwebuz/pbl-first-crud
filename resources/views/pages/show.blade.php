@@ -139,6 +139,7 @@
                                                                 <div class="col-md-8">
                                                                     {{-- <input type="text" id="contact-info" class="form-control py-2" value="" name="message" placeholder="message"> --}}
                                                                     <textarea name="message" id=" " class="form-control" cols="30" rows="3"></textarea>
+
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -162,28 +163,44 @@
                                 </div>
                             </div>
                      
-                        <div class="row d-flex container">                       
-                            <div class="col-lg-6 w-100 px-3">
-                                <h2>Count of comments <span>{{ $post->comments()->count()}}</span></h2>
-                                @foreach ($post->comments as $comment)
-                                    <span class="d-flex">
-                                         <img class="round" src="{{asset('assets/images/portrait/small/avatar-s-11.jpg')}}" alt="avatar" height="40" width="40">
-                                         <div class="user-nav p-1"><span class="user-name text-bold-600 pr-1">{{$comment->user->name}}</span>{{$comment->created_at}}</div>
-                                 </span> 
-                                 <span class="d-flex">
-                                     <p>{{ $comment->message}}</p>
-                                 </span> 
-                                @endforeach
-                                 
-                             </div> 
-                     </div>
-                    </div>
+                            <div class="row d-flex container">                       
+                                <div class="col-lg-6 w-100 px-3">
+                                    <h2>Count of comments <span>{{ $post->comments()->count()}}</span></h2>
+                                    @foreach ($post->comments as $comment)
+                                        <span class="d-flex">
+                                            <img class="round" src="{{asset('assets/images/portrait/small/avatar-s-11.jpg')}}" alt="avatar" height="40" width="40">
+                                            <div class="user-nav p-1">
+                                                <span class="user-name text-bold-600 pr-1">{{$comment->user->name}}</span>
+                                                {{$comment->created_at}}
+                                            </div>
+                                            @auth
+                                                @can('delete', $comment)
+                                                    
+                                               
+                                                    <form action="{{route('comments.destroy', $comment->id)}}" method="POST">          
+                                                        @csrf
+                                                        @method('DELETE')
+                                                            <button class="btn btn-danger mx-2">Delete</button>
+                                                    </form>
+                                                    @endcan
+                                            @endauth
+                                        </span> 
+                                        <span class="d-flex">
+                                            <p>{{ $comment->message}}</p>  
+                                        </span> 
+                                    @endforeach
+                                    
+                                </div> 
+                        </div>
 
+                      
                     </div>
-                     
                     
-                    </div>
-                </section>
+                </div>
+                
+                
+            </div>
+        </section>
                 <!-- app ecommerce details end -->
 
             </div>
