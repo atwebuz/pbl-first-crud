@@ -11,7 +11,7 @@
                 <div class="content-header-left col-md-9 col-12 mb-2">
                     <div class="row breadcrumbs-top">
                         <div class="col-12">
-                            <h2 class="content-header-title float-left mb-0">Shop</h2>
+                            <h2 class="content-header-title float-left mb-0">Tasks</h2>
                             <div class="breadcrumb-wrapper col-12">
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item"><a href="index.html">Home</a>
@@ -39,37 +39,7 @@
                     <!-- Ecommerce Content Section Starts -->
        
 
-                    <section id="ecommerce-header">
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <div class="ecommerce-header-items">
-                                    <div class="result-toggler">
-                                        <button class="navbar-toggler shop-sidebar-toggler" type="button" data-toggle="collapse">
-                                            <span class="navbar-toggler-icon d-block d-lg-none"><i class="feather icon-menu"></i></span>
-                                        </button>
-                                        <div class="search-results">
-                                            16285 results found
-                                        </div>
-                                    </div>
-                                    <div class="view-options">
-                                        <select class="price-options form-control" id="ecommerce-price-options">
-                                            <option selected>Featured</option>
-                                            <option value="1">Lowest</option>
-                                            <option value="2">Highest</option>
-                                        </select>
-                                        <div class="view-btn-option">
-                                            <button class="btn btn-white view-btn grid-view-btn active">
-                                                <i class="feather icon-grid"></i>
-                                            </button>
-                                            <button class="btn btn-white list-view-btn view-btn">
-                                                <i class="feather icon-list"></i>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
+              
                     <!-- Ecommerce Content Section Starts -->
                     <!-- background Overlay when sidebar is shown  starts-->
                     <div class="shop-content-overlay"></div>
@@ -91,71 +61,41 @@
                     <!-- Ecommerce Search Bar Ends -->
                
                     <!-- Ecommerce Products Starts -->
-                    <section id="ecommerce-products" class="grid-view">
-                        @if(count($posts) > 1)
-                        @foreach($posts as $post)
-                             <div class="card ecommerce-card">
-                            <div class="card-content">
-                                <div class="item-img text-center">
-                                    <a href="{{route('posts.show', $post->id)}}">
-                                        <img class="img-fluid" src="{{$post->image ? asset('image/' . $post->image) : asset('assets/images/no-image.png')}}" alt="image not-found" />
-                                    </a>
-                                </div>
-                                <div class="card-body">
-                                    <div class="item-wrapper">
-                                        <div class="item-rating">
-                                            <div class="badge badge-primary badge-md">
-                                                <span>{{$post->rating}}</span> <i class="feather icon-star"></i>
-                                            </div>
-                                        </div>
-                                        <div>
-                                            <h6 class="item-price">
-                                                ${{$post->price}}
-                                            </h6>
-                                        </div>
-                                    </div>
-                                    <div class="item-name">
-                                        <a href="{{route('posts.show', $post->id)}}">{{$post->title}}</a>
-                                        <p class="item-company">By <span class="company-name">Google</span></p>
-                                    </div>
-                                    <div>
-                                        <p class="item-description">
-                                          {{$post->paragraph}}
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="item-options text-center">
-                                    <div class="item-wrapper">
-                                        <div class="item-rating">
-                                            <div class="badge badge-primary badge-md">
-                                                <span>4</span> <i class="feather icon-star"></i>
-                                            </div>
-                                        </div>
-                                        <div class="item-cost">
-                                            <h6 class="item-price">
-                                                $39.99
-                                            </h6>
-                                        </div>
-                                    </div>
-                                    <div class="wishlist">
-                                        <i class="fa fa-heart-o"></i> <span>Wishlist</span>
-                                    </div>
-                                    <div class="cart">
-                                        <i class="feather icon-shopping-cart"></i> <span class="add-to-cart">Add to cart</span> <a href="app-ecommerce-checkout.html" class="view-in-cart d-none">View In Cart</a>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                        </div>
-                        @endforeach
+                    <div class="table-responsive col-12">
+                        <table class="table mb-0">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Title</th>
+                                    <th>paragraph</th>
+                                    <th>Image</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @if(count($posts) >= 1)
+                                @foreach($posts as $post)
+                                <tr>
+                                    <th scope="row">{{$post->id}}</th>
+                                    <td> <a href="{{route('posts.show', $post->id)}}">{{$post->title}}</a>  </td>
+                                    <td>{{$post->paragraph}}</td>
+                                    <td>
+                                        <a href="{{route('posts.show', $post->id)}}">
+                                            <img class="img-fluids" style="width: 50px !important;height:50px !important" src="{{$post->image ? asset('image/' . $post->image) : asset('assets/images/no-image.png')}}" alt="image not-found" />
+                                        </a>
+                                    </td>
+                                </tr>
+                                @endforeach
 
-                        @else
-                         <p>No listings found</p>
-                        @endif
-                            
-                       
-                      
-                    </section>
+                    
+                                @else
+                                 <p>No listings found</p>
+                                @endif
+                              
+                            </tbody>
+                        </table>
+                    </div>
+
+                 
                     <!-- Ecommerce Products Ends -->
 
                     <!-- Ecommerce Pagination Starts -->
@@ -176,7 +116,7 @@
 
                 </div>
             </div>
-            @include('../inc/__sidebar')
+            {{-- @include('../inc/__sidebar') --}}
             
         </div>
     </div>

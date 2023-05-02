@@ -72,7 +72,7 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="col-12">
+                                                    {{-- <div class="col-12">
                                                         <div class="form-group row">
                                                             <div class="col-md-4">
                                                                 <span>Color</span>
@@ -91,7 +91,7 @@
                                                                 <input type="text" id="contact-info" class="form-control py-2" value="{{$post->price}}" name="price">
                                                             </div>
                                                         </div>
-                                                    </div>
+                                                    </div> --}}
 
                                                     <div class="col-12">
                                                         <div class="form-group row">
@@ -126,7 +126,7 @@
                                     </div>
                                 </div>
                             </div>
-                            @include('../inc/__messages')x
+                            @include('../inc/__messages')
                         </div>
                     </div>
                 </section>

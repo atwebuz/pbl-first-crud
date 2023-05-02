@@ -19,9 +19,9 @@ class PostFactory extends Factory
         return [
             'title' => fake()->unique()->word(),
             'paragraph' => fake()->sentence(),
-            'price' => fake()->numberBetween( 1000, 10000),
-            'rating' =>  fake()->numberBetween( 10, 100),
-            'color' =>  fake()->colorName(),
+            // 'price' => fake()->numberBetween( 1000, 10000),
+            // 'rating' =>  fake()->numberBetween( 10, 100),
+            // 'color' =>  fake()->colorName(),
         ];
     }
 }

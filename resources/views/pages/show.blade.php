@@ -10,7 +10,7 @@
                 <div class="content-header-left col-md-9 col-12 mb-2">
                     <div class="row breadcrumbs-top">
                         <div class="col-12">
-                            <h2 class="content-header-title float-left mb-0">Product Details</h2>
+                            <h2 class="content-header-title float-left mb-0">Tasks Details</h2>
                             <div class="breadcrumb-wrapper col-12">
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item"><a href="/">Home</a>
@@ -47,40 +47,18 @@
                                     </div>
                                 </div>
                                 <div class="col-12 col-md-6">
-                                    <h5>{{$post->title}}</h5>
-                                    <p class="text-muted">by Apple</p> 
-                                    <div class="ecommerce-details-price d-flex flex-wrap">
-
-                                        <p class="text-primary font-medium-3 mr-1 mb-0">${{$post->price}}</p>
-                                        <span class="pl-1 font-medium-3 border-left">
-                                            <i class="feather icon-star text-warning"></i>
-                                            <i class="feather icon-star text-warning"></i>
-                                            <i class="feather icon-star text-warning"></i>
-                                            <i class="feather icon-star text-warning"></i>
-                                            <i class="feather icon-star text-secondary"></i>
-                                        </span>
-                                        <span class="ml-50 text-dark font-medium-1">{{$post->rating}} ratings</span>
-                                    </div>
+                                    <h5><b>Task title: </b> {{$post->title}}</h5>
+                                  
                                     <hr>
-                                    <p>{{$post->paragraph}}</p>
-                                    <p class="font-weight-bold mb-25"> <i class="feather icon-truck mr-50 font-medium-2"></i>Free Shipping
-                                    </p>
-                                    <p class="font-weight-bold"> <i class="feather icon-dollar-sign mr-50 font-medium-2"></i>EMI options available
-                                    </p>
+                                    <p> <b>Paragraph: </b> {{$post->paragraph}}</p>
+                                 
                                     <hr>
-                                    <div class="form-group">
-                                        <label class="font-weight-bold">Color</label>
-                                        {{$post->color}}
-                                    </div>
+                                 
 
                                     <p><b>Created at:</b> {{$post->created_at}}</p>
                                     <hr>
                                     <p>Available - <span class="text-success">In stock</span></p>
 
-                                    <div class="d-flex flex-column flex-sm-row">
-                                        <button class="btn btn-primary mr-0 mr-sm-1 mb-1 mb-sm-0"><i class="feather icon-shopping-cart mr-25"></i>ADD TO CART</button>
-                                        <button class="btn btn-outline-danger"><i class="feather icon-heart mr-25"></i>WISHLIST</button>
-                                    </div>
                                     <hr>
                                     
                                     

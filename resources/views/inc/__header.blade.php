@@ -1,5 +1,5 @@
 <!-- BEGIN: Header-->
-<nav class="header-navbar navbar-expand-lg navbar navbar-with-menu floating-nav navbar-light navbar-shadow">
+{{-- <nav class="header-navbar navbar-expand-lg navbar navbar-with-menu floating-nav navbar-light navbar-shadow">
     <div class="navbar-wrapper">
         <div class="navbar-container content">
             <div class="navbar-collapse" id="navbar-mobile">
@@ -278,7 +278,7 @@
             </div>
         </div>
     </div>
-</nav>
+</nav> 
 <ul class="main-search-list-defaultlist d-none">
     <li class="d-flex align-items-center"><a class="pb-25" href="#">
             <h6 class="text-primary mb-0">Files</h6>
@@ -375,6 +375,7 @@
                     results found.</span></div>
         </a></li>
 </ul>
+--}}
 <!-- END: Header-->
 
 
@@ -385,7 +386,7 @@
             <li class="nav-item mr-auto"><a class="navbar-brand"
                     href="{{route('posts.index')}}">
                     <div class="brand-logo"></div>
-                    <h2 class="brand-text mb-0">Vuexy</h2>
+                    <h2 class="brand-text mb-0">Compiler</h2>
                 </a></li>
             <li class="nav-item nav-toggle"><a class="nav-link modern-nav-toggle pr-0" data-toggle="collapse"><i
                         class="feather icon-x d-block d-xl-none font-medium-4 primary toggle-icon"></i><i
@@ -403,7 +404,7 @@
                         data-i18n="Ecommerce">Ecommerce</span></a>
                 <ul class="menu-content">
                     <li class="{{ (request()->is('posts')) ? 'active' : '' }} "><a href="{{route('posts.index')}}"><i
-                                class="feather icon-circle"></i><span class="menu-item" data-i18n="Shop">Shop</span></a>
+                                class="feather icon-circle"></i><span class="menu-item" data-i18n="Shop">Tasks</span></a>
                     </li>
 
                     <li class="{{ (request()->is('posts/create')) ? 'active' : '' }}"><a
@@ -412,14 +413,14 @@
                     </li>
 
 
-                    <li class="{{ (request()->is('posts/wishlist')) ? 'active' : '' }}"><a
-                            href="{{route('posts.wishlist')}}"><i class="feather icon-circle"></i><span
-                                class="menu-item" data-i18n="Wish List">Wish List</span></a>
+                    <li class="{{ (request()->is('posts/python')) ? 'active' : '' }}"><a
+                            href="{{route('posts.python')}}"><i class="feather icon-circle"></i><span
+                                class="menu-item" data-i18n="Wish List">Python</span></a>
                     </li>
 
-                    <li class="{{ (request()->is('posts/checkout')) ? 'active' : '' }}"><a
-                            href="{{route('posts.checkout')}}"><i class="feather icon-circle"></i><span
-                                class="menu-item" data-i18n="Checkout">Checkout</span></a>
+                    <li class="{{ (request()->is('posts/java')) ? 'active' : '' }}"><a
+                            href="{{route('posts.java')}}"><i class="feather icon-circle"></i><span
+                                class="menu-item" data-i18n="java">Java</span></a>
                     </li>
                 </ul>
             </li>

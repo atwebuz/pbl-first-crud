@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AddForm;
 use App\Http\Controllers\FallbackController;
 use App\Http\Controllers\PagesController;
 use Illuminate\Support\Facades\Route;
@@ -21,8 +22,9 @@ use App\Http\Controllers\PostsController;
 // });
 
 
-Route::get('posts/wishlist', [PagesController::class, 'wishlist'])->name('posts.wishlist');
-Route::get('posts/checkout', [PagesController::class, 'checkout'])->name('posts.checkout');
+Route::get('posts/python', [AddForm::class, 'python']);
+Route::post('posts/python', [AddForm::class, 'result'])->name('posts.python');
+Route::get('posts/java', [PagesController::class, 'java'])->name('posts.java');
 Route::get('posts/settings', [PagesController::class, 'settings'])->name('posts.settings');
 Route::get('posts/faq', [PagesController::class, 'faq'])->name('posts.faq');
 Route::get('/register', [PagesController::class, 'register'])->name('register');
@@ -32,4 +34,4 @@ Route::fallback(FallbackController::class);
 
 
 Route::resource('posts', PostsController::class);
-
+ 

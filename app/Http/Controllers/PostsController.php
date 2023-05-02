@@ -38,8 +38,8 @@ class PostsController extends Controller
         $this->validate($request, [
             'title' => 'required',
             'paragraph' => 'required',
-            'color' => 'required',
-            'price' => 'required',
+            // 'color' => 'required',
+            // 'price' => 'required',
             // 'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
 
         ]);
@@ -99,8 +99,8 @@ class PostsController extends Controller
         $this->validate($request, [
             'title' => 'required',
             'paragraph' => 'required',
-            'color' => 'required',
-            'price' => 'required',
+            // 'color' => 'required',
+            // 'price' => 'required',
         ]);
 
         if ($image = $request->file('image')) {

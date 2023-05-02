@@ -6,14 +6,11 @@ use Illuminate\Http\Request;
 
 class PagesController extends Controller
 {
-    public function wishlist()
-    {
-        return view('pages.wishlist');
-    }
 
-    public function checkout()
+
+    public function java()
     {
-        return view('pages.checkout');
+        return view('pages.java');
     }
 
     public function settings()

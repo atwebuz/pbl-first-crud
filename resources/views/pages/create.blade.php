@@ -71,7 +71,7 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="col-12">
+                                                    {{-- <div class="col-12">
                                                         <div class="form-group row">
                                                             <div class="col-md-4">
                                                                 <span>Color</span>
@@ -90,7 +90,7 @@
                                                                 <input type="text" id="contact-info" class="form-control py-2" value="{{old('price')}}" name="price" placeholder="price">
                                                             </div>
                                                         </div>
-                                                    </div>
+                                                    </div> --}}
 
                                                     <div class="col-12">
                                                         <div class="form-group row">
