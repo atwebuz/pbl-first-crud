@@ -76,11 +76,11 @@
                                         {{$post->color}}
                                     </div>
 
-                                    <b>Tags: </b> <ul class="d-flex m-0 p-0">
+                                    <b>Tags: </b> <ul class="d-flex m-0 p-0" style="flex-wrap: wrap">
                                        
                                         @foreach ($post->tags as $tag)
                                             {{-- <li class="my-1" style="list-style-type: none;"><a class="btn btn-primary mr-1" href="#">{{$tag->name}}</a></li> --}}
-                                            <li class="my-1" style="list-style-type: none;"><a class="js-programmatic-close btn btn-outline-primary mr-1 mb-1 waves-effect waves-light" href="#">{{$tag->name}}</a></li>
+                                            <li class="my-0" style="list-style-type: none;"><a class="js-programmatic-close btn btn-outline-primary mr-1 mb-1 waves-effect waves-light" href="#">{{$tag->name}}</a></li>
 
                                             
                                         @endforeach

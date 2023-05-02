@@ -22,7 +22,6 @@ use App\Http\Controllers\PostsController;
 //     return view('index');
 // });
 
-
 Route::get('posts/wishlist', [PagesController::class, 'wishlist'])->name('posts.wishlist');
 Route::get('posts/checkout', [PagesController::class, 'checkout'])->name('posts.checkout');
 Route::get('posts/settings', [PagesController::class, 'settings'])->name('posts.settings');
@@ -35,7 +34,6 @@ Route::get('/register', [AuthController::class, 'register'])->name('register');
 Route::post('register', [AuthController::class, 'register_store'])->name('register_store');
 
 
-Route::fallback(FallbackController::class);
 Route::resource('posts', PostsController::class);
 Route::resource('comments', CommentController::class);
 
