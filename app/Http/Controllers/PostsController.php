@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Events\PostCreated;
+use App\Jobs\ChangePost;
+use App\Jobs\UploadBigFile;
 use App\Models\Category;
 use App\Models\Post;
 use App\Models\Tag;
@@ -84,20 +86,9 @@ class PostsController extends Controller
             }
         }
 
-                // $post = $request->all();
-
-
- 
-        // if ($image = $request->file('image')) {
-        //     $destinationPath = 'image/';
-        //     $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
-        //     $image->move($destinationPath, $profileImage);
-        //     $post['image'] = "$profileImage";
-        // }
-
-      
-
         PostCreated::dispatch($post);
+        ChangePost::dispatch($post)->onQueue('uploading');
+        // UploadBigFile::dispatch($request->file('image'));
      
 
         return redirect()->route('posts.index')->with('success', 'waw it was created successfully');
