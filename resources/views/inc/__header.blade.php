@@ -470,12 +470,16 @@
             <li class=" nav-item"><a href="page-user-profile.html"><i class="feather icon-user"></i><span
                         class="menu-title" data-i18n="Profile">Profile</span></a>
             </li>
-            <li class="{{ (request()->is('posts/settings')) ? 'nav-item active' : '' }}"><a href="{{route('posts.settings')}}"><i class="feather icon-settings"></i><span
-                        class="menu-title" data-i18n="Account Settings">Account Settings</span></a>
-            </li>
+
+            @auth   
+                <li class="{{ (request()->is('posts/settings')) ? 'nav-item active' : '' }}"><a href="{{route('posts.settings')}}"><i class="feather icon-settings"></i><span
+                            class="menu-title" data-i18n="Account Settings">Account Settings</span></a>
+                </li>
+            @endauth
             <li class="{{ (request()->is('posts/faq')) ? 'nav-item active' : '' }}"><a href="{{route('posts.faq')}}"><i class="feather icon-help-circle"></i><span
                         class="menu-title" data-i18n="FAQ">FAQ</span></a>
             </li>
+          
 
             <li class="disabled nav-item"><a href="#"><i class="feather icon-eye-off"></i><span class="menu-title"
                         data-i18n="Disabled Menu">Disabled Menu</span></a>

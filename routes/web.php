@@ -21,13 +21,12 @@ use App\Http\Controllers\PostsController;
 // Route::get('/', function () {
 //     return view('index');
 // });
-
 Route::get('posts/wishlist', [PagesController::class, 'wishlist'])->name('posts.wishlist');
 Route::get('posts/checkout', [PagesController::class, 'checkout'])->name('posts.checkout');
-Route::get('posts/settings', [PagesController::class, 'settings'])->name('posts.settings');
-Route::get('posts/faq', [PagesController::class, 'faq'])->name('posts.faq');
+Route::any('posts/settings', [PagesController::class, 'settings'])->name('posts.settings');
+Route::any('posts/faq', [PagesController::class, 'faq'])->name('posts.faq');
 
-Route::get('/login', [AuthController::class, 'login'])->name('login');
+Route::get('/login', [AuthController::class, 'login'])->name('login')->middleware('throttle:3,1');
 Route::post('authenticate', [AuthController::class, 'authenticate'])->name('authenticate');
 Route::post('logout', [AuthController::class, 'logout'])->name('logout');
 Route::get('/register', [AuthController::class, 'register'])->name('register');

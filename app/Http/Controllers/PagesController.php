@@ -6,9 +6,9 @@ use Illuminate\Http\Request;
 
 class PagesController extends Controller
 {
-    public function __construct(){
-        $this->middleware('auth')->except(['index', 'show']);
-     }
+    // public function __construct(){
+    //     $this->middleware('auth')->except(['index', 'show']);
+    //  }
     public function wishlist()
     {
         return view('pages.wishlist');
@@ -19,9 +19,17 @@ class PagesController extends Controller
         return view('pages.checkout');
     }
 
-    public function settings()
+    public function settings(Request $request)
     {
-        return view('pages.settings');
+        // dd($request);
+        $route = $request->route()->getName();
+      
+        if($request->input('password_confirm')){
+            return view('pages.settings');
+            
+        }else{
+            return view('pages.confirm', compact('route'));
+        }
     }
 
     public function faq()

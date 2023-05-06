@@ -174,6 +174,8 @@
                                                             </div>
                                                         </div>
                                                     </div>
+
+                                                 
                                                     <div class="form-group col-md-8 offset-md-4">
                                                         <fieldset class="checkbox">
                                                             <div class="vs-checkbox-con vs-checkbox-primary">

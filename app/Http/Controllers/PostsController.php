@@ -8,8 +8,10 @@ use App\Jobs\UploadBigFile;
 use App\Models\Category;
 use App\Models\Post;
 use App\Models\Tag;
+use Cache;
 use Gate;
 use Illuminate\Http\Request;
+use Mail;
 use Storage;
 
 class PostsController extends Controller
@@ -25,13 +27,19 @@ class PostsController extends Controller
     
     public function index()
     {
-        
-        return view('pages.index',[
-            'posts' => Post::orderBy('created_at', 'DESC')->paginate(9),
+        // Cache::forget('posts'); // forget caches
+        // Cache::flush('posts'); // forget caches
+        $posts = Cache::remember('posts', now()->addSeconds(120), function(){
+            return Post::latest()->paginate(9);
+            // return Post::latest()->paginate(9);
+        });
+        return view('pages.index', [
             'categories' => Category::all(),
             'tags' => Tag::all(),
+        ])->with('posts', $posts);
 
-        ]);
+      
+       
     }
 
     /**
@@ -86,38 +94,14 @@ class PostsController extends Controller
             }
         }
 
-        PostCreated::dispatch($post);
-        ChangePost::dispatch($post)->onQueue('uploading');
+        PostCreated::dispatch($post); // Event
+        ChangePost::dispatch($post)->onQueue('uploading'); // Job
+
+
         // UploadBigFile::dispatch($request->file('image'));
      
 
         return redirect()->route('posts.index')->with('success', 'waw it was created successfully');
-
-
-        // $post = $request->all();
-  
-        // Post::create($post);
-
-           // $this->validate($request, [
-        
-        //     'title' => 'required',
-        //     'paragraph' => 'required',
-        //     'color' => 'required',
-        //     'price' => 'required',
-        //     // 'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-
-        // ]);
-
-
-        // dd('qwd'); 
-        // $post = new Post;
-        // $post->title = $request->input('title');
-        // $post->paragraph = $request->input('paragraph');
-        // $post->color = $request->input('color');
-        // $post->price = $request->input('price');
-        // $post->save();
-
-
     
     }
 
@@ -197,3 +181,4 @@ class PostsController extends Controller
         return redirect()->route('posts.index')->with('success','waw it was deleted successfully');
     }
 }
+    

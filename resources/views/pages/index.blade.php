@@ -92,7 +92,7 @@
                
                     <!-- Ecommerce Products Starts -->
                     <section id="ecommerce-products" class="grid-view">
-                        @if(count($posts) > 1)
+                        @if(count($posts) >= 1)
                         @foreach($posts as $post)
                              <div class="card ecommerce-card">
                             <div class="card-content">

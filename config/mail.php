@@ -48,7 +48,7 @@ return [
         'ses' => [
             'transport' => 'ses',
         ],
-
+ 
         'mailgun' => [
             'transport' => 'mailgun',
             // 'client' => [
