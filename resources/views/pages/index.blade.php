@@ -51,12 +51,16 @@
                                             16285 results found
                                         </div>
                                     </div>
-                                    <div class="view-options">
-                                        <select class="price-options form-control" id="ecommerce-price-options">
+                                    <div class="view-options d-flex">
+                                        <form action="/sort" method="POST">
+                                            @csrf
+                                         <select class="price-options form-control" id="ecommerce-price-options">
                                             <option selected>Featured</option>
-                                            <option value="1">Lowest</option>
-                                            <option value="2">Highest</option>
+                                            <option value="desc">Lowest</option>
+                                            <option value="asc">Highest</option>
                                         </select>
+                                        </form>
+                                     
                                         <div class="view-btn-option">
                                             <button class="btn btn-white view-btn grid-view-btn active">
                                                 <i class="feather icon-grid"></i>

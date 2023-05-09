@@ -170,7 +170,7 @@
                                                                 <span>Image</span>
                                                             </div>
                                                             <div class="col-md-8">
-                                                                <input type="file" name="image" id="formFile">
+                                                                <input type="file" name="image" id="formFile" multiple>
                                                             </div>
                                                         </div>
                                                     </div>

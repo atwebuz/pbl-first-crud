@@ -29,18 +29,17 @@ class PostsController extends Controller
     {
         // Cache::forget('posts'); // forget caches
         // Cache::flush('posts'); // forget caches
-        $posts = Cache::remember('posts', now()->addSeconds(120), function(){
-            return Post::latest()->paginate(9);
-            // return Post::latest()->paginate(9);
-        });
+        // $posts = Cache::remember('posts', now()->addSeconds(120), function(){
+        //     return Post::latest()->paginate(9);
+        // });
         return view('pages.index', [
+            'posts' => Post::latest()->paginate(9),
             'categories' => Category::all(),
             'tags' => Tag::all(),
-        ])->with('posts', $posts);
-
-      
-       
+        ]); 
     }
+
+ 
 
     /**
      * Show the form for creating a new resource.
@@ -94,8 +93,8 @@ class PostsController extends Controller
             }
         }
 
-        PostCreated::dispatch($post); // Event
-        ChangePost::dispatch($post)->onQueue('uploading'); // Job
+        // PostCreated::dispatch($post); // Event
+        // ChangePost::dispatch($post)->onQueue('uploading'); // Job
 
 
         // UploadBigFile::dispatch($request->file('image'));
@@ -154,14 +153,17 @@ class PostsController extends Controller
             'paragraph' => 'required',
             'color' => 'required',
             'price' => 'required',
+           
+
         ]);
 
-        if ($image = $request->file('image')) {
-            $destinationPath = 'image/';
-            $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
-            $image->move($destinationPath, $profileImage);
-            $post['image'] = "$profileImage";
-        }
+        if($request->hasfile('image')){  
+            $name = $request->file('image')->getClientOriginalName();
+            $image = $request->file('image')->move('image/', $name);
+            $image = $name;
+          }
+
+        //   dd($request);
 
         $post->update($request->all());
 
