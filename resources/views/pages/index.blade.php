@@ -150,9 +150,9 @@
                                     <div class="wishlist">
                                         <i class="fa fa-heart-o"></i> <span>Wishlist</span>
                                     </div>
-                                    <div class="cart">
-                                        <i class="feather icon-shopping-cart"></i> <span class="add-to-cart">Add to cart</span> <a href="app-ecommerce-checkout.html" class="view-in-cart d-none">View In Cart</a>
-                                    </div>
+                                    <span class="cart">
+                                        <i class="feather icon-shopping-cart"></i> <span class="add-to-cart">Add to cart</span> <a href="{{ route('add.to.cart', $post->id) }}" class="view-in-cart d-none">View In Cart</a>
+                                    </span>
                                 </div>
                             </div>
                             

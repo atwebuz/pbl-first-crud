@@ -2,17 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Events\PostCreated;
-use App\Jobs\ChangePost;
-use App\Jobs\UploadBigFile;
 use App\Models\Category;
 use App\Models\Post;
 use App\Models\Tag;
-use Cache;
-use Gate;
 use Illuminate\Http\Request;
-use Mail;
-use Storage;
+
 
 class PostsController extends Controller
 {
@@ -39,6 +33,55 @@ class PostsController extends Controller
         ]); 
     }
 
+
+    public function cart()
+    {
+        return view('pages.cart');
+    }
+  
+
+    public function addToCart($id)
+    {
+
+        // dd('worked');
+        $post = Post::findOrFail($id);
+          
+        $cart = session()->get('cart', []);
+  
+        if(isset($cart[$id])) {
+            $cart[$id]['quantity']++;
+            // dd($post->title);
+
+        } else {
+            $cart[$id] = [
+                "name" => $post->title,
+                "quantity" => 1,
+                "price" => $post->price,
+                "image" => $post->image,
+                "paragraph" => $post->paragraph
+            ];
+
+        }
+          
+        session()->put('cart', $cart);
+        return redirect()->back()->with('success', 'Product added to cart successfully!');
+    }
+  
+
+
+    public function remove(Request $request)
+    {
+        dd('delete');
+        if($request->id) {
+            $cart = session()->get('cart');
+            if(isset($cart[$request->id])) {
+                unset($cart[$request->id]);
+                session()->put('cart', $cart);
+            }
+            session()->flash('success', 'Product removed successfully');
+        }
+    }
+    // dev end
  
 
     /**
@@ -146,6 +189,13 @@ class PostsController extends Controller
 
         // Gate::authorize('update', $post);
         $this->authorize('update', $post);
+
+        if($request->id && $request->quantity){
+            $cart = session()->get('cart');
+            $cart[$request->id]["quantity"] = $request->quantity;
+            session()->put('cart', $cart);
+            session()->flash('success', 'Cart updated successfully');
+        }
 
 
         $this->validate($request, [
