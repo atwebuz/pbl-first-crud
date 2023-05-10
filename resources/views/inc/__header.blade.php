@@ -48,7 +48,7 @@
 
                         @php $total = 0 @endphp
                         @foreach((array) session('cart') as $id => $details)
-                            @php $total += $details['price'] * $details['quantity'] @endphp
+                            @php $total += $details['quantity'] @endphp
                         @endforeach
                         <a class="nav-link nav-link-label" href="#"
                             data-toggle="dropdown">
@@ -58,26 +58,28 @@
                         <ul class="dropdown-menu dropdown-menu-media dropdown-cart dropdown-menu-right">
                             <li class="dropdown-menu-header">
                                 <div class="dropdown-header m-0 p-2">
-                                    <h3 class="white"><span class="cart-item-count">6</span><span
-                                            class="mx-50">Items</span></h3><span class="notification-title">In Your
-                                        Cart</span>
+                                    <h3 class="white">
+                                                   <span class="cart-item-count">{{$total}}</span>                          
+                                                   <span class="mx-50">Items</span>
+                                    </h3>
+                                    <span class="notification-title">In Your Cart</span>
                                 </div>
                             </li>
                             <li class="scrollable-container media-list">
                                 @if(session('cart'))
                                 @foreach(session('cart') as $id => $details)
                                     <a class="cart-item"
-                                        href="app-ecommerce-details.html">
+                                        href="#!">
                                         <div class="media">
                                             <div class="media-left d-flex justify-content-center align-items-center"><img
                                                     src="{{ $details['image'] }}" width="75"
                                                     alt="Cart Item"></div>
                                             <div class="media-body"><span
                                                     class="item-title text-truncate text-bold-500 d-block mb-50">{{ $details['name'] }}</span><span
-                                                    class="item-desc font-small-2 text-truncate d-block"> </span>
+                                                    class="item-desc font-small-2 text-truncate d-block"> {{ $details['paragraph'] }}</span>
                                                 <div class="d-flex justify-content-between align-items-center mt-1"><span
-                                                        class="align-middle d-block">1 x ${{ $details['price'] }}</span><i
-                                                        class="remove-cart-item feather icon-x danger font-medium-1"></i>
+                                                        class="align-middle d-block">:{{ $details['quantity'] }} x ${{ $details['price'] }}</span>
+                                                        <i class="remove-cart-item feather icon-x danger font-medium-1"></i>
                                                 </div>
                                             </div>
                                         </div>
@@ -86,7 +88,7 @@
                                 @endif
                             </li>
                             <li class="dropdown-menu-footer"><a class="dropdown-item p-1 text-center text-primary"
-                                    href="app-ecommerce-checkout.html"><i
+                                    href="{{route('cart')}}"><i
                                         class="feather icon-shopping-cart align-middle"></i><span
                                         class="align-middle text-bold-600">Checkout</span></a></li>
                             <li class="empty-cart d-none p-2">Your Cart Is Empty.</li>

@@ -33,57 +33,6 @@ class PostsController extends Controller
         ]); 
     }
 
-
-    public function cart()
-    {
-        return view('pages.cart');
-    }
-  
-
-    public function addToCart($id)
-    {
-
-        // dd('worked');
-        $post = Post::findOrFail($id);
-          
-        $cart = session()->get('cart', []);
-  
-        if(isset($cart[$id])) {
-            $cart[$id]['quantity']++;
-            // dd($post->title);
-
-        } else {
-            $cart[$id] = [
-                "name" => $post->title,
-                "quantity" => 1,
-                "price" => $post->price,
-                "image" => $post->image,
-                "paragraph" => $post->paragraph
-            ];
-
-        }
-          
-        session()->put('cart', $cart);
-        return redirect()->back()->with('success', 'Product added to cart successfully!');
-    }
-  
-
-
-    public function remove(Request $request)
-    {
-        dd('delete');
-        if($request->id) {
-            $cart = session()->get('cart');
-            if(isset($cart[$request->id])) {
-                unset($cart[$request->id]);
-                session()->put('cart', $cart);
-            }
-            session()->flash('success', 'Product removed successfully');
-        }
-    }
-    // dev end
- 
-
     /**
      * Show the form for creating a new resource.
      */
@@ -232,5 +181,56 @@ class PostsController extends Controller
          
         return redirect()->route('posts.index')->with('success','waw it was deleted successfully');
     }
+
+    // dev start
+
+    public function cart()
+    {
+        return view('pages.cart');
+    }
+  
+
+    public function addToCart($id)
+    {
+
+        // dd('worked');
+        $post = Post::findOrFail($id);
+          
+        $cart = session()->get('cart', []);
+  
+        if(isset($cart[$id])) {
+            $cart[$id]['quantity']++;
+            // dd($post->title);
+
+        } else {
+            $cart[$id] = [
+                "name" => $post->title,
+                "quantity" => 1,
+                "price" => $post->price,
+                "image" => $post->image,
+                "paragraph" => $post->paragraph
+            ];
+
+        }
+          
+        session()->put('cart', $cart);
+        return redirect()->back()->with('success', 'Product added to cart successfully!');
+    }
+  
+
+
+    public function remove(Request $request)
+    {
+        dd('delete');
+        if($request->id) {
+            $cart = session()->get('cart');
+            if(isset($cart[$request->id])) {
+                unset($cart[$request->id]);
+                session()->put('cart', $cart);
+            }
+            session()->flash('success', 'Product removed successfully');
+        }
+    }
+    // dev end
 }
     
