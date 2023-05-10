@@ -71,16 +71,18 @@
                                     <a class="cart-item"
                                         href="#!">
                                         <div class="media">
-                                            <div class="media-left d-flex justify-content-center align-items-center"><img
+                                            {{-- <div class="media-left d-flex justify-content-center align-items-center"><img
                                                     src="{{ $details['image'] }}" width="75"
-                                                    alt="Cart Item"></div>
+                                                    alt="Cart Item"></div> --}}
+
+                                                    <img class="media-left d-flex justify-content-center align-items-center" src="{{$details['image'] ? asset('image/' . $details['image']) : asset('assets/images/no-image.png')}}" alt="image not-found" width="75" />
                                             <div class="media-body"><span
                                                     class="item-title text-truncate text-bold-500 d-block mb-50">{{ $details['name'] }}</span><span
                                                     class="item-desc font-small-2 text-truncate d-block"> {{ $details['paragraph'] }}</span>
                                                 <div class="d-flex justify-content-between align-items-center mt-1"><span
                                                         class="align-middle d-block">:{{ $details['quantity'] }} x ${{ $details['price'] }}</span>
                                                         <i class="remove-cart-item feather icon-x danger font-medium-1"></i>
-                                                </div>
+                                                </div> 
                                             </div>
                                         </div>
                                     </a>
