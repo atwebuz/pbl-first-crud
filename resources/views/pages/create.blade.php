@@ -126,19 +126,7 @@
                                                     </div>
 
 
-                                                    <div class="col-12">
-                                                        <div class="form-group row">
-                                                            <div class="col-md-4">
-                                                                <span>Paragraph</span>
-                                                            </div>
-                                                            <div class="col-md-8">
-                                                                <input type="text" id="contact-info"
-                                                                    class="form-control py-2"
-                                                                    value="{{old('paragraph')}}" name="paragraph"
-                                                                    placeholder="paragraph">
-                                                            </div>
-                                                        </div>
-                                                    </div>
+                                                   
                                                     <div class="col-12">
                                                         <div class="form-group row">
                                                             <div class="col-md-4">
@@ -160,6 +148,24 @@
                                                                 <input type="text" id="contact-info"
                                                                     class="form-control py-2" value="{{old('price')}}"
                                                                     name="price" placeholder="price">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-12">
+                                                        <div class="form-group row">
+                                                            <div class="col-md-4">
+                                                                <span>Paragraph</span>
+                                                            </div>
+                                                            <div class="col-md-8">
+                                                                <textarea class="form-control py-2"" name="paragraph" id="contact-info" cols="30" rows="6" placeholder="Describe yourself here...">
+                                                                    {{old('paragraph')}}
+                                                                </textarea>
+
+                                                                {{-- <input type="text" id="contact-info"
+                                                                    class="form-control py-2"
+                                                                    value="{{old('paragraph')}}" name="paragraph"
+                                                                    placeholder="paragraph"> --}}
                                                             </div>
                                                         </div>
                                                     </div>

@@ -94,7 +94,7 @@
                                     <p>Available - <span class="text-success">In stock</span></p>
 
                                     <div class="d-flex flex-column flex-sm-row">
-                                        <button class="btn btn-primary mr-0 mr-sm-1 mb-1 mb-sm-0"><i class="feather icon-shopping-cart mr-25"></i>ADD TO CART</button>
+                                        <a href="{{ route('add.to.cart', $post->id) }}" class="btn btn-primary mr-0 mr-sm-1 mb-1 mb-sm-0"><i class="feather icon-shopping-cart mr-25"></i>ADD TO CART</a>
                                         <button class="btn btn-outline-danger"><i class="feather icon-heart mr-25"></i>WISHLIST</button>
                                     </div>
                                     <hr>
