@@ -151,7 +151,7 @@
                                         <i class="fa fa-heart-o"></i> <span>Wishlist</span>
                                     </div>
                                     <a class="cart" href="{{ route('add.to.cart', $post->id) }}">
-                                        <i class="feather icon-shopping-cart"></i> <span class="add-to-carts">Add to cart</span> <a href="{{ route('cart') }}" class="view-in-cart d-none">View In Cart</a>
+                                        <i class="feather icon-shopping-cart"></i> <span class="add-to-carts">Add to cart</span> <a href="{{ route('posts.checkout') }}" class="view-in-cart d-none">View In Cart</a>
                                     </a>
                                 </div>
                             </div>

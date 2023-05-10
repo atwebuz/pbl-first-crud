@@ -41,16 +41,20 @@
                 <fieldset class="checkout-step-1 px-0">
                     <section id="place-order" class="list-view product-checkout">
                         <div class="checkout-items">
-                            <div class="card ecommerce-card">
+
+                            @php $total = 0 @endphp 
+                            @if(session('cart'))
+                                @foreach(session('cart') as $id => $details)
+                                    @php $total += $details['price'] * $details['quantity'] @endphp
+                            <div class="card ecommerce-card" data-id="{{ $id }}">
                                 <div class="card-content">
                                     <div class="item-img text-center">
                                         <a href="app-ecommerce-details.html">
-                                            <img src="{{asset('assets/images/pages/eCommerce/9.png')}}" alt="img-placeholder">
-                                        </a>
+                                            <img class="w-100" src="{{$details['image'] ? asset('image/' . $details['image']) : asset('assets/images/no-image.png')}}" alt="image not-found" width="100" height="100" class="img-responsive" />                                        </a>
                                     </div>
                                     <div class="card-body">
                                         <div class="item-name">
-                                            <a href="app-ecommerce-details.html">Amazon - Fire TV Stick with Alexa Voice Remote - Black</a>
+                                            <a href="app-ecommerce-details.html">{{ $details['name'] }}</a>
                                             <span></span>
                                             <p class="item-company">By <span class="company-name">Amazon</span></p>
                                             <p class="stock-status-in">In Stock</p>
@@ -58,7 +62,7 @@
                                         <div class="item-quantity">
                                             <p class="quantity-title">Quantity</p>
                                             <div class="input-group quantity-counter-wrapper">
-                                                <input type="text" class="quantity-counter" value="1">
+                                                <input type="text" class="quantity-counter" value="{{ $details['quantity'] }}">
                                             </div>
                                         </div>
                                         <p class="delivery-date">Delivery by, Wed Apr 25</p>
@@ -73,7 +77,7 @@
                                             </div>
                                             <div class="item-cost">
                                                 <h6 class="item-price">
-                                                    $39.99
+                                                    ${{ $details['price'] }}
                                                 </h6>
                                                 <p class="shipping">
                                                     <i class="feather icon-shopping-cart"></i> Free Shipping
@@ -83,250 +87,34 @@
                                         <div class="wishlist remove-wishlist">
                                             <i class="feather icon-x align-middle"></i> Remove
                                         </div>
+
+                                     
+                                        {{-- <td class="actions" data-th="">
+                                            <button class="btn btn-danger btn-sm remove-from-cart"><i class="fa fa-trash-o"></i></button>
+                                        </td> --}}
+
                                         <div class="cart remove-wishlist">
                                             <i class="fa fa-heart-o mr-25"></i> Wishlist
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="card ecommerce-card">
-                                <div class="card-content">
-                                    <div class="item-img text-center">
-                                        <a href="app-ecommerce-details.html">
-                                            <img src="{{asset('assets/images/pages/eCommerce/2.png')}}" alt="img-placeholder">
-                                        </a>
-                                    </div>
-                                    <div class="card-body">
-                                        <div class="item-name">
-                                            <a href="app-ecommerce-details.html">Apple - Macbook® - Intel Core M5</a>
-                                            <p class="item-company">By <span class="company-name">Apple</span></p>
-                                            <p class="stock-status-in">In Stock</p>
-                                        </div>
-                                        <div class="item-quantity">
-                                            <p class="quantity-title">Quantity</p>
-                                            <div class="input-group quantity-counter-wrapper">
-                                                <input type="text" class="quantity-counter" value="1">
-                                            </div>
-                                        </div>
-                                        <p class="delivery-date">Delivery by, Wed Apr 24</p>
-                                        <p class="offers">7% off 1 offers Available</p>
-                                    </div>
-                                    <div class="item-options text-center">
-                                        <div class="item-wrapper">
-                                            <div class="item-rating">
-                                                <div class="badge badge-primary badge-md">
-                                                    4 <i class="feather icon-star ml-25"></i>
-                                                </div>
-                                            </div>
-                                            <div class="item-cost">
-                                                <h6 class="item-price">
-                                                    $1599.99
-                                                </h6>
-                                                <p class="shipping">
-                                                    <i class="feather icon-shopping-cart"></i> Free Shipping
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <div class="wishlist remove-wishlist">
-                                            <i class="feather icon-x align-middle"></i> Remove
-                                        </div>
-                                        <div class="cart remove-wishlist">
-                                            <i class="fa fa-heart-o mr-25"></i> Wishlist
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card ecommerce-card">
-                                <div class="card-content">
-                                    <div class="item-img text-center">
-                                        <a href="app-ecommerce-details.html">
-                                            <img src="{{asset('assets/images/pages/eCommerce/3.png')}}" alt="img-placeholder">
-                                        </a>
-                                    </div>
-                                    <div class="card-body">
-                                        <div class="item-name">
-                                            <a href="app-ecommerce-details.html">
-                                                <span>Google - Chromecast - Black</span>
-                                            </a>
-                                            <p class="item-company">By <span class="company-name">Google</span></p>
-                                            <p class="stock-status-in">In Stock</p>
-                                        </div>
-                                        <div class="item-quantity">
-                                            <p class="quantity-title">Quantity</p>
-                                            <div class="input-group quantity-counter-wrapper">
-                                                <input type="text" class="quantity-counter" value="1">
-                                            </div>
-                                        </div>
-                                        <p class="delivery-date">Delivery by, Wed Apr 27</p>
-                                        <p class="offers">3% off 1 offers Available</p>
-                                    </div>
-                                    <div class="item-options text-center">
-                                        <div class="item-wrapper">
-                                            <div class="item-rating">
-                                                <div class="badge badge-primary badge-md">
-                                                    4 <i class="feather icon-star ml-25"></i>
-                                                </div>
-                                            </div>
-                                            <div class="item-cost">
-                                                <h6 class="item-price">
-                                                    $35
-                                                </h6>
-                                            </div>
-                                        </div>
-                                        <div class="wishlist remove-wishlist">
-                                            <i class="feather icon-x align-middle"></i> Remove
-                                        </div>
-                                        <div class="cart remove-wishlist">
-                                            <i class="fa fa-heart-o mr-25"></i> Wishlist
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card ecommerce-card">
-                                <div class="card-content">
-                                    <div class="item-img text-center">
-                                        <a href="app-ecommerce-details.html">
-                                            <img src="{{asset('assets/images/pages/eCommerce/4.png')}}" alt="img-placeholder">
-                                        </a>
-                                    </div>
-                                    <div class="card-body">
-                                        <div class="item-name">
-                                            <a href="app-ecommerce-details.html">
-                                                <span>Sharp - 50" Class (49.5" Diag.) - LED - 1080p - Black</span>
-                                            </a>
-                                            <p class="item-company">By <span class="company-name">Sharp</span></p>
-                                            <p class="stock-status-in">In Stock</p>
-                                        </div>
-                                        <div class="item-quantity">
-                                            <p class="quantity-title">Quantity</p>
-                                            <div class="input-group quantity-counter-wrapper">
-                                                <input type="text" class="quantity-counter" value="1">
-                                            </div>
-                                        </div>
-                                        <p class="delivery-date">Delivery by, Wed Apr 29</p>
-                                        <p class="offers">5% off 2 offers Available</p>
-                                    </div>
-                                    <div class="item-options text-center">
-                                        <div class="item-wrapper">
-                                            <div class="item-rating">
-                                                <div class="badge badge-primary badge-md">
-                                                    4 <i class="feather icon-star ml-25"></i>
-                                                </div>
-                                            </div>
-                                            <div class="item-cost">
-                                                <h6 class="item-price">
-                                                    $429.99
-                                                </h6>
-                                                <p class="shipping">
-                                                    <i class="feather icon-shopping-cart"></i> Free Shipping
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <div class="wishlist remove-wishlist">
-                                            <i class="feather icon-x align-middle"></i> Remove
-                                        </div>
-                                        <div class="cart remove-wishlist">
-                                            <i class="fa fa-heart-o mr-25"></i> Wishlist
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card ecommerce-card">
-                                <div class="card-content">
-                                    <div class="item-img text-center">
-                                        <a href="app-ecommerce-details.html">
-                                            <img src="{{asset('assets/images/pages/eCommerce/10.png')}}" alt="img-placeholder">
-                                        </a>
-                                    </div>
-                                    <div class="card-body">
-                                        <div class="item-name">
-                                            <a href="app-ecommerce-details.html">
-                                                <span>Dell - Inspiron 15.6" Touch-Screen Laptop - Black</span>
-                                            </a>
-                                            <p class="item-company">By <span class="company-name">Dell</span></p>
-                                            <p class="stock-status-in">In Stock</p>
-                                        </div>
-                                        <div class="item-quantity">
-                                            <p class="quantity-title">Quantity</p>
-                                            <div class="input-group quantity-counter-wrapper">
-                                                <input type="text" class="quantity-counter" value="1">
-                                            </div>
-                                        </div>
-                                        <p class="delivery-date">Delivery by, Wed Apr 30</p>
-                                        <p class="offers">3% off 1 offers Available</p>
-                                    </div>
-                                    <div class="item-options text-center">
-                                        <div class="item-wrapper">
-                                            <div class="item-rating">
-                                                <div class="badge badge-primary badge-md">
-                                                    4 <i class="feather icon-star ml-25"></i>
-                                                </div>
-                                            </div>
-                                            <div class="item-cost">
-                                                <h6 class="item-price">
-                                                    $499.99
-                                                </h6>
-                                                <p class="shipping">
-                                                    <i class="feather icon-shopping-cart"></i> Free Shipping
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <div class="wishlist remove-wishlist">
-                                            <i class="feather icon-x align-middle"></i> Remove
-                                        </div>
-                                        <div class="cart remove-wishlist">
-                                            <i class="fa fa-heart-o mr-25"></i> Wishlist
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card ecommerce-card">
-                                <div class="card-content">
-                                    <div class="item-img text-center">
-                                        <a href="app-ecommerce-details.html">
-                                            <img src="{{asset('assets/images/pages/eCommerce/6.png')}}" alt="img-placeholder">
-                                        </a>
-                                    </div>
-                                    <div class="card-body">
-                                        <div class="item-name">
-                                            <a href="app-ecommerce-details.html">
-                                                <span>Amazon - Echo Dot</span>
-                                            </a>
-                                            <p class="item-company">By <span class="company-name">Amazon</span></p>
-                                            <p class="stock-status-in">In Stock</p>
-                                        </div>
-                                        <div class="item-quantity">
-                                            <p class="quantity-title">Quantity</p>
-                                            <div class="input-group quantity-counter-wrapper">
-                                                <input type="text" class="quantity-counter" value="1">
-                                            </div>
-                                        </div>
-                                        <p class="delivery-date">Delivery by, Wed Apr 30</p>
-                                        <p class="offers">6% off 3 offers Available</p>
-                                    </div>
-                                    <div class="item-options text-center">
-                                        <div class="item-wrapper">
-                                            <div class="item-rating">
-                                                <div class="badge badge-primary badge-md">
-                                                    4 <i class="feather icon-star ml-25"></i>
-                                                </div>
-                                            </div>
-                                            <div class="item-cost">
-                                                <h6 class="item-price">
-                                                    $49.99
-                                                </h6>
-                                            </div>
-                                        </div>
-                                        <div class="wishlist remove-wishlist">
-                                            <i class="feather icon-x align-middle"></i> Remove
-                                        </div>
-                                        <div class="cart remove-wishlist">
-                                            <i class="fa fa-heart-o mr-25"></i> Wishlist
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+
+                            @endforeach
+                            @endif
+
+                            
+                            {{-- <td data-th="Price">${{ $details['price'] }}</td>
+                            <td data-th="Quantity">
+                                <input type="number" value="{{ $details['quantity'] }}" class="form-control quantity update-cart" />
+                            </td>
+                            <td data-th="Subtotal" class="text-center">${{ $details['price'] * $details['quantity'] }}</td>
+                            <td class="actions" data-th="">
+                                <button class="btn btn-danger btn-sm remove-from-cart"><i class="fa fa-trash-o"></i></button>
+                            </td> --}}
                         </div>
+
+                        
                         <div class="checkout-options">
                             <div class="card">
                                 <div class="card-content">
@@ -349,7 +137,7 @@
                                                 Total MRP
                                             </div>
                                             <div class="detail-amt">
-                                                $598
+                                                ${{ $details['price'] * $details['quantity'] }}
                                             </div>
                                         </div>
                                         <div class="detail">
@@ -394,6 +182,8 @@
                                 </div>
                             </div>
                         </div>
+
+                  
                     </section>
                 </fieldset>
                 <!-- Checkout Place order Ends -->
@@ -620,6 +410,7 @@
                                             </div>
                                             <div class="detail-amt total-amt">$699.30</div>
                                         </div>
+                                      
                                     </div>
                                 </div>
                             </div>
@@ -633,6 +424,54 @@
         </div>
     </div>
 </div>
+
 <!-- END: Content-->
 
+@endsection
+
+    <script type="text/javascript">
+    
+        $(".update-cart").change(function (e) {
+            e.preventDefault();
+    
+            var ele = $(this);
+    
+            $.ajax({
+                url: '{{ route('update.cart') }}',
+                method: "patch",
+                data: {
+                    _token: '{{ csrf_token() }}', 
+                    id: ele.parents("tr").attr("data-id"), 
+                    quantity: ele.parents("tr").find(".quantity").val()
+                },
+                success: function (response) {
+                window.location.reload();
+                }
+            });
+        });
+    
+        $(".remove-from-cart").click(function (e) {
+            e.preventDefault();
+    
+            var ele = $(this);
+    
+            if(confirm("Are you sure want to remove?")) {
+                $.ajax({
+
+                    alert('sadas');
+                    url: '{{ route('remove.from.cart') }}',
+                    method: "DELETE",
+                    data: {
+                        _token: '{{ csrf_token() }}', 
+                        id: ele.parents("tr").attr("data-id")
+                    },
+                    success: function (response) {
+                        window.location.reload();
+                    }
+                });
+            }
+        });
+    
+    </script>
+@section('scripts')
 @endsection

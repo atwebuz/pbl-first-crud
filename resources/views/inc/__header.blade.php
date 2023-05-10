@@ -71,10 +71,7 @@
                                     <a class="cart-item"
                                         href="#!">
                                         <div class="media">
-                                            {{-- <div class="media-left d-flex justify-content-center align-items-center"><img
-                                                    src="{{ $details['image'] }}" width="75"
-                                                    alt="Cart Item"></div> --}}
-
+                                           
                                                     <img class="media-left d-flex justify-content-center align-items-center" src="{{$details['image'] ? asset('image/' . $details['image']) : asset('assets/images/no-image.png')}}" alt="image not-found" width="75" />
                                             <div class="media-body"><span
                                                     class="item-title text-truncate text-bold-500 d-block mb-50">{{ $details['name'] }}</span><span
@@ -90,7 +87,7 @@
                                 @endif
                             </li>
                             <li class="dropdown-menu-footer"><a class="dropdown-item p-1 text-center text-primary"
-                                    href="{{route('cart')}}"><i
+                                    href="{{route('posts.checkout')}}"><i
                                         class="feather icon-shopping-cart align-middle"></i><span
                                         class="align-middle text-bold-600">Checkout</span></a></li>
                             <li class="empty-cart d-none p-2">Your Cart Is Empty.</li>

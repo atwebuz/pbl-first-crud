@@ -140,6 +140,7 @@ class PostsController extends Controller
         $this->authorize('update', $post);
 
         if($request->id && $request->quantity){
+            dd('errrorno');
             $cart = session()->get('cart');
             $cart[$request->id]["quantity"] = $request->quantity;
             session()->put('cart', $cart);

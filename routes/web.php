@@ -45,7 +45,7 @@ Route::resource('comments', CommentController::class);
     
 
 // Route::get('/', [PostsController::class, 'index']);  
-Route::get('cart', [PostsController::class, 'cart'])->name('cart');
+// Route::get('cart', [PostsController::class, 'cart'])->name('cart');
 Route::get('add-to-cart/{id}', [PostsController::class, 'addToCart'])->name('add.to.cart');
 Route::patch('update-cart', [PostsController::class, 'update'])->name('update.cart');
-Route::delete('remove-from-cart', [PostsController::class, 'remove'])->name('remove.from.cart');
+Route::delete('remove-from-cart', [PostsController::class, 'destroy'])->name('remove.from.cart');
