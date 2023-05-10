@@ -11,14 +11,14 @@
                 <div class="content-header-left col-md-9 col-12 mb-2">
                     <div class="row breadcrumbs-top">
                         <div class="col-12">
-                            <h2 class="content-header-title float-left mb-0">Shop</h2>
+                            <h2 class="content-header-title float-left mb-0">{{__('Shop')}}</h2>
                             <div class="breadcrumb-wrapper col-12">
                                 <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="index.html">Home</a>
+                                    <li class="breadcrumb-item"><a href="index.html">{{__('Home')}}</a>
                                     </li>
-                                    <li class="breadcrumb-item"><a href="#">eCommerce</a>
+                                    <li class="breadcrumb-item"><a href="#">{{__('eCommerce')}}</a>
                                     </li>
-                                    <li class="breadcrumb-item active">Shop
+                                    <li class="breadcrumb-item active">{{__('Shop')}}
                                     </li>
                                 </ol>
                             </div>
@@ -29,7 +29,7 @@
                     <div class="form-group breadcrum-right">
                         <div class="dropdown">
                             <button class="btn-icon btn btn-primary btn-round btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="feather icon-settings"></i></button>
-                            <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="#">Chat</a><a class="dropdown-item" href="#">Email</a><a class="dropdown-item" href="#">Calendar</a></div>
+                            <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="#">{{__('Chat')}}</a><a class="dropdown-item" href="#">{{__('Email')}}</a><a class="dropdown-item" href="#">Calendar</a></div>
                         </div>
                     </div>
                 </div>
@@ -48,16 +48,16 @@
                                             <span class="navbar-toggler-icon d-block d-lg-none"><i class="feather icon-menu"></i></span>
                                         </button>
                                         <div class="search-results">
-                                            16285 results found
+                                            16285 {{__('results found')}}
                                         </div>
                                     </div>
                                     <div class="view-options d-flex">
                                         <form action="/sort" method="POST">
                                             @csrf
                                          <select class="price-options form-control" id="ecommerce-price-options">
-                                            <option selected>Featured</option>
-                                            <option value="desc">Lowest</option>
-                                            <option value="asc">Highest</option>
+                                            <option selected>{{__('Featured')}}</option>
+                                            <option value="desc">{{__('Lowest')}}</option>
+                                            <option value="asc">{{__('Highest')}}</option>
                                         </select>
                                         </form>
                                      
@@ -130,8 +130,8 @@
                                         <p class="item-description">
                                           {{$post->paragraph}}
                                         </p>
-                                        <p><b>Category: </b> {{$post->category->name}}</p>
-                                        <p><b>Created at:</b> {{$post->created_at}}</p>
+                                        <p><b>{{__('Category')}}: </b> {{$post->category->name}}</p>
+                                        <p><b>{{__('Created at')}}:</b> {{$post->created_at}}</p>
                                     </div>
                                 </div>
                                 <div class="item-options text-center">
@@ -148,10 +148,10 @@
                                         </div>
                                     </div>
                                     <div class="wishlist">
-                                        <i class="fa fa-heart-o"></i> <span>Wishlist</span>
+                                        <i class="fa fa-heart-o"></i> <span>{{__('Wishlist')}}</span>
                                     </div>
                                     <a class="cart" href="{{ route('add.to.cart', $post->id) }}">
-                                        <i class="feather icon-shopping-cart"></i> <span class="add-to-carts">Add to cart</span> <a href="{{ route('posts.checkout') }}" class="view-in-cart d-none">View In Cart</a>
+                                        <i class="feather icon-shopping-cart"></i> <span class="add-to-carts">{{__('Add to cart')}}</span> <a href="{{ route('posts.checkout') }}" class="view-in-cart d-none">{{__('View In Cart')}}</a>
                                     </a>
                                 </div>
                             </div>

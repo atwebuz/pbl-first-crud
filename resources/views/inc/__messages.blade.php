@@ -19,4 +19,9 @@
         {{session('error')}}
     </div>
 @endif
+
+@if ($errors->has('throttle'))
+    <strong>{{ $errors->first('throttle') }}</strong>
+@endif
+
 </div>

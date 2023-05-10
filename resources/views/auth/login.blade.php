@@ -21,28 +21,28 @@
                                     <div class="card rounded-0 mb-0 px-2">
                                         <div class="card-header pb-1">
                                             <div class="card-title">
-                                                <h4 class="mb-0">Login</h4>
+                                                <h4 class="mb-0">{{__('Login')}}</h4>
                                             </div>
                                         </div>
-                                        <p class="px-2">Welcome back, please login to your account.</p>
+                                        <p class="px-2">{{__('Welcome back, please login to your account.')}}</p>
                                         <div class="card-content">
                                             <div class="card-body pt-1">
                                                 <form action="{{ route('authenticate') }}" method="POST">
                                                     @csrf
                                                     <fieldset class="form-label-group form-group position-relative has-icon-left">
-                                                        <input type="text" name="email" class="form-control" id="user-name" placeholder="Username" required>
+                                                        <input type="text" name="email" class="form-control" id="user-name" placeholder="Foydalanuvchi nomi" required>
                                                         <div class="form-control-position">
                                                             <i class="feather icon-user"></i>
                                                         </div>
-                                                        <label for="user-name">Username</label>
+                                                        <label for="user-name">{{__('Username')}}</label>
                                                     </fieldset>
 
                                                     <fieldset class="form-label-group position-relative has-icon-left">
-                                                        <input type="password" name="password" class="form-control" id="user-password" placeholder="Password" required>
+                                                        <input type="password" name="password" class="form-control" id="user-password" placeholder="Parol" required>
                                                         <div class="form-control-position">
                                                             <i class="feather icon-lock"></i>
                                                         </div>
-                                                        <label for="user-password">Password</label>
+                                                        <label for="user-password">{{__('Password')}}</label>
                                                     </fieldset>
                                                     <div class="form-group d-flex justify-content-between align-items-center">
                                                         <div class="text-left">
@@ -54,20 +54,20 @@
                                                                             <i class="vs-icon feather icon-check"></i>
                                                                         </span>
                                                                     </span>
-                                                                    <span class="">Remember me</span>
+                                                                    <span class="">{{__('Remember me')}}</span>
                                                                 </div>
                                                             </fieldset>
                                                         </div>
-                                                        <div class="text-right"><a href="auth-forgot-password.html" class="card-link">Forgot Password?</a></div>
+                                                        {{-- <div class="text-right"><a href="auth-forgot-password.html" class="card-link">{{__('Forgot Password?')}}</a></div> --}}
                                                     </div>
-                                                    <a href="/register" class="btn btn-outline-primary float-left btn-inline">Register</a>
-                                                    <button type="submit" class="btn btn-primary float-right btn-inline">Login</button>
+                                                    <a href="/register" class="btn btn-outline-primary float-left btn-inline">{{__('Register')}}</a>
+                                                    <button type="submit" class="btn btn-primary float-right btn-inline">{{__('Login')}}</button>
                                                 </form>
                                             </div>
                                         </div>
                                         <div class="login-footer">
                                             <div class="divider">
-                                                <div class="divider-text">OR</div>
+                                                <div class="divider-text">{{__('OR')}}</div>
                                             </div>
                                             <div class="footer-btn d-inline">
                                                 <a href="#" class="btn btn-facebook"><span class="fa fa-facebook"></span></a>

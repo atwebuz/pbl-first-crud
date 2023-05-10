@@ -153,9 +153,12 @@ class PostsController extends Controller
             'paragraph' => 'required',
             'color' => 'required',
             'price' => 'required',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+
            
 
         ]);
+
 
         if($request->hasfile('image')){  
             $name = $request->file('image')->getClientOriginalName();
@@ -163,9 +166,9 @@ class PostsController extends Controller
             $image = $name;
           }
 
+          
+          $post->update($request->all());
         //   dd($request);
-
-        $post->update($request->all());
 
         return redirect()->route('posts.index')->with('success', 'waw it was updated successfully');
 

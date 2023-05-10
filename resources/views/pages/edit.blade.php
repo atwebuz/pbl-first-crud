@@ -50,15 +50,17 @@
                                             @method('put')
                                             @csrf
                                             <div class="form-body">
-                                                
+
                                                 <div class="row">
                                                     <div class="col-12">
                                                         <div class="form-group row">
                                                             <div class="col-md-4">
-                                                                <span>Title</span>
+                                                                <span>{{__('Title')}}</span>
                                                             </div>
                                                             <div class="col-md-8">
-                                                                <input type="text" id="contact-info" class="form-control py-2" value="{{$post->title}}" name="title">
+                                                                <input type="text" id="contact-info"
+                                                                    class="form-control py-2" value="{{$post->title}}"
+                                                                    name="title">
                                                             </div>
                                                         </div>
                                                     </div>
@@ -66,7 +68,7 @@
                                                     <div class="col-12">
                                                         <div class="form-group row">
                                                             <div class="col-md-4">
-                                                                <span>Category</span>
+                                                                <span>{{__('Category')}}</span>
                                                             </div>
                                                             <div class="col-md-8">
                                                                 <select class="custom-select form-control" id="location"
@@ -80,34 +82,31 @@
                                                         </div>
                                                     </div>
 
-                                                    
+                                                 
+
+
+                                                   
                                                     <div class="col-12">
                                                         <div class="form-group row">
                                                             <div class="col-md-4">
-                                                                <span>Paragraph</span>
+                                                                <span>{{__('Color')}}</span>
                                                             </div>
                                                             <div class="col-md-8">
-                                                                <input type="text" id="contact-info" class="form-control py-2" value="{{$post->paragraph}}" name="paragraph">
+                                                                <input type="text" id="contact-info"
+                                                                    class="form-control py-2" value="{{$post->color}}"
+                                                                    name="color">
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="col-12">
                                                         <div class="form-group row">
                                                             <div class="col-md-4">
-                                                                <span>Color</span>
+                                                                <span>{{__('Price')}}</span>
                                                             </div>
                                                             <div class="col-md-8">
-                                                                <input type="text" id="contact-info" class="form-control py-2" value="{{$post->color}}" name="color">
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-12">
-                                                        <div class="form-group row">
-                                                            <div class="col-md-4">
-                                                                <span>Price</span>
-                                                            </div>
-                                                            <div class="col-md-8">
-                                                                <input type="text" id="contact-info" class="form-control py-2" value="{{$post->price}}" name="price">
+                                                                <input type="text" id="contact-info"
+                                                                    class="form-control py-2" value="{{$post->price}}"
+                                                                    name="price">
                                                             </div>
                                                         </div>
                                                     </div>
@@ -115,13 +114,33 @@
                                                     <div class="col-12">
                                                         <div class="form-group row">
                                                             <div class="col-md-4">
-                                                                <span>Image</span>
+                                                                <span>{{__('Paragraph')}}</span>
                                                             </div>
                                                             <div class="col-md-8">
-                                                                <input type="file" name="image" id="formFile">
-                                                              </div>
+                                                                <textarea class="form-control py-2"" name="paragraph" id="contact-info" cols="30" rows="6">
+ {{$post->paragraph}}
+                                                                </textarea>
+
+                                                                {{-- <input type="text" id="contact-info"
+                                                                    class="form-control py-2"
+                                                                    value="{{old('paragraph')}}" name="paragraph"
+                                                                    placeholder="paragraph"> --}}
+                                                            </div>
                                                         </div>
                                                     </div>
+
+                                                    <div class="col-12">
+                                                        <div class="form-group row">
+                                                            <div class="col-md-4">
+                                                                <span>{{__('Image')}}</span>
+                                                            </div>
+                                                            <div class="col-md-8">
+                                                                <input type="file" name="image" id="formFile" value="{{$post->image}}">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                 
                                                     <div class="form-group col-md-8 offset-md-4">
                                                         <fieldset class="checkbox">
                                                             <div class="vs-checkbox-con vs-checkbox-primary">
@@ -131,13 +150,15 @@
                                                                         <i class="vs-icon feather icon-check"></i>
                                                                     </span>
                                                                 </span>
-                                                                <span class="">Remember me</span>
+                                                                <span class="">{{__('Remember me')}}</span>
                                                             </div>
                                                         </fieldset>
                                                     </div>
                                                     <div class="col-md-8 offset-md-4">
-                                                        <button type="submit" class="btn btn-primary mr-1 mb-1 waves-effect waves-light">Submit</button>
-                                                        <button type="reset" class="btn btn-outline-warning mr-1 mb-1 waves-effect waves-light">Reset</button>
+                                                        <button type="submit"
+                                                            class="btn btn-primary mr-1 mb-1 waves-effect waves-light">{{__('Submit')}}</button>
+                                                        <button type="reset"
+                                                            class="btn btn-outline-warning mr-1 mb-1 waves-effect waves-light">{{__('Reset')}}</button>
                                                     </div>
                                                 </div>
                                             </div>

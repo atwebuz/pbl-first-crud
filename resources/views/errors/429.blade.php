@@ -57,10 +57,18 @@
                             <div class="card-content">
                                  <div class="card-body text-center">
                                     <img src="{{asset('assets/images/pages/404.png')}}" class="img-fluid align-self-center" alt="branding logo">
-                                    <h1 class="font-large-2 my-1">429 - TOO MANY REQUESTS</h1>
+                                    
+                                    <h1 class="font-large-2 my-1">429 - {{__('TOO MANY REQUESTS')}}</h1>
                                     <p class="p-2">
                                         paraphonic unassessable foramination Caulopteris worral Spirophyton encrimson esparcet aggerate chondrule
                                         restate whistler shallopy biosystematy area bertram plotting unstarting quarterstaff.
+
+                                        
+                                        {{-- if ($e instanceof HttpResponseException) {
+                                            $response = $e->getResponse();
+                                            $response->headers->add($e->getHeaders()));
+                                            return $response;
+                                        } --}}
                                     </p>
                                     <a class="btn btn-primary btn-lg mt-2" href="{{route('posts.index')}}">Back to Home</a>
                                 </div>

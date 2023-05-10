@@ -10,16 +10,16 @@
                 <div class="content-header-left col-md-9 col-12 mb-2">
                     <div class="row breadcrumbs-top">
                         <div class="col-12">
-                            <h2 class="content-header-title float-left mb-0">Product Details</h2>
+                            <h2 class="content-header-title float-left mb-0">{{__('Product Details')}}</h2>
                             <div class="breadcrumb-wrapper col-12">
                                 <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="/">Home</a>
+                                    <li class="breadcrumb-item"><a href="/">{{__('Home')}}</a>
                                     </li>
-                                    <li class="breadcrumb-item"><a href="#">eCommerce</a>
+                                    <li class="breadcrumb-item"><a href="#">{{__('eCommerce')}}</a>
                                     </li>
-                                    <li class="breadcrumb-item"><a href="app-ecommerce-shop.html">Shop</a>
+                                    <li class="breadcrumb-item"><a href="app-ecommerce-shop.html">{{__('Shop')}}</a>
                                     </li>
-                                    <li class="breadcrumb-item active">Details
+                                    <li class="breadcrumb-item active">{{__('Details')}}
                                     </li>
                                 </ol>
                             </div>
@@ -30,7 +30,7 @@
                     <div class="form-group breadcrum-right">
                         <div class="dropdown">
                             <button class="btn-icon btn btn-primary btn-round btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="feather icon-settings"></i></button>
-                            <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="#">Chat</a><a class="dropdown-item" href="#">Email</a><a class="dropdown-item" href="#">Calendar</a></div>
+                            <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="#">{{__('Chat')}}</a><a class="dropdown-item" href="#">Email</a><a class="dropdown-item" href="#">Calendar</a></div>
                         </div>
                     </div>
                 </div>
@@ -62,17 +62,14 @@
                                             <i class="feather icon-star text-warning"></i>
                                             <i class="feather icon-star text-secondary"></i>
                                         </span>
-                                        <span class="ml-50 text-dark font-medium-1">{{$post->rating}} ratings</span>
+                                        <span class="ml-50 text-dark font-medium-1">{{$post->rating}} {{__('ratings')}}</span>
                                     </div>
                                     <hr>
                                     <p>{{$post->paragraph}}</p>
-                                    <p class="font-weight-bold mb-25"> <i class="feather icon-truck mr-50 font-medium-2"></i>Free Shipping
-                                    </p>
-                                    <p class="font-weight-bold"> <i class="feather icon-dollar-sign mr-50 font-medium-2"></i>EMI options available
-                                    </p>
+                                   
                                     <hr>
                                     <div class="form-group">
-                                        <label class="font-weight-bold">Color</label>
+                                        <label class="font-weight-bold">{{__('Color')}}</label>
                                         {{$post->color}}
                                     </div>
 
@@ -88,14 +85,14 @@
 
                                    
 
-                                    <p><b>Created at:</b> {{$post->created_at}}</p>
-                                    <p><b>Category Type: </b> {{$post->category->name}}</p>
+                                    <p><b>{{__('Created at')}}:</b> {{$post->created_at}}</p>
+                                    <p><b>{{__('Category')}}: </b> {{$post->category->name}}</p>
                                     <hr>
-                                    <p>Available - <span class="text-success">In stock</span></p>
+                                    <p>{{__('Available')}} - <span class="text-success">{{__('In stock')}}</span></p>
 
                                     <div class="d-flex flex-column flex-sm-row">
-                                        <a href="{{ route('add.to.cart', $post->id) }}" class="btn btn-primary mr-0 mr-sm-1 mb-1 mb-sm-0"><i class="feather icon-shopping-cart mr-25"></i>ADD TO CART</a>
-                                        <button class="btn btn-outline-danger"><i class="feather icon-heart mr-25"></i>WISHLIST</button>
+                                        <a href="{{ route('add.to.cart', $post->id) }}" class="btn btn-primary mr-0 mr-sm-1 mb-1 mb-sm-0"><i class="feather icon-shopping-cart mr-25"></i>{{__('Add to cart')}}</a>
+                                        <button class="btn btn-outline-danger"><i class="feather icon-heart mr-25"></i>{{__('Wishlist')}}</button>
                                     </div>
                                     <hr>
                                     
@@ -106,8 +103,8 @@
                                                 @csrf
                                                 @method('DELETE')
                                                 
-                                                <a class="btn btn-primary" href="{{ route('posts.edit',$post->id) }}">Edit</a>
-                                                <button type="submit" class="btn btn-danger">Delete</button>
+                                                <a class="btn btn-primary" href="{{ route('posts.edit',$post->id) }}">{{__('Edit')}}</a>
+                                                <button type="submit" class="btn btn-danger">{{__('Delete')}}</button>
                                                 {{-- <button type="submit" class="btn btn-outline-primary mb-2 waves-effect waves-light">Delete</button> --}}
                                                 
                                             </form>
@@ -124,7 +121,7 @@
                         <div class="col-md-6 col-12">
                             <div class="card" style="">
                                 <div class="card-header">
-                                    <h4 class="card-title">Review Message Form</h4>
+                                    <h4 class="card-title">{{__('Review Message Form')}}</h4>
                                 </div>
                                 <div class="card-content">
                                     <div class="card-body">
@@ -148,15 +145,15 @@
                                                 
                                                         
                                                         <div class="col-md-8 ">
-                                                            <button type="submit" class="btn btn-primary mr-1 mb-1 waves-effect waves-light">Submit</button>
+                                                            <button type="submit" class="btn btn-primary mr-1 mb-1 waves-effect waves-light">{{__('Submit')}}</button>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </form>
                                             @else
                                             <div class="d-flex align-items-center justify-content-between col-6">
-                                                <p>For sending messages pleace   </p>
-                                                <a href="/login" type="submit" class="btn btn-primary mr-1 mb-1 waves-effect waves-light">Log in</a>                                              
+                                                <p>{{__('For sending messages pleace')}}   </p>
+                                                <a href="/login" type="submit" class="btn btn-primary mr-1 mb-1 waves-effect waves-light">{{__('Login')}}</a>                                              
                                             </div>
                                         @endauth
                                     </div>
@@ -165,7 +162,7 @@
                      
                             <div class="row d-flex container">                       
                                 <div class="col-lg-6 w-100 px-3">
-                                    <h2>Count of comments <span>{{ $post->comments()->count()}}</span></h2>
+                                    <h2>{{__('Count of comments')}} <span>{{ $post->comments()->count()}}</span></h2>
                                     @foreach ($post->comments as $comment)
                                         <span class="d-flex">
                                             <img class="round" src="{{asset('assets/images/portrait/small/avatar-s-11.jpg')}}" alt="avatar" height="40" width="40">
@@ -180,7 +177,7 @@
                                                     <form action="{{route('comments.destroy', $comment->id)}}" method="POST">          
                                                         @csrf
                                                         @method('DELETE')
-                                                            <button class="btn btn-danger mx-2">Delete</button>
+                                                            <button class="btn btn-danger mx-2">{{__('Delete')}}</button>
                                                     </form>
                                                     @endcan
                                             @endauth

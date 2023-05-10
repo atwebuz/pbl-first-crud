@@ -11,14 +11,14 @@
             <div class="content-header-left col-md-9 col-12 mb-2">
                 <div class="row breadcrumbs-top">
                     <div class="col-12">
-                        <h2 class="content-header-title float-left mb-0">Shop</h2>
+                        <h2 class="content-header-title float-left mb-0">{{__('Shop')}}</h2>
                         <div class="breadcrumb-wrapper col-12">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="index.html">Home</a>
+                                <li class="breadcrumb-item"><a href="index.html">{{__('Home')}}</a>
                                 </li>
-                                <li class="breadcrumb-item"><a href="#">eCommerce</a>
+                                <li class="breadcrumb-item"><a href="#">{{__('eCommerce')}}</a>
                                 </li>
-                                <li class="breadcrumb-item active">Shop
+                                <li class="breadcrumb-item active">{{__('Shop')}}
                                 </li>
                             </ol>
                         </div>
@@ -31,8 +31,8 @@
                         <button class="btn-icon btn btn-primary btn-round btn-sm dropdown-toggle" type="button"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i
                                 class="feather icon-settings"></i></button>
-                        <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="#">Chat</a><a
-                                class="dropdown-item" href="#">Email</a><a class="dropdown-item" href="#">Calendar</a>
+                        <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="#">{{__('Chat')}}</a><a
+                                class="dropdown-item" href="#">{{__('Email')}}</a><a class="dropdown-item" href="#">{{__('Calendar')}}</a>
                         </div>
                     </div>
                 </div>
@@ -46,7 +46,7 @@
                         <div class="col-md-6 col-12">
                             <div class="card" style="">
                                 <div class="card-header">
-                                    <h4 class="card-title">Create Form</h4>
+                                    <h4 class="card-title">{{__('Create')}}</h4>
                                 </div>
                                 <div class="card-content">
                                     <div class="card-body">
@@ -59,12 +59,12 @@
                                                     <div class="col-12">
                                                         <div class="form-group row">
                                                             <div class="col-md-4">
-                                                                <span>Title</span>
+                                                                <span>{{__('Title')}}</span>
                                                             </div>
                                                             <div class="col-md-8">
                                                                 <input type="text" id="contact-info"
-                                                                    class="form-control py-2" value="{{old('title')}}"
-                                                                    name="title" placeholder="Title">
+                                                                    class="form-control py-2"
+                                                                    name="title" placeholder="Sarlavha">
                                                             </div>
                                                         </div>
                                                     </div>
@@ -72,7 +72,7 @@
                                                     <div class="col-12">
                                                         <div class="form-group row">
                                                             <div class="col-md-4">
-                                                                <span>Category</span>
+                                                                <span>{{__('Category')}}</span>
                                                             </div>
                                                             <div class="col-md-8">
                                                                 <select class="custom-select form-control" id="location"
@@ -89,7 +89,7 @@
                                                     <div class="col-12">
                                                         <div class="form-group row">
                                                             <div class="col-md-4">
-                                                                <span>Tags</span>
+                                                                <span>{{__('Tags')}}</span>
                                                             </div>
                                                             <div class="col-md-8">
 
@@ -110,9 +110,9 @@
 
                                                                 <select class="select form-control" id="location"
                                                                     name="tags[]" aria-invalid="false" multiple>
-                                                                    <option value="">choose your tag</option>
+                                                                    <option value="">{{__('choose your tag')}}</option>
                                                                     @foreach($tags as $tag)
-                                                                    <option value=""> Доп. опции:</option>
+                                                                    {{-- <option value=""> {{('Add. options')}}:</option> --}}
                                                                         <option value="{{$tag->id}}">{{$tag->name}}
                                                                         </option>
 
@@ -130,24 +130,24 @@
                                                     <div class="col-12">
                                                         <div class="form-group row">
                                                             <div class="col-md-4">
-                                                                <span>Color</span>
+                                                                <span>{{__('Color')}}</span>
                                                             </div>
                                                             <div class="col-md-8">
                                                                 <input type="text" id="contact-info"
-                                                                    class="form-control py-2" value="{{old('color')}}"
-                                                                    name="color" placeholder="Color">
+                                                                    class="form-control py-2" 
+                                                                    name="color" placeholder="Rangi">
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="col-12">
                                                         <div class="form-group row">
                                                             <div class="col-md-4">
-                                                                <span>Price</span>
+                                                                <span>{{__('Price')}}</span>
                                                             </div>
                                                             <div class="col-md-8">
                                                                 <input type="text" id="contact-info"
-                                                                    class="form-control py-2" value="{{old('price')}}"
-                                                                    name="price" placeholder="price">
+                                                                    class="form-control py-2"
+                                                                    name="price" placeholder="Narxi">
                                                             </div>
                                                         </div>
                                                     </div>
@@ -155,11 +155,11 @@
                                                     <div class="col-12">
                                                         <div class="form-group row">
                                                             <div class="col-md-4">
-                                                                <span>Paragraph</span>
+                                                                <span>{{__('Paragraph')}}</span>
                                                             </div>
                                                             <div class="col-md-8">
                                                                 <textarea class="form-control py-2"" name="paragraph" id="contact-info" cols="30" rows="6" placeholder="Describe yourself here...">
-                                                                    {{old('paragraph')}}
+                                                                
                                                                 </textarea>
 
                                                                 {{-- <input type="text" id="contact-info"
@@ -173,7 +173,7 @@
                                                     <div class="col-12">
                                                         <div class="form-group row">
                                                             <div class="col-md-4">
-                                                                <span>Image</span>
+                                                                <span>{{__('Image')}}</span>
                                                             </div>
                                                             <div class="col-md-8">
                                                                 <input type="file" name="image" id="formFile" multiple>
@@ -191,15 +191,15 @@
                                                                         <i class="vs-icon feather icon-check"></i>
                                                                     </span>
                                                                 </span>
-                                                                <span class="">Remember me</span>
+                                                                <span class="">{{__('Remember me')}}</span>
                                                             </div>
                                                         </fieldset>
                                                     </div>
                                                     <div class="col-md-8 offset-md-4">
                                                         <button type="submit"
-                                                            class="btn btn-primary mr-1 mb-1 waves-effect waves-light">Submit</button>
+                                                            class="btn btn-primary mr-1 mb-1 waves-effect waves-light">{{__('Submit')}}</button>
                                                         <button type="reset"
-                                                            class="btn btn-outline-warning mr-1 mb-1 waves-effect waves-light">Reset</button>
+                                                            class="btn btn-outline-warning mr-1 mb-1 waves-effect waves-light">{{__('Reset')}}</button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -207,7 +207,7 @@
                                     </div>
                                 </div>
                             </div>
-                            @include('../inc/__messages')x
+                            @include('../inc/__messages')
                         </div>
                     </div>
                 </section>

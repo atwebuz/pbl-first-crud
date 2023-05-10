@@ -21,19 +21,49 @@
 
                 </div>
                 <ul class="nav navbar-nav float-right">
-                    <li class="dropdown dropdown-language nav-item"><a class="dropdown-toggle nav-link"
+                    <li class="dropdown dropdown-language nav-item">
+                        <a class="dropdown-toggle nav-link"
                             id="dropdown-flag" href="#" data-toggle="dropdown" aria-haspopup="true"
-                            aria-expanded="false"><i class="flag-icon flag-icon-us"></i><span
-                                class="selected-language">English</span></a>
-                        <div class="dropdown-menu" aria-labelledby="dropdown-flag"><a class="dropdown-item" href="#"
-                                data-language="en"><i class="flag-icon flag-icon-us"></i> English</a><a
-                                class="dropdown-item" href="#" data-language="fr"><i class="flag-icon flag-icon-fr"></i>
-                                French</a><a class="dropdown-item" href="#" data-language="de"><i
-                                    class="flag-icon flag-icon-de"></i> German</a><a class="dropdown-item" href="#"
-                                data-language="pt"><i class="flag-icon flag-icon-pt"></i> Portuguese</a></div>
+                            aria-expanded="false">
+
+                            @switch(session()->get('locale') ?? 'ru')
+                            @case('uz')
+                            <i class="flag-icon flag-icon-uz"></i>
+                            <span
+                                class="selected-language">Uzbek</span>
+                            @break
+                            @case('ru')
+                            <i class="flag-icon flag-icon-ru"></i>
+                            <span
+                                class="selected-language">Russian</span>
+                            @break                        
+                            @case('en')
+                            <i class="flag-icon flag-icon-us"></i>
+                            <span
+                                class="selected-language">English</span>
+                            @break
+                            @endswitch
+
+                        
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="dropdown-flag">
+
+                                <a class="dropdown-item" href="?lang=uz"
+                                data-language="uz"><i class="flag-icon flag-icon-uz"></i> Uzbek</a>
+
+                                <a class="dropdown-item" href="?lang=en"
+                                data-language="en"><i class="flag-icon flag-icon-us"></i> English</a>
+
+                                <a class="dropdown-item" href="?lang=ru"
+                                data-language="ru"><i class="flag-icon flag-icon-ru"></i> Russian</a>
+
+                               
+                                
+                        </div>
                     </li>
                     <li class="nav-item d-none d-lg-block"><a class="nav-link nav-link-expand"><i
-                                class="ficon feather icon-maximize"></i></a></li>
+                                class="ficon feather icon-maximize"></i></a>
+                    </li>
                     <li class="nav-item nav-search"><a class="nav-link nav-link-search"><i
                                 class="ficon feather icon-search"></i></a>
                         <div class="search-input">
@@ -60,13 +90,13 @@
                                 <div class="dropdown-header m-0 p-2">
                                     <h3 class="white">
                                                    <span class="cart-item-count">{{$total}}</span>                          
-                                                   <span class="mx-50">Items</span>
+                                                   <span class="mx-50">{{__('Items')}}</span>
                                     </h3>
-                                    <span class="notification-title">In Your Cart</span>
+                                    <span class="notification-title">{{_('In Your Cart')}}</span>
                                 </div>
                             </li>
                             <li class="scrollable-container media-list">
-                                @if(session('cart'))
+                                @if(session('cart') )
                                 @foreach(session('cart') as $id => $details)
                                     <a class="cart-item"
                                         href="#!">
@@ -89,8 +119,8 @@
                             <li class="dropdown-menu-footer"><a class="dropdown-item p-1 text-center text-primary"
                                     href="{{route('posts.checkout')}}"><i
                                         class="feather icon-shopping-cart align-middle"></i><span
-                                        class="align-middle text-bold-600">Checkout</span></a></li>
-                            <li class="empty-cart d-none p-2">Your Cart Is Empty.</li>
+                                        class="align-middle text-bold-600">{{__('Checkout')}}</span></a></li>
+                            <li class="empty-cart d-none p-2">{{__('Your Cart Is Empty.')}}</li>
                         </ul>
                     </li>
                     <li class="dropdown dropdown-notification nav-item"><a class="nav-link nav-link-label" href="#"
@@ -99,8 +129,7 @@
                         <ul class="dropdown-menu dropdown-menu-media dropdown-menu-right">
                             <li class="dropdown-menu-header">
                                 <div class="dropdown-header m-0 p-2">
-                                    <h3 class="white">5 New</h3><span class="notification-title">App
-                                        Notifications</span>
+                                    <h3 class="white">5 {{__('New')}}</h3><span class="notification-title">{{__('App Notifications')}}</span>
                                 </div>
                             </li>
                             <li class="scrollable-container media-list"><a class="d-flex justify-content-between"
@@ -154,15 +183,13 @@
                                         </div>
                                         <div class="media-body">
                                             <h6 class="warning media-heading">Generate monthly report</h6><small
-                                                class="notification-text">Chocolate cake oat cake tiramisu
-                                                marzipan</small>
+                                                class="notification-text">Chocolate cake oat cake tiramisu marzipan</small>
                                         </div><small>
-                                            <time class="media-meta" datetime="2015-06-11T18:29:20+08:00">Last
-                                                month</time></small>
+                                            <time class="media-meta" datetime="2015-06-11T18:29:20+08:00">Last month</time></small>
                                     </div>
                                 </a></li>
                             <li class="dropdown-menu-footer"><a class="dropdown-item p-1 text-center"
-                                    href="javascript:void(0)">View all notifications</a></li>
+                                    href="javascript:void(0)">{{__('View all notifications')}}</a></li>
                         </ul>
                     </li>
                     <li class="dropdown dropdown-user nav-item"><a class="dropdown-toggle nav-link dropdown-user-link"
@@ -170,7 +197,7 @@
                             @auth
                             <div class="user-nav d-sm-flex d-none"><span
                                     class="user-name text-bold-600">{{auth()->user()->name}}</span><span
-                                    class="user-status">Available</span></div><span><img class="round"
+                                    class="user-status">{{__('Available')}}</span></div><span><img class="round"
                                     src="{{asset('assets/images/portrait/small/avatar-s-11.jpg')}}" alt="avatar"
                                     height="40" width="40"></span>
 
@@ -183,15 +210,15 @@
                                     height="40" width="40"></span> --}}
                         </a>
                         <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item"
-                                href="{{route('posts.settings')}}"><i class="feather icon-user"></i> Edit Profile</a><a
+                                href="{{route('posts.settings')}}"><i class="feather icon-user"></i> {{__('Edit Profile')}}</a><a
                                 class="dropdown-item" href="app-chat.html"><i class="feather icon-message-square"></i>
-                                Chats</a>
+                                {{__('Chats')}}</a>
 
                             <div class="dropdown-divider"></div>
                             <form action="{{route('logout')}}" method="POST">
                                 @csrf
                                 <button type="submit" class="dropdown-item" href="">
-                                    <i class="feather icon-power"></i> Logout
+                                    <i class="feather icon-power"></i> {{__('Logout')}}
                                 </button>
                             </form>
 
@@ -294,8 +321,7 @@
 <ul class="main-search-list-defaultlist-other-list d-none">
     <li class="auto-suggestion d-flex align-items-center justify-content-between cursor-pointer"><a
             class="d-flex align-items-center justify-content-between w-100 py-50">
-            <div class="d-flex justify-content-start"><span class="mr-75 feather icon-alert-circle"></span><span>No
-                    results found.</span></div>
+            <div class="d-flex justify-content-start"><span class="mr-75 feather icon-alert-circle"></span><span>No results found.</span></div>
         </a></li>
 </ul>
 <!-- END: Header-->
@@ -307,7 +333,7 @@
         <ul class="nav navbar-nav flex-row">
             <li class="nav-item mr-auto"><a class="navbar-brand" href="{{route('posts.index')}}">
                     <div class="brand-logo"></div>
-                    <h2 class="brand-text mb-0">Vuexy</h2>
+                    <h2 class="brand-text mb-0">Auto Shop</h2>
                 </a></li>
             <li class="nav-item nav-toggle"><a class="nav-link modern-nav-toggle pr-0" data-toggle="collapse"><i
                         class="feather icon-x d-block d-xl-none font-medium-4 primary toggle-icon"></i><i
@@ -322,22 +348,22 @@
 
 
             <li class=" nav-item"><a href="#"><i class="feather icon-shopping-cart"></i><span class="menu-title"
-                        data-i18n="Ecommerce">Ecommerce</span></a>
+                        data-i18n="Ecommerce">{{__('Ecommerce')}}</span></a>
                 <ul class="menu-content">
                     <li class="{{ (request()->is('posts')) ? 'active' : '' }} "><a href="{{route('posts.index')}}"><i
-                                class="feather icon-circle"></i><span class="menu-item" data-i18n="Shop">Shop</span></a>
+                                class="feather icon-circle"></i><span class="menu-item" data-i18n="Shop">{{__('Shop')}}</span></a>
                     </li>
 
                     @auth
                     <li class="{{ (request()->is('posts/create')) ? 'active' : '' }}"><a
                             href="{{route('posts.create')}}"><i class="feather icon-circle"></i><span class="menu-item"
-                                data-i18n="Wish List">Create</span></a>
+                                data-i18n="Wish List">{{__('Create')}}</span></a>
                     </li>
 
                     @else
                     <li class="{{ (request()->is('login')) ? 'active' : '' }}"><a href="{{route('login')}}"><i
                                 class="feather icon-circle"></i><span class="menu-item"
-                                data-i18n="Login">Login</span></a>
+                                data-i18n="Login">{{__('Login')}}</span></a>
                     </li>
                     @endauth
 
@@ -345,26 +371,28 @@
 
                     <li class="{{ (request()->is('posts/wishlist')) ? 'active' : '' }}"><a
                             href="{{route('posts.wishlist')}}"><i class="feather icon-circle"></i><span
-                                class="menu-item" data-i18n="Wish List">Wish List</span></a>
+                                class="menu-item" data-i18n="Wish List">{{__('Wish List')}}</span></a>
                     </li>
 
+                  
                     <li class="{{ (request()->is('posts/checkout')) ? 'active' : '' }}"><a
                             href="{{route('posts.checkout')}}"><i class="feather icon-circle"></i><span
-                                class="menu-item" data-i18n="Checkout">Checkout</span></a>
+                                class="menu-item" data-i18n="Checkout">{{__('Checkout')}}</span></a>
                     </li>
+                 \
                 </ul>
             </li>
             <li class=" nav-item"><a href="#"><i class="feather icon-user"></i><span class="menu-title"
-                        data-i18n="User">User</span></a>
+                        data-i18n="User">{{__('User')}}</span></a>
                 <ul class="menu-content">
                     <li><a href="app-user-list.html"><i class="feather icon-circle"></i><span class="menu-item"
-                                data-i18n="List">List</span></a>
+                                data-i18n="List">{{__('List')}}</span></a>
                     </li>
                     <li><a href="app-user-view.html"><i class="feather icon-circle"></i><span class="menu-item"
-                                data-i18n="View">View</span></a>
+                                data-i18n="View">{{__('View')}}</span></a>
                     </li>
                     <li><a href="app-user-edit.html"><i class="feather icon-circle"></i><span class="menu-item"
-                                data-i18n="Edit">Edit</span></a>
+                                data-i18n="Edit">{{__('Edit')}}</span></a>
                     </li>
                 </ul>
             </li>
@@ -374,25 +402,25 @@
 
 
 
-            <li class=" navigation-header"><span>pages</span>
+            <li class=" navigation-header"><span>{{__('pages')}}</span>
             </li>
             <li class=" nav-item"><a href="page-user-profile.html"><i class="feather icon-user"></i><span
-                        class="menu-title" data-i18n="Profile">Profile</span></a>
+                        class="menu-title" data-i18n="Profile">{{__('Profile')}}</span></a>
             </li>
 
             @auth
             <li class="{{ (request()->is('posts/settings')) ? 'nav-item active' : '' }}"><a
                     href="{{route('posts.settings')}}"><i class="feather icon-settings"></i><span class="menu-title"
-                        data-i18n="Account Settings">Account Settings</span></a>
+                        data-i18n="Account Settings">{{__('Account Settings')}}</span></a>
             </li>
             @endauth
             <li class="{{ (request()->is('posts/faq')) ? 'nav-item active' : '' }}"><a href="{{route('posts.faq')}}"><i
-                        class="feather icon-help-circle"></i><span class="menu-title" data-i18n="FAQ">FAQ</span></a>
+                        class="feather icon-help-circle"></i><span class="menu-title" data-i18n="FAQ">{{__('FAQ')}}</span></a>
             </li>
 
 
             <li class="disabled nav-item"><a href="#"><i class="feather icon-eye-off"></i><span class="menu-title"
-                        data-i18n="Disabled Menu">Disabled Menu</span></a>
+                        data-i18n="Disabled Menu">{{__('Disabled Menu')}}</span></a>
             </li>
 
 
