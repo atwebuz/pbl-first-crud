@@ -379,7 +379,7 @@
                             href="{{route('posts.checkout')}}"><i class="feather icon-circle"></i><span
                                 class="menu-item" data-i18n="Checkout">{{__('Checkout')}}</span></a>
                     </li>
-                 \
+                 
                 </ul>
             </li>
             <li class=" nav-item"><a href="#"><i class="feather icon-user"></i><span class="menu-title"
