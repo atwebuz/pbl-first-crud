@@ -61,17 +61,51 @@
                                 
                         </div>
                     </li>
+
                     <li class="nav-item d-none d-lg-block"><a class="nav-link nav-link-expand"><i
                                 class="ficon feather icon-maximize"></i></a>
                     </li>
                     <li class="nav-item nav-search"><a class="nav-link nav-link-search"><i
                                 class="ficon feather icon-search"></i></a>
                         <div class="search-input">
-                            <div class="search-input-icon"><i class="feather icon-search primary"></i></div>
-                            <input class="input" type="text" placeholder="Explore Vuexy..." tabindex="-1"
-                                data-search="template-list">
+                            <div class="search-input-icon"><i class="feather icon-search primary" ></i></div>
+                            <input class="input" class="form-controller" type="text" placeholder="Explore Vuexy..." tabindex="-1"
+                                data-search="template-list" id="search" name="search">
                             <div class="search-input-close"><i class="feather icon-x"></i></div>
-                            <ul class="search-list search-list-main"></ul>
+                            <ul class="search-list search-list-main">
+                                <table class="table table-bordered table-hover">
+                                        <thead>
+                                        <tr> 
+                                        <th>ID</th>
+                                        <th>Image</th>
+                                        <th>Product Name</th>
+                                        <th>Description</th>
+                                        <th>Price</th>
+                                        </tr>
+                                        </thead>
+                                <tbody>
+                                
+                                </tbody>
+                            </table>
+                            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+
+                            <script type="text/javascript">
+                                $('#search').on('keyup',function(){
+                                $value=$(this).val();
+                                $.ajax({
+                                type : 'get',
+                                url : '{{URL::to('search')}}',
+                                data:{'search':$value},
+                                success:function(data){
+                                $('tbody').html(data);
+                                }
+                                });
+                                })
+                                </script>
+                                <script type="text/javascript">
+                                $.ajaxSetup({ headers: { 'csrftoken' : '{{ csrf_token() }}' } });
+                                </script>
+                            </ul>
                         </div>
                     </li>
                     <li class="dropdown dropdown-notification nav-item">
@@ -352,7 +386,7 @@
                 <ul class="menu-content">
                     <li class="{{ (request()->is('posts')) ? 'active' : '' }} "><a href="{{route('posts.index')}}"><i
                                 class="feather icon-circle"></i><span class="menu-item" data-i18n="Shop">{{__('Shop')}}</span></a>
-                    </li>
+                    </>
 
                     @auth
                     <li class="{{ (request()->is('posts/create')) ? 'active' : '' }}"><a

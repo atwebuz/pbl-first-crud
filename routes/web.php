@@ -21,6 +21,8 @@ use App\Http\Controllers\PostsController;
 // Route::get('/', function () {
 //     return view('index');
 // });
+Route::get('/', [PostsController::class, 'index'])->name('pages.index');
+Route::get('/search',[PostsController::class, 'search'])->name('search');
 Route::get('posts/wishlist', [PagesController::class, 'wishlist'])->name('posts.wishlist');
 Route::get('posts/checkout', [PagesController::class, 'checkout'])->name('posts.checkout');
 Route::any('posts/settings', [PagesController::class, 'settings'])->name('posts.settings');

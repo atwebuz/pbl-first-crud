@@ -48,7 +48,7 @@
                                             <span class="navbar-toggler-icon d-block d-lg-none"><i class="feather icon-menu"></i></span>
                                         </button>
                                         <div class="search-results">
-                                            16285 {{__('results found')}}
+                                            {{count($posts)}} {{__('results found')}}
                                         </div>
                                     </div>
                                     <div class="view-options d-flex">
@@ -83,15 +83,49 @@
                     <section id="ecommerce-searchbar">
                         <div class="row mt-1">
                             <div class="col-sm-12">
-                                <fieldset class="form-group position-relative">
-                                    <input type="text" class="form-control search-product" id="iconLeft5" placeholder="Search here">
+                                {{-- <fieldset class="form-group position-relative">
+                                    <input type="text" class="form-control search-product" id="search" name="search" placeholder="Search here">
                                     <div class="form-control-position">
                                         <i class="feather icon-search"></i>
                                     </div>
-                                </fieldset>
+                                </fieldset> --}}
+
+                                {{-- <table class="table table-bordered table-hover">
+                                    <thead>
+                                    <tr>
+                                    <th>ID</th>
+                                    <th>Product Name</th>
+                                    <th>Description</th>
+                                    <th>Price</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    </tbody>
+                            </table> --}}
+
+                       
                             </div>
                         </div>
                     </section>
+
+
+<script type="text/javascript">
+    $('#search').on('keyup',function(){
+        // alert('sa');
+    $value=$(this).val();
+    $.ajax({
+    type : 'get',
+    url : '{{URL::to('search')}}',
+    data:{'search':$value},
+    success:function(data){
+    $('tbody').html(data);
+    }
+    });
+    })
+    </script>
+    <script type="text/javascript">
+    $.ajaxSetup({ headers: { 'csrftoken' : '{{ csrf_token() }}' } });
+    </script>
                     <!-- Ecommerce Search Bar Ends -->
                
                     <!-- Ecommerce Products Starts -->

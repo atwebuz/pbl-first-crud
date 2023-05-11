@@ -6,6 +6,7 @@ use App\Models\Category;
 use App\Models\Post;
 use App\Models\Tag;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 
 class PostsController extends Controller
@@ -15,9 +16,33 @@ class PostsController extends Controller
      */
 
      public function __construct(){
-        $this->middleware('auth')->except(['index', 'show']);
+        $this->middleware('auth')->except(['index', 'show', 'search']);
         // $this->authorizeResource(Post::class, 'post');
      }
+
+     public function search(Request $request)
+     {
+     if($request->ajax())
+     {
+     $output="";
+     $posts=DB::table('posts')->where('title','LIKE','%'.$request->search."%")->get();
+     if($posts)
+     {
+     foreach ($posts as $key => $post) {
+     $output.='<tr>'.
+     '<td>'.$post->id.'</td>'.
+    //  '<td> <img class="img-fluid" src="{{'.$post->image.'}}"</td>'.
+     '<td> <img class="img-fluid" src="{{.$request->image.}}"></td>'.
+     
+     '<td>'.$post->title.'</td>'.
+     '<td>'.$post->paragraph.'</td>'.
+     '<td>'.$post->price.'</td>'.
+     '</tr>';
+     }
+        return Response($output);
+        }
+    }}
+
     
     public function index()
     {
@@ -218,7 +243,7 @@ class PostsController extends Controller
         }
           
         session()->put('cart', $cart);
-        return redirect()->back()->with('success', 'Product added to cart successfully!');
+        return redirect()->back()->with('success', 'post added to cart successfully!');
     }
   
 
@@ -232,7 +257,7 @@ class PostsController extends Controller
                 unset($cart[$request->id]);
                 session()->put('cart', $cart);
             }
-            session()->flash('success', 'Product removed successfully');
+            session()->flash('success', 'post removed successfully');
         }
     }
     // dev end
