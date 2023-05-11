@@ -108,19 +108,43 @@
                                                                 </ul> --}}
 
 
-                                                                <select class="select form-control" id="location"
+                                                                {{-- <select class="select form-control" id="location"
                                                                     name="tags[]" aria-invalid="false" multiple>
                                                                     <option value="">{{__('choose your tag')}}</option>
                                                                     @foreach($tags as $tag)
-                                                                    {{-- <option value=""> {{('Add. options')}}:</option> --}}
                                                                         <option value="{{$tag->id}}">{{$tag->name}}
                                                                         </option>
 
                                                                     @endforeach
+                                                                    
+                                                                 </select> --}}
+
+
+                                                              
+                                                                    @foreach($tags as $tag)
+                                                                        <input type="checkbox" name="tags[]" value="{{$tag->id}}" id="{{$tag->name}}">
+                                                                        <label for="hp">{{$tag->name}}</label>
+                                                                    @endforeach
+                                                                                                                                                                                      
+                                                                                                                    
+
+                                                                    {{-- <input type="checkbox" name="tags[]" value="1" id="hp">
+                                                                    <label for="hp">Растаможена</label>
+                                                                    <input type="checkbox" name="tags[]" value="2" id="dell">
+                                                                    <label for="dell">Электрозеркала</label>
+                                                                    <input type="checkbox" name="tags[]" value="3" id="asus">
+                                                                    <label for="asus">стеклоподъемники</label>
+                                                                    <input type="checkbox" name="tags[]" value="4" id="acer">
+                                                                    <label for="acer">Кондиционер</label>
+                                                                    <input type="checkbox" name="tags[]" value="5" id="sony">
+                                                                    <label for="sony">Охранная</label>
+                                                                    <input type="checkbox" name="tags[]" value="6" id="fujitsu">
+                                                                    <label for="fujitsu">система</label>
+                                                                    <input type="checkbox" name="tags[]" value="7" id="other_barnds">
+                                                                    <label for="other_barnds">Парктроник</label> --}}
 
                                                                    
-                                                                </select>
-                                                                
+                                                          
                                                             </div>
                                                         </div>
                                                     </div>
