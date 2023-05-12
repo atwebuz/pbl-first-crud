@@ -34,6 +34,7 @@ class Post extends Model
         // return $this->images()->first();
     } 
 
+
     public function tags(){
         return $this->belongsToMany(Tag::class);
     }

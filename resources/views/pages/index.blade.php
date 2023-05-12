@@ -34,7 +34,8 @@
                     </div>
                 </div>
             </div>
-            <div class="content-detached content-right">
+            {{-- content-right --}}
+            <div class="content-detached ">
                 <div class="content-body">
                     <!-- Ecommerce Content Section Starts -->
        
@@ -83,25 +84,7 @@
                     <section id="ecommerce-searchbar">
                         <div class="row mt-1">
                             <div class="col-sm-12">
-                                {{-- <fieldset class="form-group position-relative">
-                                    <input type="text" class="form-control search-product" id="search" name="search" placeholder="Search here">
-                                    <div class="form-control-position">
-                                        <i class="feather icon-search"></i>
-                                    </div>
-                                </fieldset> --}}
-
-                                {{-- <table class="table table-bordered table-hover">
-                                    <thead>
-                                    <tr>
-                                    <th>ID</th>
-                                    <th>Product Name</th>
-                                    <th>Description</th>
-                                    <th>Price</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    </tbody>
-                            </table> --}}
+                              
 
                        
                             </div>
@@ -136,12 +119,15 @@
                             <div class="card-content">
                                 <div class="item-img text-center">
                                     <a href="{{route('posts.show', $post->id)}}">
+                                        {{-- @dd($post->images[0]->images) --}}
+                                      {{-- @dd($post->oneimage[0]->images)) --}}
                                         @php
+                                            //  dd($post->oneimage)
                                             //  dd($post->oneimage->images)
                                             //  dd($post->oneimage[0]->images)
                                         @endphp
-                                        <img class="img-fluid" src="{{count($post->oneimage)==1 ? asset('image/' . $post->oneimage[0]->images) : asset('assets/images/no-image.png')}}" alt="image not-found" />
-                                        {{-- <img class="img-fluid" src="{{$post->image ? asset('image/' . $post->image) : asset('assets/images/no-image.png')}}" alt="image not-found" /> --}}
+                                        <img class="img-fluid w-100" src="{{count($post->oneimage)==1 ? asset('image/' . $post->images[0]->images) : asset('assets/images/no-image.png')}}" alt="image not-found" />
+                                        {{-- <img class="img-fluid" src="{{count($post->oneimage)==1 ? asset('image/' . $post->oneimage[0]->images) : asset('assets/images/no-image.png')}}" alt="image not-found" /> --}}
                                     </a>
                                 </div>
                                 <div class="card-body">
@@ -221,7 +207,7 @@
 
                 </div>
             </div>
-            @include('../inc/__sidebar')
+            {{-- @include('../inc/__sidebar') --}}
             
         </div>
     </div>

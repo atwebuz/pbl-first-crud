@@ -97,9 +97,9 @@
                                         <div class="cart remove-wishlist">
                                             <i class="fa fa-heart-o mr-25"></i> Wishlist
                                         </div>
-                                        <div class="" id="remove-from-cart" style="background:red">
+                                        {{-- <div class="" id="remove-from-cart" style="background:red">
                                             <i class="feather icon-x align-middle"></i> Removerr
-                                        </div>
+                                        </div> --}}
 
                                     </div>
                                 </div>

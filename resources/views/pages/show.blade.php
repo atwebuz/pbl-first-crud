@@ -72,11 +72,11 @@
 
                                                     @endforelse 
                                                 </div>
-                                                <a class="carousel-control-prev" href="#carousel-keyboard" role="button" data-slide="prev">
+                                                <a class="carousel-control-prev" style="z-index: 1100" href="#carousel-keyboard" role="button" data-slide="prev">
                                                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                                                     <span class="sr-only">Previous</span>
                                                 </a>
-                                                <a class="carousel-control-next" href="#carousel-keyboard" role="button" data-slide="next">
+                                                <a class="carousel-control-next" style="z-index: 1100" href="#carousel-keyboard" role="button" data-slide="next">
                                                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                                     <span class="sr-only">Next</span>
                                                 </a>
@@ -182,7 +182,7 @@
                                                             
                                                                 <div class="col-md-8">
                                                                     {{-- <input type="text" id="contact-info" class="form-control py-2" value="" name="message" placeholder="message"> --}}
-                                                                    <textarea name="message" id=" " class="form-control" cols="30" rows="3"></textarea>
+                                                                    <textarea name="message" class="form-control" cols="30" rows="3" required></textarea>
 
                                                                 </div>
                                                             </div>
@@ -248,18 +248,7 @@
             </div>
         </section>
 
-        <section id="component-swiper-pagination">
-            <div class="col-md-6 col-sm-12">
-                <div class="card">
-                    <div class="card-header">
-                        <h4 class="card-title">Keyboard Option</h4>
-                    </div>
-                    <div class="card-content">
-                      
-                </div>
-            </div>
-            
-        </section>
+
                 <!-- app ecommerce details end -->
 
             </div>

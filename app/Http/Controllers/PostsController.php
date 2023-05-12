@@ -159,6 +159,8 @@ class PostsController extends Controller
             'tags' => Tag::all(),
             'categories' => Category::all()
         ]);
+
+    
     }
 
     /**
