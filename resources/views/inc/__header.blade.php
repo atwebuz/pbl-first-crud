@@ -97,6 +97,7 @@
                                 url : '{{URL::to('search')}}',
                                 data:{'search':$value},
                                 success:function(data){
+                                    console.log(data);
                                 $('tbody').html(data);
                                 }
                                 });

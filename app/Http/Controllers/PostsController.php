@@ -23,25 +23,34 @@ class PostsController extends Controller
 
      public function search(Request $request)
      {
+        // $posts=DB::table('posts')
+        // ->join('images', 'images.post_id',  '=', 'posts.id')
+        // ->where('title','LIKE','%'."m"."%")->get();
+        // dd($posts);
+        // $posts = Post::with('images')->where('title','LIKE','%'.'m'."%")->get();
+        // foreach ($posts as $post) {
+        //     dd(count($post->images));
+                    // } 
      if($request->ajax())
      {
      $output="";
-     $posts=DB::table('posts')->where('title','LIKE','%'.$request->search."%")->get();
-     if($posts)
-     {
-     foreach ($posts as $key => $post) {
+    //  $posts=DB::table('posts')
+    //                         ->join('images', 'images.post_id',  '=', 'posts.id')
+    //                         ->where('title','LIKE','%'.$request->search."%")->get();
+
+    $posts = Post::with('images')->where('title','LIKE','%'.$request->search."%")->get();
+     foreach ($posts as $post) {
      $output.='<tr>'.
      '<td>'.$post->id.'</td>'.
     //  '<td> <img class="img-fluid" src="{{'.$post->image.'}}"</td>'.
-     '<td> <img class="img-fluid" src="{{.$request->image.}}"></td>'.
+     '<td> <img class="img-fluids" style="width:100px; height:100px;" src="/image/'.(count($post->images)>0 ? $post->images[0]->images  : 'no-image.png' ).'"/></td>'.
      
      '<td>'.$post->title.'</td>'.
      '<td>'.$post->paragraph.'</td>'.
      '<td>'.$post->price.'</td>'.
      '</tr>';
      }
-        return Response($output);
-        }
+    return Response($output);
     }}
 
     
