@@ -38,7 +38,7 @@
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/pages/error.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/pages/faq.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/pages/search.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{asset('assets/css/plugins/extensions/swiper.css')}}">
+
 
 
     <link rel="stylesheet" type="text/css" href="{{asset('ssets/css/plugins/forms/validation/form-validation.css')}}">

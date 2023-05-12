@@ -44,16 +44,52 @@
                                 <div class="col-12 col-md-5 d-flex align-items-center justify-content-center mb-2 mb-md-0">
                                     <div class="d-flex align-items-center justify-content-center">
                                         
+
+                                        
                                         {{-- @dd($post->images) --}}
                                     
 
-                                        @forelse($post->images as $image)
+                                        {{-- <img class="img-fluid" src="{{ asset('assets/images/no-image.png')}}" alt="image not-found" /> --}}
+                                        <div class="card-body">
+                                            <div id="carousel-keyboard" class="carousel slide" data-keyboard="true">
+                                                <ol class="carousel-indicators">
+                                                    <li data-target="#carousel-keyboard" data-slide-to="0" class="active"></li>
+                                                    <li data-target="#carousel-keyboard" data-slide-to="1"></li>
+                                                    {{-- <li data-target="#carousel-keyboard" data-slide-to="2"></li> --}}
+                                                </ol>
+                                                <div class="carousel-inner" role="listbox">0
+                                                    @forelse($post->images as $image)
+                                                        <div class="carousel-item active">
+                                                            <img class="img-fluid w-100" src="{{$image->images ? asset('image/' . $image->images) : asset('assets/images/no-image.png')}}" alt="image not-found" />
+                                                        </div>
+                                                        <div class="carousel-item" style="z-index: 1000">
+                                                            <img class="img-fluid w-100" src="{{$image->images ? asset('image/' . $image->images) : asset('assets/images/no-image.png')}}" alt="image not-found" />
+                                                        </div>
+                                  
+                                                        @empty
+                                                            
+                                                        <img class="img-fluid" src="{{asset('assets/images/no-image.png')}}" alt="image not-found" />
+
+                                                    @endforelse 
+                                                </div>
+                                                <a class="carousel-control-prev" href="#carousel-keyboard" role="button" data-slide="prev">
+                                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                                    <span class="sr-only">Previous</span>
+                                                </a>
+                                                <a class="carousel-control-next" href="#carousel-keyboard" role="button" data-slide="next">
+                                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                                    <span class="sr-only">Next</span>
+                                                </a>
+                                            </div>
+                                        </div>
+
+                                        {{-- @forelse($post->images as $image)
                                         <img class="img-fluid" src="{{$image->images ? asset('image/' . $image->images) : asset('assets/images/no-image.png')}}" alt="image not-found" />
 
                                         @empty
                                         <img class="img-fluid" src="{{asset('assets/images/no-image.png')}}" alt="image not-found" />
 
-                                        @endforelse
+                                        @endforelse --}}
 
                                         {{-- <img class="img-fluid" src="{{$post->image ? asset('image/' . $post->image) : asset('assets/images/no-image.png')}}" alt="image not-found" /> --}}
                                     </div>
@@ -206,8 +242,23 @@
                     
                 </div>
                 
+
+
                 
             </div>
+        </section>
+
+        <section id="component-swiper-pagination">
+            <div class="col-md-6 col-sm-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title">Keyboard Option</h4>
+                    </div>
+                    <div class="card-content">
+                      
+                </div>
+            </div>
+            
         </section>
                 <!-- app ecommerce details end -->
 

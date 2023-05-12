@@ -21,6 +21,10 @@ use App\Http\Controllers\PostsController;
 // Route::get('/', function () {
 //     return view('index');
 // });
+
+Route::get('/carousel', function () {
+    return view('pages.carousel');
+});
 Route::get('/', [PostsController::class, 'index'])->name('pages.index');
 Route::get('/search',[PostsController::class, 'search'])->name('search');
 Route::get('posts/wishlist', [PagesController::class, 'wishlist'])->name('posts.wishlist');
