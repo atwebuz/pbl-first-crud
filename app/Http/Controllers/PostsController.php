@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Images;
 use App\Models\Post;
 use App\Models\Tag;
 use Illuminate\Http\Request;
@@ -52,9 +53,10 @@ class PostsController extends Controller
         //     return Post::latest()->paginate(9);
         // });
         return view('pages.index', [
-            'posts' => Post::latest()->paginate(9),
+            'posts' => Post::latest()->with('oneimage')->paginate(9),
             'categories' => Category::all(),
             'tags' => Tag::all(),
+            'images' => Images::all(),
         ]); 
     }
 
@@ -66,6 +68,7 @@ class PostsController extends Controller
         return view('pages.create')->with([
             'categories' => Category::all(),
             'tags' => Tag::all(),
+            'images' => Images::all(),
         ]); 
     }
 
@@ -83,15 +86,12 @@ class PostsController extends Controller
             'paragraph' => 'required',
             'color' => 'required',
             'price' => 'required',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'images' => 'nullable',
+            'images.*' => 'mimes:jpeg,png,jpg,gif,svg|max:2048',
 
         ]);
-
-        if($request->hasfile('image')){  
-          $name = $request->file('image')->getClientOriginalName();
-          $image = $request->file('image')->move('image/', $name);
-          $image = $name;
-        }
+        // $ss="";
+        // dd($ss);
 
 
         $post = Post::create([
@@ -101,14 +101,33 @@ class PostsController extends Controller
             'paragraph' => $request->paragraph,
             'color' => $request->color,
             'price' => $request->price,
-            'image' => $image ?? null,
         ]);
 
+        foreach($request->file('images') as $image) 
+        {  
+            $name = $image->getClientOriginalName();
+            $image = $image->move('image/', $name);
+            $image = $name;
+            Images::create([
+                'images'=>$name,
+                'post_id'=>$post->id
+            ]);
+          //   $ss.=$name . " -- ";
+          }
+  
         if(isset($request->tags)){
             foreach($request->tags as $tag){
                 $post->tags()->attach($tag);
             }
         }
+
+        // if(isset($request->images)){
+        //     foreach($request->images as $image){
+        //         $post->images()->attach($image);
+        //     }
+        // }
+        // dd($request);
+
 
         // PostCreated::dispatch($post); // Event
         // ChangePost::dispatch($post)->onQueue('uploading'); // Job
@@ -127,7 +146,7 @@ class PostsController extends Controller
     public function show(string $id)
     {
         return view('pages.show',[
-            'post' => Post::findOrFail($id),
+            'post' => Post::with('images')->findOrFail($id),
             'tags' => Tag::all(),
             'categories' => Category::all()
         ]);

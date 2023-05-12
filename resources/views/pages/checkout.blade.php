@@ -84,7 +84,8 @@
                                                 </p>
                                             </div>
                                         </div>
-                                        <div class="wishlist remove-wishlist">
+
+                                        <div class="wishlist remove-from-cart" >
                                             <i class="feather icon-x align-middle"></i> Remove
                                         </div>
 
@@ -96,6 +97,10 @@
                                         <div class="cart remove-wishlist">
                                             <i class="fa fa-heart-o mr-25"></i> Wishlist
                                         </div>
+                                        <div class="" id="remove-from-cart" style="background:red">
+                                            <i class="feather icon-x align-middle"></i> Removerr
+                                        </div>
+
                                     </div>
                                 </div>
                             </div>
@@ -429,8 +434,11 @@
 
 @endsection
 
+@section('scripts')
+
     <script type="text/javascript">
     
+    // console.log(123);
         $(".update-cart").change(function (e) {
             e.preventDefault();
     
@@ -450,7 +458,8 @@
             });
         });
     
-        $(".remove-from-cart").click(function (e) {
+        $("#remove-from-cart").click(function (e) {
+            alert('wedwe');
             e.preventDefault();
     
             var ele = $(this);
@@ -473,5 +482,4 @@
         });
     
     </script>
-@section('scripts')
 @endsection

@@ -137,9 +137,10 @@
                                 <div class="item-img text-center">
                                     <a href="{{route('posts.show', $post->id)}}">
                                         @php
-                                            // dd($post->image)
+                                            //  dd($post->oneimage->images)
+                                            //  dd($post->oneimage[0]->images)
                                         @endphp
-                                        <img class="img-fluid" src="{{$post->image ? asset('image/' . $post->image) : asset('assets/images/no-image.png')}}" alt="image not-found" />
+                                        <img class="img-fluid" src="{{count($post->oneimage)==1 ? asset('image/' . $post->oneimage[0]->images) : asset('assets/images/no-image.png')}}" alt="image not-found" />
                                         {{-- <img class="img-fluid" src="{{$post->image ? asset('image/' . $post->image) : asset('assets/images/no-image.png')}}" alt="image not-found" /> --}}
                                     </a>
                                 </div>

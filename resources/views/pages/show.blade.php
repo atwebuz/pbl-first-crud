@@ -43,7 +43,18 @@
                             <div class="row mb-5 mt-2">
                                 <div class="col-12 col-md-5 d-flex align-items-center justify-content-center mb-2 mb-md-0">
                                     <div class="d-flex align-items-center justify-content-center">
-                                        <img class="img-fluid" src="{{$post->image ? asset('image/' . $post->image) : asset('assets/images/no-image.png')}}" alt="image not-found" />
+                                        
+                                        {{-- @dd($post->images) --}}
+                                    
+
+                                        @forelse($post->images as $image)
+                                        <img class="img-fluid" src="{{$image->images ? asset('image/' . $image->images) : asset('assets/images/no-image.png')}}" alt="image not-found" />
+
+                                        @empty
+                                        <img class="img-fluid" src="{{asset('assets/images/no-image.png')}}" alt="image not-found" />
+
+                                        @endforelse
+
                                         {{-- <img class="img-fluid" src="{{$post->image ? asset('image/' . $post->image) : asset('assets/images/no-image.png')}}" alt="image not-found" /> --}}
                                     </div>
                                 </div>

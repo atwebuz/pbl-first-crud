@@ -200,7 +200,7 @@
                                                                 <span>{{__('Image')}}</span>
                                                             </div>
                                                             <div class="col-md-8">
-                                                                <input type="file" name="image" id="formFile" multiple>
+                                                                <input type="file" name="images[]" id="formFile" multiple>
                                                             </div>
                                                         </div>
                                                     </div>
