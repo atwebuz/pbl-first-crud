@@ -119,9 +119,9 @@
                                         <label class="font-weight-bold">{{__('Color')}}</label>
                                         {{$post->color}}
                                     </div>
-
+                                    @if(count($post->tags) > 0)
                                     <b>Tags: </b> <ul class="d-flex m-0 p-0" style="flex-wrap: wrap">
-                                       
+                                    @endif
                                         @foreach ($post->tags as $tag)
                                             {{-- <li class="my-1" style="list-style-type: none;"><a class="btn btn-primary mr-1" href="#">{{$tag->name}}</a></li> --}}
                                             <li class="my-0" style="list-style-type: none;"><a class="js-programmatic-close btn btn-outline-primary mr-1 mb-1 waves-effect waves-light" href="#">{{$tag->name}}</a></li>
@@ -137,10 +137,14 @@
                                     <hr>
                                     <p>{{__('Available')}} - <span class="text-success">{{__('In stock')}}</span></p>
 
+                              
+                                    
                                     <div class="d-flex flex-column flex-sm-row">
                                         <a href="{{ route('add.to.cart', $post->id) }}" class="btn btn-primary mr-0 mr-sm-1 mb-1 mb-sm-0"><i class="feather icon-shopping-cart mr-25"></i>{{__('Add to cart')}}</a>
                                         <button class="btn btn-outline-danger"><i class="feather icon-heart mr-25"></i>{{__('Wishlist')}}</button>
                                     </div>
+                                   
+                                  
                                     <hr>
                                     
                                     @auth

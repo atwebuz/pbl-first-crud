@@ -16,7 +16,7 @@ class PagesController extends Controller
 
     public function checkout()
     {
-        return view('pages.checkout');
+        return view('pages.checkout')->with('post');
     }
 
     public function settings(Request $request)

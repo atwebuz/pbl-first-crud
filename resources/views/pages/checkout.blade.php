@@ -50,8 +50,10 @@
                                 <div class="card-content">
                                     <div class="item-img text-center">
                                         <a href="app-ecommerce-details.html">
-                                            <img class="w-100" src="{{$details['image'] ? asset('image/' . $details['image']) : asset('assets/images/no-image.png')}}" alt="image not-found" width="100" height="100" class="img-responsive" />                                        </a>
-                                    </div>
+                                            {{-- @dump($details['image']); --}}
+                                            <img class="w-100" src="{{$details['image'] ? asset('image/' . $details['image']) : asset('assets/images/no-image.png')}}" alt="image not-found" width="100" height="100" class="img-responsive" /> 
+                                        </a> 
+                                      </div>
                                     <div class="card-body">
                                         <div class="item-name">
                                             <a href="app-ecommerce-details.html">{{ $details['name'] }}</a>

@@ -21,6 +21,13 @@ class UserSeeder extends Seeder
            'image' => null
         ]);
 
+        User::create([
+            'name' => 'abdusattorova86',
+            'email'=> 'abdusattorova86@gmail.com',
+            'password' => Hash::make('12345678'),
+            'image' => null
+         ]);
+
         // User::factory(10)->create();
 
     }

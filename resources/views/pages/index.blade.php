@@ -126,7 +126,7 @@
                                             //  dd($post->oneimage->images)
                                             //  dd($post->oneimage[0]->images)
                                         @endphp
-                                        <img class="img-fluid w-100" src="{{count($post->oneimage)==1 ? asset('image/' . $post->images[0]->images) : asset('assets/images/no-image.png')}}" alt="image not-found" />
+                                        <img class="img-fluid w-100" src="{{true ? asset('image/' . $post->images[0]->images) : asset('assets/images/no-image.png')}}" alt="image not-found" />
                                         {{-- <img class="img-fluid" src="{{count($post->oneimage)==1 ? asset('image/' . $post->oneimage[0]->images) : asset('assets/images/no-image.png')}}" alt="image not-found" /> --}}
                                     </a>
                                 </div>
@@ -145,7 +145,7 @@
                                     </div>
                                     <div class="item-name">
                                         <a href="{{route('posts.show', $post->id)}}">{{$post->title}}</a>
-                                        <p class="item-company">By <span class="company-name">Google</span></p>
+                                        <p class="item-company">By <span class="company-name">{{$post->user->name}}</span></p>
                                     </div>
                                     <div>
                                         <p class="item-description">
