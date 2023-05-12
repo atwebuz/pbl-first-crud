@@ -45,7 +45,7 @@ class PostsController extends Controller
     //  '<td> <img class="img-fluid" src="{{'.$post->image.'}}"</td>'.
      '<td> <img class="img-fluids" style="width:100px; height:100px;" src="/image/'.(count($post->images)>0 ? $post->images[0]->images  : 'no-image.png' ).'"/></td>'.
      
-     '<td>'.$post->title.'</td>'.
+     '<td><a href="posts/'.$post->id.'">'.$post->title.'</a></td>'.
      '<td>'.$post->paragraph.'</td>'.
      '<td>'.$post->price.'</td>'.
      '</tr>';
