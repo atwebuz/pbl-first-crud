@@ -93,6 +93,8 @@
                                     <h5>{{$post->title}}</h5>
                                     <p class="text-muted">by {{$post->user->name}}</p> 
 
+                                    {{-- @dd($post->reads) --}}
+
                                     {{-- @dd($post->user) --}}
                                     <div class="ecommerce-details-price d-flex flex-wrap">
 
@@ -133,13 +135,17 @@
                                     <hr>
                                     <p>{{__('Available')}} - <span class="text-success">{{__('In stock')}}</span></p>
 
-                              
+
                                     
                                     <div class="d-flex flex-column flex-sm-row">
                                         <a href="{{ route('add.to.cart', $post->id) }}" class="btn btn-primary mr-0 mr-sm-1 mb-1 mb-sm-0"><i class="feather icon-shopping-cart mr-25"></i>{{__('Add to cart')}}</a>
                                         <button class="btn btn-outline-danger"><i class="feather icon-heart mr-25"></i>{{__('Wishlist')}}</button>
+
+                                        <button style="opacity: 0;">{{$post->incrementReadCount()}}</button>
+                                        <button class="btn btn-primary">Ko'rilganlar soni: {{$post->reads}}</button>
                                     </div>
                                    
+                                    
                                   
                                     <hr>
                                     
@@ -157,11 +163,16 @@
                                             </form>
                                         @endcanany
                                     @endauth
+
+                                    
                                     <button type="button" class="btn btn-icon rounded-circle btn-outline-primary mr-1 mb-1"><i class="feather icon-facebook"></i></button>
                                     <button type="button" class="btn btn-icon rounded-circle btn-outline-info mr-1 mb-1"><i class="feather icon-twitter"></i></button>
                                     <button type="button" class="btn btn-icon rounded-circle btn-outline-danger mr-1 mb-1"><i class="feather icon-youtube"></i></button>
                                     <button type="button" class="btn btn-icon rounded-circle btn-outline-primary mr-1 mb-1"><i class="feather icon-instagram"></i></button>
+                                  
                                 </div>
+
+
                             </div>
                         </div>
 

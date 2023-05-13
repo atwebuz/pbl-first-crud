@@ -166,6 +166,7 @@ class PostsController extends Controller
     
     }
 
+    
     /**
      * Show the form for editing the specified resource.
      */
@@ -178,12 +179,12 @@ class PostsController extends Controller
         // $this->authorize('edit', $id);
 
         return view('pages.edit', [
-            'post' => Post::findOrFail($id),
+            'post' => Post::incrementReadCount()->findOrFail($id),
             'categories' => Category::all(),
             'images' => Images::all(),
 
 
-        ]); 
+        ]);
 
         
 
@@ -298,6 +299,8 @@ class PostsController extends Controller
             session()->flash('success', 'post removed successfully');
         }
     }
+
+
     // dev end
 }
     

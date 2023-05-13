@@ -11,9 +11,14 @@ class Post extends Model
 
     protected $table = 'posts';
 
-    protected $fillable = ['user_id','category_id', 'title', 'paragraph', 'price', 'color', 'image'];
+    protected $fillable = ['user_id','category_id', 'title', 'paragraph', 'price', 'color', 'image','reads'];
 
   
+    public function incrementReadCount() {
+        $this->reads++;
+        return $this->save();
+    }
+
     public function user(){
         return $this->belongsTo(User::class);
     }

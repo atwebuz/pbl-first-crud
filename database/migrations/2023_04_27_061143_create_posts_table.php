@@ -21,6 +21,7 @@ return new class extends Migration
             $table->double('price');
             $table->double('rating')->nullable();
             $table->string('color');
+            $table->bigInteger('reads')->unsigned()->default(0)->index();
             $table->timestamps();
         });
     }

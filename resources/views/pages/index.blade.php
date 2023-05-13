@@ -135,8 +135,10 @@
                                     <div class="item-wrapper">
                                         <div class="item-rating">
                                             <div class="badge badge-primary badge-md">
-                                                <span>{{$post->rating}}</span> <i class="feather icon-star"></i>
+                                               
+                                                <span >{{$post->rating}}</span> <i class="feather icon-star"></i>
                                             </div>
+                                           
                                         </div>
                                         <div>
                                             <h6 class="item-price">
