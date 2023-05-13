@@ -119,8 +119,9 @@
                             <div class="card-content">
                                 <div class="item-img text-center">
                                     <a href="{{route('posts.show', $post->id)}}">
-                                        {{-- @dd($post->images[0]->images) --}}
+                                        {{-- @dd(asset('image/' . $post->images[0]->images)) --}}
                                       {{-- @dd($post->oneimage[0]->images)) --}}
+                                      {{-- @dd($post->images[0]->images) --}}
                                         @php
                                             //  dd($post->oneimage)
                                             //  dd($post->oneimage->images)

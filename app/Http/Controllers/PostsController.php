@@ -95,7 +95,7 @@ class PostsController extends Controller
             'paragraph' => 'required',
             'color' => 'required',
             'price' => 'required',
-            'images' => 'nullable',
+            'images' => 'min:2|required',
             'images.*' => 'mimes:jpeg,png,jpg,gif,svg|max:2048',
 
         ]);

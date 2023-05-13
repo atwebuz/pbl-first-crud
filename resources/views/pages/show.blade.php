@@ -52,20 +52,14 @@
                                         {{-- <img class="img-fluid" src="{{ asset('assets/images/no-image.png')}}" alt="image not-found" /> --}}
                                         <div class="card-body">
                                             <div id="carousel-keyboard" class="carousel slide" data-keyboard="true">
-                                                <ol class="carousel-indicators">
-                                                    <li data-target="#carousel-keyboard" data-slide-to="0" class="active"></li>
-                                                    <li data-target="#carousel-keyboard" data-slide-to="1"></li>
-                                                    {{-- <li data-target="#carousel-keyboard" data-slide-to="2"></li> --}}
-                                                </ol>
                                                 <div class="carousel-inner" role="listbox">0
-                                                    @forelse($post->images as $image)
-                                                        <div class="carousel-item active">
+                                                    @forelse($post->images as $key => $image)
+                                                    <ol class="carousel-indicators">
+                                                        <li data-target="#carousel-keyboard" data-slide-to="{{$loop->index}}" class="active"></li>
+                                                    </ol>
+                                                        <div class="carousel-item {{$key == 0 ? 'active' : '' }}">
                                                             <img class="img-fluid w-100" src="{{$image->images ? asset('image/' . $image->images) : asset('assets/images/no-image.png')}}" alt="image not-found" />
                                                         </div>
-                                                        <div class="carousel-item" style="z-index: 1000">
-                                                            <img class="img-fluid w-100" src="{{$image->images ? asset('image/' . $image->images) : asset('assets/images/no-image.png')}}" alt="image not-found" />
-                                                        </div>
-                                  
                                                         @empty
                                                             
                                                         <img class="img-fluid" src="{{asset('assets/images/no-image.png')}}" alt="image not-found" />
@@ -119,9 +113,10 @@
                                         <label class="font-weight-bold">{{__('Color')}}</label>
                                         {{$post->color}}
                                     </div>
-                                    @if(count($post->tags) > 0)
-                                    <b>Tags: </b> <ul class="d-flex m-0 p-0" style="flex-wrap: wrap">
-                                    @endif
+                                        @if(count($post->tags) > 0)
+                                        <b>Tags: </b> <ul class="d-flex m-0 p-0" style="flex-wrap: wrap">
+                                        @endif
+
                                         @foreach ($post->tags as $tag)
                                             {{-- <li class="my-1" style="list-style-type: none;"><a class="btn btn-primary mr-1" href="#">{{$tag->name}}</a></li> --}}
                                             <li class="my-0" style="list-style-type: none;"><a class="js-programmatic-close btn btn-outline-primary mr-1 mb-1 waves-effect waves-light" href="#">{{$tag->name}}</a></li>
