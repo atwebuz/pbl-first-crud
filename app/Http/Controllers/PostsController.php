@@ -176,7 +176,9 @@ class PostsController extends Controller
 
         return view('pages.edit', [
             'post' => Post::findOrFail($id),
-            'categories' => Category::all()
+            'categories' => Category::all(),
+            'images' => Images::all(),
+
 
         ]); 
 
@@ -208,22 +210,25 @@ class PostsController extends Controller
             'paragraph' => 'required',
             'color' => 'required',
             'price' => 'required',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-
+            'images' => 'min:2|required',
+            'images.*' => 'mimes:jpeg,png,jpg,gif,svg|max:2048',
            
 
         ]);
 
 
-        if($request->hasfile('image')){  
-            $name = $request->file('image')->getClientOriginalName();
-            $image = $request->file('image')->move('image/', $name);
+        foreach($request->file('images') as $image) 
+        {  
+            $name = $image->getClientOriginalName();
+            $image = $image->move('image/', $name);
             $image = $name;
+            Images::create([
+                'images'=>$name,
+                'post_id'=>$post->id
+            ]);
           }
-
           
           $post->update($request->all());
-        //   dd($request);
 
         return redirect()->route('posts.index')->with('success', 'waw it was updated successfully');
 

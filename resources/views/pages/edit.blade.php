@@ -11,14 +11,17 @@
             <div class="content-header-left col-md-9 col-12 mb-2">
                 <div class="row breadcrumbs-top">
                     <div class="col-12">
-                        <h2 class="content-header-title float-left mb-0">Shop</h2>
+                        <h2 class="content-header-title float-left mb-0">{{__('Shop')}}</h2>
                         <div class="breadcrumb-wrapper col-12">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="index.html">Home</a>
+                                <li class="breadcrumb-item"><a href="/">{{__('Home')}}</a>
                                 </li>
-                                <li class="breadcrumb-item"><a href="#">eCommerce</a>
+                                <li class="breadcrumb-item"><a href="#">{{__('eCommerce')}}</a>
                                 </li>
-                                <li class="breadcrumb-item active">Shop
+                                <li class="breadcrumb-item"><a href="#">{{__('Shop')}}</a>
+                                </li>
+                             
+                                <li class="breadcrumb-item active">{{__('Edit')}}
                                 </li>
                             </ol>
                         </div>
@@ -135,7 +138,8 @@
                                                                 <span>{{__('Image')}}</span>
                                                             </div>
                                                             <div class="col-md-8">
-                                                                <input type="file" name="image" id="formFile" value="{{$post->image}}">
+                                                                {{-- @dd($post->images[0]->images) --}}
+                                                                <input type="file" name="images[]" id="formFile" value="{{$post->images[0]->images}}" multiple>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -166,7 +170,7 @@
                                     </div>
                                 </div>
                             </div>
-                            @include('../inc/__messages')x
+                            @include('../inc/__messages')
                         </div>
                     </div>
                 </section>

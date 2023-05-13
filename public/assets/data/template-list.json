@@ -6,7 +6,7 @@
     {"name":"Chat", "url":"app-chat.html","icon":"feather icon-message-square"},
     {"name":"Todo", "url":"app-todo.html","icon":"feather icon-check-square"},
     {"name":"Calender", "url":"app-calender.html","icon":"feather icon-calendar"},
-    {"name":"Shop Ecommerce", "url":"app-ecommerce-shop.html","icon":"feather icon-shopping-cart"},
+    {"name":"Shop Ecommerce", "url":"/","icon":"feather icon-shopping-cart"},
     {"name":"Product Details", "url":"app-ecommerce-details.html","icon":"feather icon-circle"},
     {"name":"Wish List", "url":"app-ecommerce-wishlist.html","icon":"feather icon-heart"},
     {"name":"Checkout", "url":"app-ecommerce-checkout.html","icon":"feather icon-credit-card"},

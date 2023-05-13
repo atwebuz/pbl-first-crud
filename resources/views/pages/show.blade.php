@@ -17,7 +17,7 @@
                                     </li>
                                     <li class="breadcrumb-item"><a href="#">{{__('eCommerce')}}</a>
                                     </li>
-                                    <li class="breadcrumb-item"><a href="app-ecommerce-shop.html">{{__('Shop')}}</a>
+                                    <li class="breadcrumb-item"><a href="/">{{__('Shop')}}</a>
                                     </li>
                                     <li class="breadcrumb-item active">{{__('Details')}}
                                     </li>

@@ -87,25 +87,7 @@
                                 
                                 </tbody>
                             </table>
-                            {{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script> --}}
 
-                            <script type="text/javascript">
-                                $('#search').on('keyup',function(){
-                                $value=$(this).val();
-                                $.ajax({
-                                type : 'get',
-                                url : '{{URL::to('search')}}',
-                                data:{'search':$value},
-                                success:function(data){
-                                    console.log(data);
-                                $('tbody').html(data);
-                                }
-                                });
-                                })
-                                </script>
-                                <script type="text/javascript">
-                                $.ajaxSetup({ headers: { 'csrftoken' : '{{ csrf_token() }}' } });
-                                </script>
                             </ul>
                         </div>
                     </li>
@@ -462,4 +444,23 @@
         </ul>
     </div>
 </div>
+
+<script type="text/javascript">
+    $('#search').on('keyup',function(){
+    $value=$(this).val();
+    $.ajax({
+    type : 'get',
+    url : '{{URL::to('search')}}',
+    data:{'search':$value},
+    success:function(data){
+        console.log(data);
+    $('tbody').html(data);
+    }
+    });
+    })
+    </script>
+    <script type="text/javascript">
+    $.ajaxSetup({ headers: { 'csrftoken' : '{{ csrf_token() }}' } });
+</script>
+
 <!-- END: Main Menu-->

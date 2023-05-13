@@ -14,11 +14,14 @@
                         <h2 class="content-header-title float-left mb-0">Checkout</h2>
                         <div class="breadcrumb-wrapper col-12">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="index.html">Home</a>
+                                <li class="breadcrumb-item"><a href="/">{{__('Home')}}</a>
                                 </li>
-                                <li class="breadcrumb-item"><a href="#">eCommerce</a>
+                                <li class="breadcrumb-item"><a href="#">{{__('eCommerce')}}</a>
                                 </li>
-                                <li class="breadcrumb-item active">Checkout
+                                <li class="breadcrumb-item"><a href="#">{{__('Shop')}}</a>
+                                </li>
+                             
+                                <li class="breadcrumb-item active">{{__('Checkout')}}
                                 </li>
                             </ol>
                         </div>
