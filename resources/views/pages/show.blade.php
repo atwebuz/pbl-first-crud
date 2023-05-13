@@ -212,7 +212,7 @@
                                     <h2>{{__('Count of comments')}} <span>{{ $post->comments()->count()}}</span></h2>
                                     @foreach ($post->comments as $comment)
                                         <span class="d-flex">
-                                            <img class="round" src="{{asset('assets/images/portrait/small/avatar-s-11.jpg')}}" alt="avatar" height="40" width="40">
+                                            <img class="round" src="{{auth()->user()->image ? asset('image/' . auth()->user()->image) : asset('assets/images/no-image.png')}}" alt="avatar" height="40" width="40">
                                             <div class="user-nav p-1">
                                                 <span class="user-name text-bold-600 pr-1">{{$comment->user->name}}</span>
                                                 {{$comment->created_at}}

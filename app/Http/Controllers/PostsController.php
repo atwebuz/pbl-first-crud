@@ -6,6 +6,7 @@ use App\Models\Category;
 use App\Models\Images;
 use App\Models\Post;
 use App\Models\Tag;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -52,6 +53,8 @@ class PostsController extends Controller
      }
     return Response($output);
     }}
+
+
 
     
     public function index()

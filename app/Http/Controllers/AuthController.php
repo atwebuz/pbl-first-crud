@@ -50,8 +50,9 @@ class AuthController extends Controller
     // register store
     public function register_store(Request $request){
 
+        // dd($request);
        $validated = $request->validate([
-
+                'image' => 'nullable',
                 'name' => 'required',
                 'email' => 'required|email:rfc,dns|unique:users,email',
                 'password' => 'required|min:8',
@@ -59,8 +60,17 @@ class AuthController extends Controller
             
         ]);
 
+        if($request->hasfile('image')){  
+            $filee = $request->image;
+            $fileName = $filee->getClientOriginalName();
+            $filee->move('image/',$fileName);
+            $image = $fileName;
+        }
+
+        
         $validated['password'] = Hash::make($validated['password']);
         $user = User::create($validated);
+        // dd($user->image);
 
         auth()->login($user);
 

@@ -53,9 +53,9 @@
                                         </div>
                                     </div>
                                     <div class="view-options d-flex">
-                                        <form action="/sort" method="POST">
+                                        <form action="" method="GET">
                                             @csrf
-                                         <select class="price-options form-control" id="ecommerce-price-options">
+                                         <select name="filter" class="price-options form-control" id="ecommerce-price-options">
                                             <option selected>{{__('Featured')}}</option>
                                             <option value="desc">{{__('Lowest')}}</option>
                                             <option value="asc">{{__('Highest')}}</option>

@@ -33,6 +33,7 @@ Route::get('posts/checkout', [PagesController::class, 'checkout'])->name('posts.
 // Route::any('posts/settings', [PagesController::class, 'settings'])->name('posts.settings');
 Route::any('posts/faq', [PagesController::class, 'faq'])->name('posts.faq');
 
+
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');

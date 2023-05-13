@@ -45,6 +45,12 @@
                                                         <input type="password" name="password_confirmation" id="inputConfPassword" class="form-control" placeholder="Parolni Tasdiqlang" required>
                                                         <label for="inputConfPassword">{{__('Confirm Password')}}</label>
                                                     </div>
+
+                                                    <div class="form-label-group">
+                                                        <input type="file" name="image" id="image" class="" placeholder="Image">
+
+                                                        <label for="inputConfPassword">{{__('Confirm Password')}}</label>
+                                                    </div>
                                                     <div class="form-group row">
                                                         <div class="col-12">
                                                             <fieldset class="checkbox">
