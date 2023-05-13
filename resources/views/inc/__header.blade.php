@@ -14,9 +14,32 @@
                         <!--   a.nav-link.nav-menu-main.menu-toggle.hidden-xs(href='#')-->
                         <!--     i.ficon.feather.icon-menu-->
 
-                        <li class="nav-item d-none d-lg-block"><a class="nav-link" href="app-calender.html"
-                                data-toggle="tooltip" data-placement="top" title="Calendar"><i
-                                    class="ficon feather icon-calendar"></i></a></li>
+                        <li class="nav-item nav-search"><a class="nav-link nav-link-search"><i
+                            class="ficon feather icon-search"></i></a>
+                    <div class="search-input">
+                        <div class="search-input-icon"><i class="feather icon-search primary" ></i></div>
+                        <input class="input" class="form-controller" type="text" placeholder="Explore Vuexy..." tabindex="-1"
+                            data-search="template-list" id="search" name="search">
+                        <div class="search-input-close"><i class="feather icon-x"></i></div>
+                        <ul class="search-list search-list-main">
+                            <table class="table table-bordered table-hover">
+                                    <thead>
+                                    <tr> 
+                                    <th>ID</th>
+                                    <th>Image</th>
+                                    <th>Product Name</th>
+                                    <th>Description</th>
+                                    <th>Price</th>
+                                    </tr>
+                                    </thead>
+                            <tbody>
+                            
+                            </tbody>
+                        </table>
+
+                        </ul>
+                    </div>
+                </li>
                     </ul>
 
                 </div>
@@ -26,7 +49,7 @@
                             id="dropdown-flag" href="#" data-toggle="dropdown" aria-haspopup="true"
                             aria-expanded="false">
 
-                            @switch(session()->get('locale') ?? 'ru')
+                            @switch(session()->get('locale') ?? 'uz')
                             @case('uz')
                             <i class="flag-icon flag-icon-uz"></i>
                             <span
@@ -65,32 +88,7 @@
                     <li class="nav-item d-none d-lg-block"><a class="nav-link nav-link-expand"><i
                                 class="ficon feather icon-maximize"></i></a>
                     </li>
-                    <li class="nav-item nav-search"><a class="nav-link nav-link-search"><i
-                                class="ficon feather icon-search"></i></a>
-                        <div class="search-input">
-                            <div class="search-input-icon"><i class="feather icon-search primary" ></i></div>
-                            <input class="input" class="form-controller" type="text" placeholder="Explore Vuexy..." tabindex="-1"
-                                data-search="template-list" id="search" name="search">
-                            <div class="search-input-close"><i class="feather icon-x"></i></div>
-                            <ul class="search-list search-list-main">
-                                <table class="table table-bordered table-hover">
-                                        <thead>
-                                        <tr> 
-                                        <th>ID</th>
-                                        <th>Image</th>
-                                        <th>Product Name</th>
-                                        <th>Description</th>
-                                        <th>Price</th>
-                                        </tr>
-                                        </thead>
-                                <tbody>
-                                
-                                </tbody>
-                            </table>
-
-                            </ul>
-                        </div>
-                    </li>
+                
                     <li class="dropdown dropdown-notification nav-item">
 
                         @php $total = 0 @endphp
@@ -211,6 +209,7 @@
                     </li>
                     <li class="dropdown dropdown-user nav-item"><a class="dropdown-toggle nav-link dropdown-user-link"
                             href="#" data-toggle="dropdown">
+
                             @auth
                             <div class="user-nav d-sm-flex d-none"><span
                                     class="user-name text-bold-600">{{auth()->user()->name}}</span><span
@@ -218,6 +217,17 @@
                                     src="{{asset('assets/images/portrait/small/avatar-s-11.jpg')}}" alt="avatar"
                                     height="40" width="40"></span>
 
+                                    @else
+                                 
+
+                                  <form action="{{route('login')}}">
+
+                                      <button type="submit" class="btn btn-primary" href="">
+                                          <i class="feather icon-power"></i> {{__('Login')}}
+                                      </button>
+
+                                  </form>
+                                  
                             @endauth
 
                             {{-- <div class="user-nav d-sm-flex d-none"><span
@@ -226,8 +236,9 @@
                                     src="{{asset('assets/images/portrait/small/avatar-s-11.jpg')}}" alt="avatar"
                                     height="40" width="40"></span> --}}
                         </a>
+                        @auth
                         <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item"
-                                href="{{route('posts.settings')}}"><i class="feather icon-user"></i> {{__('Edit Profile')}}</a><a
+                                href="{{route('profile.edit')}}"><i class="feather icon-user"></i> {{__('Edit Profile')}}</a><a
                                 class="dropdown-item" href="app-chat.html"><i class="feather icon-message-square"></i>
                                 {{__('Chats')}}</a>
 
@@ -240,6 +251,7 @@
                             </form>
 
                         </div>
+                        @endauth
                     </li>
                 </ul>
             </div>
@@ -399,7 +411,7 @@
                  
                 </ul>
             </li>
-            <li class=" nav-item"><a href="#"><i class="feather icon-user"></i><span class="menu-title"
+            {{-- <li class=" nav-item"><a href="#"><i class="feather icon-user"></i><span class="menu-title"
                         data-i18n="User">{{__('User')}}</span></a>
                 <ul class="menu-content">
                     <li><a href="app-user-list.html"><i class="feather icon-circle"></i><span class="menu-item"
@@ -412,7 +424,7 @@
                                 data-i18n="Edit">{{__('Edit')}}</span></a>
                     </li>
                 </ul>
-            </li>
+            </li> --}}
 
 
 
@@ -421,13 +433,13 @@
 
             <li class=" navigation-header"><span>{{__('pages')}}</span>
             </li>
-            <li class=" nav-item"><a href="page-user-profile.html"><i class="feather icon-user"></i><span
+            {{-- <li class=" nav-item"><a href="page-user-profile.html"><i class="feather icon-user"></i><span
                         class="menu-title" data-i18n="Profile">{{__('Profile')}}</span></a>
-            </li>
+            </li> --}}
 
             @auth
-            <li class="{{ (request()->is('posts/settings')) ? 'nav-item active' : '' }}"><a
-                    href="{{route('posts.settings')}}"><i class="feather icon-settings"></i><span class="menu-title"
+            <li class="{{ (request()->is('/profile')) ? 'nav-item active' : '' }}"><a
+                    href="{{route('profile.edit')}}"><i class="feather icon-settings"></i><span class="menu-title"
                         data-i18n="Account Settings">{{__('Account Settings')}}</span></a>
             </li>
             @endauth
@@ -435,10 +447,10 @@
                         class="feather icon-help-circle"></i><span class="menu-title" data-i18n="FAQ">{{__('FAQ')}}</span></a>
             </li>
 
-
+{{-- 
             <li class="disabled nav-item"><a href="#"><i class="feather icon-eye-off"></i><span class="menu-title"
                         data-i18n="Disabled Menu">{{__('Disabled Menu')}}</span></a>
-            </li>
+            </li> --}}
 
 
         </ul>

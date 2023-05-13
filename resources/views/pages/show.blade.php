@@ -52,10 +52,11 @@
                                         {{-- <img class="img-fluid" src="{{ asset('assets/images/no-image.png')}}" alt="image not-found" /> --}}
                                         <div class="card-body">
                                             <div id="carousel-keyboard" class="carousel slide" data-keyboard="true">
-                                                <div class="carousel-inner" role="listbox">0
+                                                <div class="carousel-inner" role="listbox">
                                                     @forelse($post->images as $key => $image)
                                                     <ol class="carousel-indicators">
-                                                        <li data-target="#carousel-keyboard" data-slide-to="{{$loop->index}}" class="active"></li>
+                                                        <li data-target="#carousel-keyboard" data-slide-to="{{$loop->index}}" class="{{$key == 0 ? 'active' : '' }}"></li>
+                                                        {{-- <li data-target="#carousel-keyboard" data-slide-to="{{$loop->index}}" class=""></li> --}}
                                                     </ol>
                                                         <div class="carousel-item {{$key == 0 ? 'active' : '' }}">
                                                             <img class="img-fluid w-100" src="{{$image->images ? asset('image/' . $image->images) : asset('assets/images/no-image.png')}}" alt="image not-found" />

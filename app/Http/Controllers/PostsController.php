@@ -47,7 +47,7 @@ class PostsController extends Controller
      
      '<td><a href="posts/'.$post->id.'">'.$post->title.'</a></td>'.
      '<td>'.$post->paragraph.'</td>'.
-     '<td>'.$post->price.'</td>'.
+     '<td>$'.$post->price.'</td>'.
      '</tr>';
      }
     return Response($output);

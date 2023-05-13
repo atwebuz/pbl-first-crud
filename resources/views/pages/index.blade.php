@@ -169,12 +169,24 @@
                                             </h6>
                                         </div>
                                     </div>
+
+                                    @auth
+                                        
+                                    
                                     <div class="wishlist">
                                         <i class="fa fa-heart-o"></i> <span>{{__('Wishlist')}}</span>
                                     </div>
+                                    
                                     <a class="cart" href="{{ route('add.to.cart', $post->id) }}">
                                         <i class="feather icon-shopping-cart"></i> <span class="add-to-carts">{{__('Add to cart')}}</span> <a href="{{ route('posts.checkout') }}" class="view-in-cart d-none">{{__('View In Cart')}}</a>
                                     </a>
+
+                                    @else
+                                    {{-- <a class="cart" href="{{ route('add.to.cart', $post->id) }}">
+                                        <i class="feather icon-shopping-cart"></i> <span class="add-to-carts">{{__('Add to cart')}}</span> <a href="{{ route('posts.checkout') }}" class="view-in-cart d-none">{{__('View In Cart')}}</a>
+                                    </a> --}}
+                                                            
+                                    @endauth
                                 </div>
                             </div>
                             

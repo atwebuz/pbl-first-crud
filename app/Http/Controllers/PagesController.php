@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Post;
 use Illuminate\Http\Request;
 
 class PagesController extends Controller
@@ -22,14 +23,19 @@ class PagesController extends Controller
     public function settings(Request $request)
     {
         // dd($request);
+        
         $route = $request->route()->getName();
       
         if($request->input('password_confirm')){
-            return view('pages.settings');
+            return view('pages.settings', [
+                'posts' => Post::all(),
+                
+            ]);
             
         }else{
             return view('pages.confirm', compact('route'));
         }
+
     }
 
     public function faq()

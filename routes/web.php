@@ -4,6 +4,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\FallbackController;
 use App\Http\Controllers\PagesController;
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostsController;
 
@@ -29,8 +30,14 @@ Route::get('/', [PostsController::class, 'index'])->name('pages.index');
 Route::get('/search',[PostsController::class, 'search'])->name('search');
 Route::get('posts/wishlist', [PagesController::class, 'wishlist'])->name('posts.wishlist');
 Route::get('posts/checkout', [PagesController::class, 'checkout'])->name('posts.checkout');
-Route::any('posts/settings', [PagesController::class, 'settings'])->name('posts.settings');
+// Route::any('posts/settings', [PagesController::class, 'settings'])->name('posts.settings');
 Route::any('posts/faq', [PagesController::class, 'faq'])->name('posts.faq');
+
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
 
 Route::get('/login', [AuthController::class, 'login'])->name('login')->middleware('throttle:3,1');
 Route::post('authenticate', [AuthController::class, 'authenticate'])->name('authenticate');
