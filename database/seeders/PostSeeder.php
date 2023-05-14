@@ -42,6 +42,12 @@ class PostSeeder extends Seeder
             'price' => 16400,
             'rating' => 3,
             'color' => 'kulrang',
+            "date_of_year" => "1980-02-17",
+            "millage" => "100",
+            "transmission" => "Mexanika",
+            "oil_type" => "Benzin",
+            "address" => "Sergeli",
+            "condition" => "Yomon",
             'created_at' => now(),
             'updated_at' => now()
         ]);
@@ -53,6 +59,12 @@ class PostSeeder extends Seeder
             'price' => 3400,
             'rating' => 4,
             'color' => 'oq',
+            "date_of_year" => "1980-02-17",
+            "millage" => "100",
+            "transmission" => "Mexanika",
+            "oil_type" => "Benzin",
+            "address" => "Sergeli",
+            "condition" => "Alo",
             'created_at' => now(),
             'updated_at' => now()
         ]);
@@ -65,6 +77,12 @@ class PostSeeder extends Seeder
             'price' => 32000,
             'rating' => 5,
             'color' => 'qora',
+            "date_of_year" => "1980-02-17",
+            "millage" => "100",
+            "transmission" => "Mexanika",
+            "oil_type" => "Benzin",
+            "address" => "Sergeli",
+            "condition" => "Alo",
             'created_at' => now(),
             'updated_at' => now()
         ]);
@@ -77,6 +95,12 @@ class PostSeeder extends Seeder
             'price' => 56000,
             'rating' => 7,
             'color' => 'oq',
+            "date_of_year" => "1980-02-17",
+            "millage" => "100",
+            "transmission" => "Mexanika",
+            "oil_type" => "Dizel",
+            "address" => "Chilonzor",
+            "condition" => "Yomon",
             'created_at' => now(),
             'updated_at' => now()
         ]);
@@ -89,6 +113,12 @@ class PostSeeder extends Seeder
             'price' => 19000,
             'rating' => 9,
             'color' => 'oq',
+            "date_of_year" => "1980-02-17",
+            "millage" => "100",
+            "transmission" => "Mexanika",
+            "oil_type" => "Dizel",
+            "address" => "Qoraqamish",
+            "condition" => "Alo",
             'created_at' => now(),
             'updated_at' => now()
         ]);
@@ -101,6 +131,12 @@ class PostSeeder extends Seeder
             'price' => 49000,
             'rating' => 14,
             'color' => 'yashil',
+            "date_of_year" => "1980-02-17",
+            "millage" => "100",
+            "transmission" => "Mexanika",
+            "oil_type" => "Dizel",
+            "address" => "Yunsobod",
+            "condition" => "Yomon",
             'created_at' => now(),
             'updated_at' => now()
         ]);
@@ -113,6 +149,12 @@ class PostSeeder extends Seeder
             'price' => 34000,
             'rating' => 23,
             'color' => 'seriy',
+            "date_of_year" => "1980-02-17",
+            "millage" => "100",
+            "transmission" => "Mexanika",
+            "oil_type" => "Benzin",
+            "address" => "Sergeli",
+            "condition" => "Yomon",
             'created_at' => now(),
             'updated_at' => now()
         ]);

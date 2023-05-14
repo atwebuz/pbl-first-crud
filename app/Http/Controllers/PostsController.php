@@ -98,10 +98,24 @@ class PostsController extends Controller
             'paragraph' => 'required',
             'color' => 'required',
             'price' => 'required',
+            'date_of_year' => 'required',
+            'millage' => 'required',
+            'transmission' => 'required',
+            'oil_type' => 'required',
+            'condition' => 'required',
+            'address' => 'required',
             'images' => 'min:2|required',
             'images.*' => 'mimes:jpeg,png,jpg,gif,svg|max:2048',
 
         ]);
+
+// `        date_of_year
+// millage
+// transmission
+// color
+// oil_type
+// condition
+// address`
         // $ss="";
         // dd($ss);
 
@@ -113,6 +127,12 @@ class PostsController extends Controller
             'paragraph' => $request->paragraph,
             'color' => $request->color,
             'price' => $request->price,
+            'date_of_year' => $request->date_of_year,
+            'millage' => $request->millage,
+            'transmission' => $request->transmission,
+            'oil_type' => $request->oil_type,
+            'condition' => $request->condition,
+            'address' => $request->address
         ]);
 
         foreach($request->file('images') as $image) 
@@ -165,7 +185,7 @@ class PostsController extends Controller
 
     
     }
-
+    // ->incrementReadCount()
     
     /**
      * Show the form for editing the specified resource.
@@ -179,7 +199,7 @@ class PostsController extends Controller
         // $this->authorize('edit', $id);
 
         return view('pages.edit', [
-            'post' => Post::incrementReadCount()->findOrFail($id),
+            'post' => Post::findOrFail($id),
             'categories' => Category::all(),
             'images' => Images::all(),
 
@@ -195,7 +215,7 @@ class PostsController extends Controller
      */
     public function update(Request $request, Post $post)
     {
-
+dd($request);
 
         // Gate::authorize('update', $post);
         $this->authorize('update', $post);
@@ -214,6 +234,12 @@ class PostsController extends Controller
             'paragraph' => 'required',
             'color' => 'required',
             'price' => 'required',
+            'date_of_year' => 'required',
+            'millage' => 'required',
+            'transmission' => 'required',
+            'oil_type' => 'required',
+            'condition' => 'required',
+            'address' => 'required',
             'images' => 'min:2|required',
             'images.*' => 'mimes:jpeg,png,jpg,gif,svg|max:2048',
            

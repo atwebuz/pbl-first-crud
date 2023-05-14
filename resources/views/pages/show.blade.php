@@ -1,5 +1,5 @@
 @extends('layouts.layout')
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 @section('section__content')
     <!-- BEGIN: Content-->
     <div class="app-content content">
@@ -19,7 +19,7 @@
                                     </li>
                                     <li class="breadcrumb-item"><a href="/">{{__('Shop')}}</a>
                                     </li>
-                                    <li class="breadcrumb-item active">{{__('Details')}}
+                                    <li class="breadcrumb-item active">{{__('Details')}} 
                                     </li>
                                 </ol>
                             </div>
@@ -98,6 +98,7 @@
                                     {{-- @dd($post->user) --}}
                                     <div class="ecommerce-details-price d-flex flex-wrap">
 
+                                        
                                         <p class="text-primary font-medium-3 mr-1 mb-0">${{$post->price}}</p>
                                         <span class="pl-1 font-medium-3 border-left">
                                             <i class="feather icon-star text-warning"></i>
@@ -109,13 +110,73 @@
                                         <span class="ml-50 text-dark font-medium-1">{{$post->rating}} {{__('ratings')}}</span>
                                     </div>
                                     <hr>
-                                    <p>{{$post->paragraph}}</p>
-                                   
-                                    <hr>
+
+                                
                                     <div class="form-group">
-                                        <label class="font-weight-bold">{{__('Color')}}</label>
-                                        {{$post->color}}
+                                        <label class="font-weight-bold">{{__('Category')}}</label>
+                                        {{$post->category->name}}
                                     </div>
+
+                                 
+                                    <div class="row">          
+                                        <hr>
+                                        <div class="form-group col-6">
+                                            <label class="font-weight-bold">{{__('Color')}}</label>
+                                            {{$post->color}}
+                                        </div>
+                                        <hr>
+                                        <div class="form-group col-6">
+                                            <label class="font-weight-bold">{{__('Date of Year')}}</label>
+                                            {{$post->date_of_year}}
+                                        </div>
+                                        <hr>
+    
+                                        <div class="form-group col-6">
+                                            <label class="font-weight-bold">{{__('Millage')}}</label>
+                                            {{$post->millage}}
+                                        </div>
+                                        <hr>
+    
+    
+                                        <div class="form-group col-6">
+                                            <label class="font-weight-bold">{{__('Transmission')}}</label>
+                                            {{$post->transmission}}
+                                        </div>
+                                        <hr>
+    
+                                        <div class="form-group col-6">
+                                            <label class="font-weight-bold">{{__('Oil Type')}}</label>
+                                            {{$post->oil_type}}
+                                        </div>
+                                        <hr>
+    
+                                        <div class="form-group col-6">
+                                            <label class="font-weight-bold">{{__('Condition')}}</label>
+                                            {{$post->condition}}
+                                        </div>
+                                        <hr>
+    
+                                        <div class="form-group col-6">
+                                            <label class="font-weight-bold">{{__('Address')}}</label>
+                                            {{$post->address}}
+                                        </div>
+                                            <hr>
+                                        <div class="form-group col-6">
+                                            <label class="font-weight-bold">{{__('Created at')}}</label>
+                                            {{$post->created_at}}
+                                        </div>
+                                    
+                                    </div>
+
+                            
+                                    <div class="form-group ">
+                                        <label class="font-weight-bold">{{__('Paragrah')}}</label>
+                                        {{$post->paragraph}}
+                                    </div>  
+
+                                   <hr>
+                                   
+                                    
                                         @if(count($post->tags) > 0)
                                         <b>Tags: </b> <ul class="d-flex m-0 p-0" style="flex-wrap: wrap">
                                         @endif
@@ -130,19 +191,20 @@
 
                                    
 
-                                    <p><b>{{__('Created at')}}:</b> {{$post->created_at}}</p>
-                                    <p><b>{{__('Category')}}: </b> {{$post->category->name}}</p>
-                                    <hr>
+                                    
                                     <p>{{__('Available')}} - <span class="text-success">{{__('In stock')}}</span></p>
 
 
                                     
                                     <div class="d-flex flex-column flex-sm-row">
-                                        <a href="{{ route('add.to.cart', $post->id) }}" class="btn btn-primary mr-0 mr-sm-1 mb-1 mb-sm-0"><i class="feather icon-shopping-cart mr-25"></i>{{__('Add to cart')}}</a>
-                                        <button class="btn btn-outline-danger"><i class="feather icon-heart mr-25"></i>{{__('Wishlist')}}</button>
-
-                                        <button style="opacity: 0;">{{$post->incrementReadCount()}}</button>
+                                        @auth
+                                            
+                                     
+                                        <a href="{{ route('add.to.cart', $post->id) }}" class="btn btn-primary m-0"><i class="feather icon-shopping-cart mr-25"></i>{{__('Add to cart')}}</a>
+                                        <button class="btn btn-outline-danger mx-1"><i class="feather icon-heart mr-25"></i>{{__('Wishlist')}}</button>
+                                        @endauth
                                         <button class="btn btn-primary">Ko'rilganlar soni: {{$post->reads}}</button>
+                                        <button style="opacity: 0;">{{$post->incrementReadCount()}}</button>
                                     </div>
                                    
                                     
@@ -175,6 +237,36 @@
 
                             </div>
                         </div>
+                        <div class="row d-flex container">                       
+                            <div class="col-lg-6 w-100 px-3">
+                                <h2>{{__('Count of comments')}} <span>{{ $post->comments()->count()}}</span></h2>
+                                @foreach ($post->comments as $comment)
+                                    <span class="d-flex">
+                                        {{-- <img class="round" src="{{asset('assets/images/user.png')}}" alt="avatar" height="40" width="40"> --}}
+                                        <img class="round" src="{{ asset('assets/images/no-image.png')}}" alt="avatar" height="40" width="40">
+                                        <div class="user-nav p-1">
+                                            <span class="user-name text-bold-600 pr-1">{{$comment->user->name}}</span>
+                                            {{$comment->created_at}}
+                                        </div>
+                                        @auth
+                                            @can('delete', $comment)
+                                                
+                                           
+                                                <form action="{{route('comments.destroy', $comment->id)}}" method="POST">          
+                                                    @csrf
+                                                    @method('DELETE')
+                                                        <button class="btn btn-danger mx-2">{{__('Delete')}}</button>
+                                                </form>
+                                                @endcan
+                                        @endauth
+                                    </span> 
+                                    <span class="d-flex">
+                                        <p>{{ $comment->message}}</p>  
+                                    </span> 
+                                @endforeach
+                                
+                            </div> 
+                    </div>
 
                         <div class="col-md-6 col-12">
                             <div class="card" style="">
@@ -209,7 +301,7 @@
                                                 </div>
                                             </form>
                                             @else
-                                            <div class="d-flex align-items-center justify-content-between col-6">
+                                            <div class="d-flex align-items-center p-0 justify-content-between col-8">
                                                 <p>{{__('For sending messages pleace')}}   </p>
                                                 <a href="/login" type="submit" class="btn btn-primary mr-1 mb-1 waves-effect waves-light">{{__('Login')}}</a>                                              
                                             </div>
@@ -218,36 +310,7 @@
                                 </div>
                             </div>
                      
-                            <div class="row d-flex container">                       
-                                <div class="col-lg-6 w-100 px-3">
-                                    <h2>{{__('Count of comments')}} <span>{{ $post->comments()->count()}}</span></h2>
-                                    @foreach ($post->comments as $comment)
-                                        <span class="d-flex">
-                                            <img class="round" src="{{auth()->user()->image ? asset('image/' . auth()->user()->image) : asset('assets/images/no-image.png')}}" alt="avatar" height="40" width="40">
-                                            <div class="user-nav p-1">
-                                                <span class="user-name text-bold-600 pr-1">{{$comment->user->name}}</span>
-                                                {{$comment->created_at}}
-                                            </div>
-                                            @auth
-                                                @can('delete', $comment)
-                                                    
-                                               
-                                                    <form action="{{route('comments.destroy', $comment->id)}}" method="POST">          
-                                                        @csrf
-                                                        @method('DELETE')
-                                                            <button class="btn btn-danger mx-2">{{__('Delete')}}</button>
-                                                    </form>
-                                                    @endcan
-                                            @endauth
-                                        </span> 
-                                        <span class="d-flex">
-                                            <p>{{ $comment->message}}</p>  
-                                        </span> 
-                                    @endforeach
-                                    
-                                </div> 
-                        </div>
-
+                      
                       
                     </div>
                     

@@ -20,12 +20,18 @@ return new class extends Migration
             $table->string('image')->nullable();
             $table->double('price');
             $table->double('rating')->nullable();
+            $table->bigInteger('reads')->unsigned()->default(1)->index();
+            $table->date('date_of_year');
+            $table->float('millage');
+            $table->string('transmission');
             $table->string('color');
-            $table->bigInteger('reads')->unsigned()->default(0)->index();
+            $table->string('oil_type');
+            $table->string('condition')->nullable();
+            $table->string('address');
             $table->timestamps();
         });
     }
-
+ 
     /**
      * Reverse the migrations.
      */

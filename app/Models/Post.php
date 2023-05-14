@@ -11,9 +11,8 @@ class Post extends Model
 
     protected $table = 'posts';
 
-    protected $fillable = ['user_id','category_id', 'title', 'paragraph', 'price', 'color', 'image','reads'];
+    protected $fillable = ['user_id','category_id', 'title', 'paragraph', 'price', 'color', 'image','reads','date_of_year','millage','transmission','oil_type','condition','address'];
 
-  
     public function incrementReadCount() {
         $this->reads++;
         return $this->save();

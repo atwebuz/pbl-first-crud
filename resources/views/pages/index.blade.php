@@ -49,7 +49,7 @@
                                             <span class="navbar-toggler-icon d-block d-lg-none"><i class="feather icon-menu"></i></span>
                                         </button>
                                         <div class="search-results">
-                                            {{count($posts)}} {{__('results found')}}
+                                            {{ $posts->total() }} {{__('results found')}}
                                         </div>
                                     </div>
                                     <div class="view-options d-flex">
