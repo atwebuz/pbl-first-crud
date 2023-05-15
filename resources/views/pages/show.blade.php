@@ -126,7 +126,7 @@
                                         </div>
                                         <hr>
                                         <div class="form-group col-6">
-                                            <label class="font-weight-bold">{{__('Date of Year')}}</label>
+                                            <label class="font-weight-bold">{{__('Date')}}</label>
                                             {{$post->date_of_year}}
                                         </div>
                                         <hr>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use App\Models\Wishlist;
 use Illuminate\Http\Request;
 
 class PagesController extends Controller
@@ -12,7 +13,11 @@ class PagesController extends Controller
     //  }
     public function wishlist()
     {
-        return view('pages.wishlist');
+        return view('pages.wishlist', [
+            'posts' => Post::all(),
+            'wishlist' => Wishlist::all(),
+
+        ]);
     }
 
     public function checkout()

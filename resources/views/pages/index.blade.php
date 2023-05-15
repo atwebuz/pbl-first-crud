@@ -174,10 +174,20 @@
 
                                     @auth
                                         
-                                    
+                                    {{-- <form method="POST" action="{{ route('wishlist.add') }}">
+                                        @csrf
+                                        <input type="hidden" name="post_id" value="{{ $post->id }}">
+                                        <button type="submit">Add to Wishlist</button>
+                                    </form> --}}
+                                    {{-- <form action="{{ route('wishlist.add', $post) }}" method="POST">
+                                        @csrf
+                                        <button type="submit">Add to Wishlist</button>
+                                    </form> --}}
                                     <div class="wishlist">
                                         <i class="fa fa-heart-o"></i> <span>{{__('Wishlist')}}</span>
                                     </div>
+
+                                 
                                     
                                     <a class="cart" href="{{ route('add.to.cart', $post->id) }}">
                                         <i class="feather icon-shopping-cart"></i> <span class="add-to-carts">{{__('Add to cart')}}</span> <a href="{{ route('posts.checkout') }}" class="view-in-cart d-none">{{__('View In Cart')}}</a>

@@ -73,7 +73,14 @@
     "OR": "ИЛИ",
     "Create Account": "Зарегистрироваться",
     "Fill the below form to create a new account.": "Заполните форму ниже, чтобы создать новую учетную запись.",
-    "I accept the terms & conditions.": "Я принимаю условия."
+    "I accept the terms & conditions.": "Я принимаю условия.",
+
+    "Date of year": "Дата года",
+    "Millage": "км",
+    "Transmission": "Передача",
+    "Oil Type": "Тип масла",
+    "Condition": "Состояние",
+    "Date": "Год"
    
 
 

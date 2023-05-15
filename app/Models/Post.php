@@ -42,4 +42,9 @@ class Post extends Model
     public function tags(){
         return $this->belongsToMany(Tag::class);
     }
+
+    public function wishlists()
+{
+    return $this->belongsToMany(Wishlist::class);
+}
 }

@@ -113,6 +113,90 @@
                                                             </div>
                                                         </div>
                                                     </div>
+                                                    <div class="col-12">
+                                                        <div class="form-group row">
+                                                            <div class="col-md-4">
+                                                                <span>{{__('Date')}}</span>
+                                                            </div>
+                                                            <div class="col-md-8">
+                                                                <input type="date" id="contact-info"
+                                                                    class="form-control py-2"
+                                                                    name="date_of_year" value="{{$post->date_of_year}}">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-12">
+                                                        <div class="form-group row">
+                                                            <div class="col-md-4">
+                                                                <span>{{__('Millage')}}</span>
+                                                            </div>
+                                                            <div class="col-md-8">
+                                                                <input type="number" id="contact-info"
+                                                                    class="form-control py-2"
+                                                                    name="millage" value="{{$post->millage}}">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                 
+                                                    <div class="col-12">
+                                                        <div class="form-group row">
+                                                            <div class="col-md-4">
+                                                                <span>{{__('Transmission')}}</span>
+                                                            </div>
+                                                            <div class="col-md-8">
+                                                               <select class="form-control" name="transmission" id="" value="{{$post->transmission}}">
+                                                                <option value="Mexanika">Mexanika</option>
+                                                                <option value="Avtomat">Avtomat</option>
+                                                               </select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                  
+                                                    <div class="col-12">
+                                                        <div class="form-group row">
+                                                            <div class="col-md-4">
+                                                                <span>{{__('Oil Type')}}</span>
+                                                            </div>
+                                                            <div class="col-md-8">
+                                                               <select class="form-control" name="oil_type" id="" value="{{$post->oil_type}}">
+                                                                <option value="Benzin">Benzin</option>
+                                                                <option value="Gaz">Gaz</option>
+                                                                <option value="Dizel">Dizel</option>
+                                                                <option value="Elektron">Elektron</option>
+                                                               </select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                   
+                                                    <div class="col-12">
+                                                        <div class="form-group row">
+                                                            <div class="col-md-4">
+                                                                <span>{{__('Condition')}}</span>
+                                                            </div>
+                                                            <div class="col-md-8">
+                                                               <select class="form-control" name="condition" id="" value="{{$post->condition}}">
+                                                                <option value="Alo">Alo</option>
+                                                                <option value="Yaxshi">Yaxshi</option>
+                                                                <option value="Yomon">Yomon</option>
+                                                               </select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-12">
+                                                        <div class="form-group row">
+                                                            <div class="col-md-4">
+                                                                <span>{{__('Address')}}</span>
+                                                            </div>
+                                                            <div class="col-md-8">
+                                                                <input type="text" id="contact-info"
+                                                                    class="form-control py-2"
+                                                                    name="address" value="{{$post->address}}">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
 
                                                     <div class="col-12">
                                                         <div class="form-group row">

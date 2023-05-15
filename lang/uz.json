@@ -74,7 +74,15 @@
 "OR": "YOKI",
 "Create Account": "Ro'yxatdan O'ting",
 "Fill the below form to create a new account.": "Yangi hisob yaratish uchun quyidagi shaklni to'ldiring.",
-"I accept the terms & conditions.": "Men shartlarni qabul qilaman."
+"I accept the terms & conditions.": "Men shartlarni qabul qilaman.",
+
+"Date of year": "Yaratilgan sana",
+"Millage": "km",
+"Transmission": "Peredacha",
+"Oil Type": "Yoqilg'i turi",
+"Condition": "Xolati",
+"Date": "Yili"
+
 
 
 }
