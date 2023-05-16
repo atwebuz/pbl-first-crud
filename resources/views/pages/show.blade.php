@@ -99,7 +99,7 @@
                                     <div class="ecommerce-details-price d-flex flex-wrap">
 
                                         
-                                        <p class="text-primary font-medium-3 mr-1 mb-0">${{$post->price}}</p>
+                                        <p class="text-primary font-medium-3 mr-0 mb-0 pr-1 " style="font-size: 1.8rem;font-weight:700" >${{$post->price}}</p>
                                         <span class="pl-1 font-medium-3 border-left">
                                             <i class="feather icon-star text-warning"></i>
                                             <i class="feather icon-star text-warning"></i>

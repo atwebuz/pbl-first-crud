@@ -141,7 +141,7 @@
                                            
                                         </div>
                                         <div>
-                                            <h6 class="item-price">
+                                            <h6 class="item-price" style="font-size: 1.8rem !important">
                                                 ${{$post->price}}
                                             </h6>
                                         </div>
