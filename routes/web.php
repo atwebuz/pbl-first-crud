@@ -7,6 +7,7 @@ use App\Http\Controllers\PagesController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\WishlistController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Session;
 use App\Http\Controllers\PostsController;
 
 /*
@@ -23,6 +24,11 @@ use App\Http\Controllers\PostsController;
 // Route::get('/', function () {
 //     return view('index');
 // });
+
+Route::get('/clear', function(Request $request){
+    
+    Session::flush();
+});
 
 Route::get('/carousel', function () {
     return view('pages.carousel');

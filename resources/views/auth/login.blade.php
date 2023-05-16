@@ -30,7 +30,7 @@
                                                 <form action="{{ route('authenticate') }}" method="POST">
                                                     @csrf
                                                     <fieldset class="form-label-group form-group position-relative has-icon-left">
-                                                        <input type="text" name="email" class="form-control" id="user-name" placeholder="Foydalanuvchi nomi" required>
+                                                        <input type="text" name="email" class="form-control" id="user-name" placeholder="Foydalanuvchi nomi">
                                                         <div class="form-control-position">
                                                             <i class="feather icon-user"></i>
                                                         </div>
@@ -38,7 +38,7 @@
                                                     </fieldset>
 
                                                     <fieldset class="form-label-group position-relative has-icon-left">
-                                                        <input type="password" name="password" class="form-control" id="user-password" placeholder="Parol" required>
+                                                        <input type="password" name="password" class="form-control" id="user-password" placeholder="Parol">
                                                         <div class="form-control-position">
                                                             <i class="feather icon-lock"></i>
                                                         </div>
@@ -82,6 +82,7 @@
                         </div>
                     </div>
                 </section>
+                @include('../inc/__messages')
 
             </div>
         </div>

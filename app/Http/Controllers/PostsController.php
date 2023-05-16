@@ -235,8 +235,8 @@ class PostsController extends Controller
     {
 
         // dd('worked');
-        $post = Post::findOrFail($id);
-          
+        $post = Post::with('oneimage')->findOrFail($id);
+        //   dd($post);
         $cart = session()->get('cart', []);
   
         if(isset($cart[$id])) {
@@ -244,16 +244,17 @@ class PostsController extends Controller
             // dd($post->title);
 
         } else {
+            $image = (count($post->oneimage)>0 ? $post->oneimage[0]->images : "no-image.png");
+            // dd($image);
             $cart[$id] = [
                 "name" => $post->title,
                 "quantity" => 1,
                 "price" => $post->price,
-                "image" => $post->image,
+                "image" => $image,
                 "paragraph" => $post->paragraph
             ];
 
         }
-          
         session()->put('cart', $cart);
         return redirect()->back()->with('success', 'post added to cart successfully!');
     }

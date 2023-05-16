@@ -30,19 +30,19 @@
                                                 <form action="{{route('register_store')}}" method="POST">
                                                     @csrf
                                                     <div class="form-label-group">
-                                                        <input name="name" type="text" id="inputName" class="form-control" placeholder="Ismingiz" required>
+                                                        <input name="name" type="text" id="inputName" class="form-control" placeholder="Ismingiz">
                                                         <label for="inputName">{{__('Name')}}</label>
                                                     </div>
                                                     <div class="form-label-group">
-                                                        <input name="email" type="email" id="inputEmail" class="form-control" placeholder="Emailingiz" required>
+                                                        <input name="email" type="email" id="inputEmail" class="form-control" placeholder="Emailingiz">
                                                         <label for="inputEmail">{{__('Email')}}</label>
                                                     </div>
                                                     <div class="form-label-group">
-                                                        <input name="password" type="password" id="inputPassword" class="form-control" placeholder="Parolingiz" required>
+                                                        <input name="password" type="password" id="inputPassword" class="form-control" placeholder="Parolingiz">
                                                         <label for="inputPassword">{{__('Password')}}</label>
                                                     </div>
                                                     <div class="form-label-group">
-                                                        <input type="password" name="password_confirmation" id="inputConfPassword" class="form-control" placeholder="Parolni Tasdiqlang" required>
+                                                        <input type="password" name="password_confirmation" id="inputConfPassword" class="form-control" placeholder="Parolni Tasdiqlang">
                                                         <label for="inputConfPassword">{{__('Confirm Password')}}</label>
                                                     </div>
 
@@ -75,6 +75,8 @@
                         </div>
                     </div>
                 </section>
+                @include('../inc/__messages')
+
 
             </div>
         </div>

@@ -56,7 +56,7 @@
                                         <a href="app-ecommerce-details.html">
                                             
                                                 {{-- @dd(session('cart')) --}}
-                                               <img class="w-100" src="{{$details['image'] ? asset('image/' . $details['image']) : asset('assets/images/no-image.png')}}" alt="image not-found" width="100" height="100" class="img-responsive" /> 
+                                               <img class="w-100" src="{{asset('image/' . $details['image'])}}" alt="image not-found" width="100" height="100" class="img-responsive" /> 
                                            
                                         </a> 
                                       </div>
