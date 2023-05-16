@@ -14,13 +14,13 @@ class Wishlist extends Model
         'post_id'
     ];
 
-    public function posts()
+    public function post()
 {
-    return $this->belongsToMany(Post::class);
+    return $this->belongsTo(Post::class);
 }
 
-public function users()
+public function user()
 {
-    return $this->belongsToMany(User::class);
+    return $this->belongsTo(User::class);
 }
 }

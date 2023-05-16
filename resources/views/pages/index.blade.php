@@ -179,10 +179,15 @@
                                         <input type="hidden" name="post_id" value="{{ $post->id }}">
                                         <button type="submit">Add to Wishlist</button>
                                     </form> --}}
-                                    {{-- <form action="{{ route('wishlist.add', $post) }}" method="POST">
+                                    <form action="{{ route('wishlist.add') }}" method="POST">
                                         @csrf
-                                        <button type="submit">Add to Wishlist</button>
-                                    </form> --}}
+                                        {{-- <button type="submit">Add to Wishlist</button> --}}
+
+                                        <div class="wishlist">
+                                            <input type="hidden" name="post_id" value="{{$post->id}}">
+                                            <i class="fa fa-heart-o"></i> <button type="submit">{{__('Wishlist')}}</button>
+                                        </div>
+                                    </form>
                                     <div class="wishlist">
                                         <i class="fa fa-heart-o"></i> <span>{{__('Wishlist')}}</span>
                                     </div>

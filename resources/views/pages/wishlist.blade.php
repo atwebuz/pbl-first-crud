@@ -38,11 +38,64 @@
             <!-- Wishlist Starts -->
             <section id="wishlist" class="grid-view wishlist-items">
 
-                {{-- @dd($wishlist); --}}
+                {{-- @dd(auth()->user()->posts->wishlist); --}}
+                {{-- @dd(auth()->user()->posts); --}}
+                {{-- @dd(auth()->user()->wishlist); --}}
 
+                {{-- @dump(Auth::user()->wishlist->count()) --}}
+
+                {{-- @dd(Auth::user()->wishlist[0]) --}}
+                @if (Auth::user()->wishlist->count() )
+                    @foreach (Auth::user()->wishlist as $item)
+
+                            <div class="card ecommerce-card">
+                    <div class="card-content">
+                        <div class="item-img text-center">
+                            <a href="app-ecommerce-details.html">
+                                {{-- <img class="img-fluid w-100" src="{{true ? asset('image/' . $item->post->images[0]->images) : asset('assets/images/no-image.png')}}" alt="image not-found" /> --}}
+                                @dd($item->post->images[0]->images)
+                                <img src="{{$item->post->images[0]->images}}" class="img-fluid" alt="img-placeholder">
+                            </a>
+                        </div>
+                        <div class="card-body">
+                            <div class="item-wrapper">
+                                <div class="item-rating">
+                                    <div class="badge badge-primary badge-md">
+                                        {{$item->post->rating}} <i class="feather icon-star ml-25"></i>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h6 class="item-price">
+                                        ${{$item->post->price}}
+                                    </h6>
+                                </div>
+                            </div>
+                            <div class="item-name">
+                                <a href="app-ecommerce-details.html">
+                                    {{$item->post->title}}   
+                                </a>
+                            </div>
+                            <div>
+                                <p class="item-description">
+                                    {{$item->post->paragraph}}
+                                </p>
+                            </div>
+                        </div>
+                        <div class="item-options text-center">
+                            <div class="wishlist remove-wishlist">
+                                <i class="feather icon-x align-middle"></i> Remove
+                            </div>
+                            <div class="cart move-cart">
+                                <i class="feather icon-shopping-cart"></i> <span class="add-to-cart">Move to cart</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                    @endforeach
+                @endif
        
       
-                <div class="card ecommerce-card">
+                {{-- <div class="card ecommerce-card">
                     <div class="card-content">
                         <div class="item-img text-center">
                             <a href="app-ecommerce-details.html">
@@ -84,7 +137,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> --}}
 
                
             </section>

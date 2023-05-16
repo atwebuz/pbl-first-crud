@@ -49,13 +49,15 @@
                             @if(session('cart'))
                                 @foreach(session('cart') as $id => $details)
                                     @php $total += $details['price'] * $details['quantity'] @endphp
-                    
+                            {{-- @dd($details) --}}
                             <div class="card ecommerce-card" data-id="{{ $id }}">
                                 <div class="card-content">
                                     <div class="item-img text-center">
                                         <a href="app-ecommerce-details.html">
-                                            {{-- @dump($details['image']); --}}
-                                            <img class="w-100" src="{{$details['image'] ? asset('image/' . $details['image']) : asset('assets/images/no-image.png')}}" alt="image not-found" width="100" height="100" class="img-responsive" /> 
+                                            
+                                                {{-- @dd(session('cart')) --}}
+                                               <img class="w-100" src="{{$details['image'] ? asset('image/' . $details['image']) : asset('assets/images/no-image.png')}}" alt="image not-found" width="100" height="100" class="img-responsive" /> 
+                                           
                                         </a> 
                                       </div>
                                     <div class="card-body">
@@ -110,7 +112,7 @@
                                     </div>
                                 </div>
                             </div>
-
+                              {{-- @endforeach --}}
                             @endforeach
                             @endif
 

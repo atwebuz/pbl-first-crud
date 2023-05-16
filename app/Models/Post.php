@@ -43,8 +43,8 @@ class Post extends Model
         return $this->belongsToMany(Tag::class);
     }
 
-    public function wishlists()
+    public function wishlist()
 {
-    return $this->belongsToMany(Wishlist::class);
+    return $this->hasMany(Wishlist::class);
 }
 }
