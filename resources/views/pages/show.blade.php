@@ -201,7 +201,17 @@
                                             
                                      
                                         <a href="{{ route('add.to.cart', $post->id) }}" class="btn btn-primary m-0"><i class="feather icon-shopping-cart mr-25"></i>{{__('Add to cart')}}</a>
-                                        <button class="btn btn-outline-danger mx-1"><i class="feather icon-heart mr-25"></i>{{__('Wishlist')}}</button>
+
+                                        <form action="{{ route('wishlist.add') }}" class="p-0 my-0 mx-1" method="POST">
+                                            @csrf
+                                            {{-- <button type="submit">Add to Wishlist</button> --}}
+    
+                                            <div class="wishlist">
+                                                <input type="hidden" name="post_id" value="{{$post->id}}">
+                                                <button class="btn btn-outline-danger"><i class="feather icon-heart mr-25"></i>{{__('Wishlist')}}</button>
+                                            </div>
+                                        </form>
+                                        {{-- <button class="btn btn-outline-danger mx-1"><i class="feather icon-heart mr-25"></i>{{__('Wishlist')}}</button> --}}
                                         @endauth
                                         <button class="btn btn-primary">Ko'rilganlar soni: {{$post->reads}}</button>
                                         <button style="opacity: 0;">{{$post->incrementReadCount()}}</button>

@@ -10,16 +10,21 @@ class WishlistController extends Controller
 {
 
     public function add(Request $request){
-        Wishlist::create([
-            'user_id' => auth()->user()->id,
-            'post_id' => (int)$request->input('post_id'),
-            
-        ]);
+        $c = Wishlist::where('user_id', auth()->user()->id)->where('post_id' , (int)$request->input('post_id'))->count();
+        if ($c==0)
+        {
+            Wishlist::create([
+                'user_id' => auth()->user()->id,
+                'post_id' => (int)$request->input('post_id'),    
+            ]);
+        }
+        return redirect()->route('posts.index');
+    }
+
+    public function remove(Request $request){
+        Wishlist::destroy($request->id);
 
         return redirect()->route('posts.index');
-               
-
-
     }
     // public function index()
     // {

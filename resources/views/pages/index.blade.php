@@ -185,12 +185,12 @@
 
                                         <div class="wishlist">
                                             <input type="hidden" name="post_id" value="{{$post->id}}">
-                                            <i class="fa fa-heart-o"></i> <button type="submit">{{__('Wishlist')}}</button>
+                                           <button style="border: none;outline: none; background: transparent" type="submit"> <i class="fa fa-heart-o"></i> {{__('Wishlist')}}</button>
                                         </div>
                                     </form>
-                                    <div class="wishlist">
+                                    {{-- <div class="wishlist">
                                         <i class="fa fa-heart-o"></i> <span>{{__('Wishlist')}}</span>
-                                    </div>
+                                    </div> --}}
 
                                  
                                     

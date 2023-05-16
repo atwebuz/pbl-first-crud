@@ -31,6 +31,7 @@ Route::get('/', [PostsController::class, 'index'])->name('pages.index');
 Route::get('/search',[PostsController::class, 'search'])->name('search');
 Route::get('posts/wishlist', [PagesController::class, 'wishlist'])->name('posts.wishlist');
 Route::any('posts/wishlist_add', [WishlistController::class, 'add'])->name('wishlist.add');
+Route::any('posts/wishlist_remove', [WishlistController::class, 'remove'])->name('wishlist.remove');
 Route::get('posts/checkout', [PagesController::class, 'checkout'])->name('posts.checkout');
 // Route::any('posts/settings', [PagesController::class, 'settings'])->name('posts.settings');
 Route::any('posts/faq', [PagesController::class, 'faq'])->name('posts.faq');

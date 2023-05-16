@@ -53,8 +53,8 @@
                         <div class="item-img text-center">
                             <a href="app-ecommerce-details.html">
                                 {{-- <img class="img-fluid w-100" src="{{true ? asset('image/' . $item->post->images[0]->images) : asset('assets/images/no-image.png')}}" alt="image not-found" /> --}}
-                                @dd($item->post->images[0]->images)
-                                <img src="{{$item->post->images[0]->images}}" class="img-fluid" alt="img-placeholder">
+                                {{-- @dd($item->post->images[0]->images) --}}
+                                <img src="{{asset('image/' . $item->post->images[0]->images)}}" class="img-fluid" alt="img-placeholder">
                             </a>
                         </div>
                         <div class="card-body">
@@ -82,9 +82,20 @@
                             </div>
                         </div>
                         <div class="item-options text-center">
-                            <div class="wishlist remove-wishlist">
+
+                            <form action="{{ route('wishlist.remove') }}" method="POST">
+                                @csrf
+                                {{-- <button type="submit">Add to Wishlist</button> --}}
+
+                                <div class="wishlist">
+                                    <input type="hidden" name="id" value="{{$item->id}}">
+                                   <button style="border: none;outline: none; background: transparent" type="submit">{{__('Remove')}}</button>
+                                </div>
+                            </form>
+
+                            {{-- <div class="wishlist remove-wishlist">
                                 <i class="feather icon-x align-middle"></i> Remove
-                            </div>
+                            </div> --}}
                             <div class="cart move-cart">
                                 <i class="feather icon-shopping-cart"></i> <span class="add-to-cart">Move to cart</span>
                             </div>
