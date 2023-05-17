@@ -18,6 +18,36 @@ class Post extends Model
         return $this->save();
     }
 
+    public static function getExpensiveProducts()
+    {
+        // return self::where('price', '>', 30000)->get();
+
+        return self::orderBy('price', 'desc')
+        ->limit(4)
+        ->get();
+    }
+
+    public static function getCheepestProducts()
+    {
+
+        return self::orderBy('price', 'asc')
+        ->limit(4)
+        ->get();
+    }
+
+    // public static function getWorstProducts()
+    // {
+
+  
+
+    //     return self::where('condition', 'Yomon')
+    //     ->limit(4)
+    //     ->get();
+    // }
+
+
+
+
     public function user(){
         return $this->belongsTo(User::class);
     }

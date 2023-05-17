@@ -44,7 +44,7 @@
                 <fieldset class="checkout-step-1 px-0">
                     <section id="place-order" class="list-view product-checkout">
                         <div class="checkout-items">
-
+ 
                             @php $total = 0 @endphp 
                             @if(session('cart'))
                                 @foreach(session('cart') as $id => $details)
@@ -53,7 +53,7 @@
                             <div class="card ecommerce-card" data-id="{{ $id }}">
                                 <div class="card-content">
                                     <div class="item-img text-center">
-                                        <a href="app-ecommerce-details.html">
+                                        <a href="{{$id}}">
                                             
                                                 {{-- @dd(session('cart')) --}}
                                                <img class="w-100" src="{{asset('image/' . $details['image'])}}" alt="image not-found" width="100" height="100" class="img-responsive" /> 
@@ -62,7 +62,7 @@
                                       </div>
                                     <div class="card-body">
                                         <div class="item-name">
-                                            <a href="app-ecommerce-details.html">{{ $details['name'] }}</a>
+                                            <a href="{{$id}}">{{ $details['name'] }}</a>
                                             <span></span>
                                             <p class="item-company">By <span class="company-name">Amazon</span></p>
                                             <p class="stock-status-in">In Stock</p>
@@ -117,14 +117,14 @@
                             @endif
 
                             
-                            {{-- <td data-th="Price">${{ $details['price'] }}</td>
+                             {{-- <td data-th="Price">${{ $details['price'] }}</td>
                             <td data-th="Quantity">
                                 <input type="number" value="{{ $details['quantity'] }}" class="form-control quantity update-cart" />
                             </td>
                             <td data-th="Subtotal" class="text-center">${{ $details['price'] * $details['quantity'] }}</td>
                             <td class="actions" data-th="">
                                 <button class="btn btn-danger btn-sm remove-from-cart"><i class="fa fa-trash-o"></i></button>
-                            </td> --}}
+                            </td>  --}}
                         </div>
 
                         
@@ -153,22 +153,7 @@
                                                 ${{ $details['price'] * $details['quantity'] }}
                                             </div>
                                         </div>
-                                        <div class="detail">
-                                            <div class="detail-title">
-                                                Bag Discount
-                                            </div>
-                                            <div class="detail-amt discount-amt">
-                                                -25$
-                                            </div>
-                                        </div>
-                                        <div class="detail">
-                                            <div class="detail-title">
-                                                Estimated Tax
-                                            </div>
-                                            <div class="detail-amt">
-                                                $1.3
-                                            </div>
-                                        </div>
+                                      
                                         <div class="detail">
                                             <div class="detail-title">
                                                 EMI Eligibility
@@ -188,7 +173,12 @@
                                         <hr>
                                         <div class="detail">
                                             <div class="detail-title detail-total">Total</div>
-                                            <div class="detail-amt total-amt">$574</div>
+                                            <div class="detail-amt total-amt">
+                                                {{-- <td data-th="Price">${{ $details['price'] }}</td> --}}
+                                         
+                                                <td data-th="Subtotal" class="text-center">${{ $details['price'] * $details['quantity'] }}</td>
+                                           
+                                            </div>
                                         </div>
                                         <div class="btn btn-primary btn-block place-order">PLACE ORDER</div>
                                     </div>
@@ -205,6 +195,7 @@
             </form>
 
         </div>
+        
     </div>
 </div>
 

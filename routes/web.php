@@ -6,6 +6,7 @@ use App\Http\Controllers\FallbackController;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\WishlistController;
+use App\Models\Post;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Session;
 use App\Http\Controllers\PostsController;
@@ -32,6 +33,16 @@ Route::get('/statistic', function () {
 
   return view('pages.statistic');
 });
+
+Route::get('/statistic', function () {
+    $currentPrice = 750; 
+    $comparisonPrice = 500; 
+    $expensiveProducts = Post::getExpensiveProducts();
+    $getCheepestProducts = Post::getCheepestProducts();
+    return view('pages.statistic',['expensiveProducts' => $expensiveProducts],['getCheepestProducts'=> $getCheepestProducts],
+     ['currentPrice' => $currentPrice, 'comparisonPrice' => $comparisonPrice]);
+});
+
 Route::get('/clear', function(Request $request){
     
     Session::flush();

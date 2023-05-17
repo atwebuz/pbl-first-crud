@@ -16,7 +16,7 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained();
             $table->foreignId('category_id')->constrained();
             $table->string('title');
-            $table->string('paragraph');
+            $table->text('paragraph');
             $table->string('image')->nullable();
             $table->double('price');
             $table->double('rating')->nullable();

@@ -107,12 +107,18 @@
                                                     <span class="cart-item-count">{{$total}}</span>                          
                                                     <span class="mx-50">{{__('Items')}}</span>
                                         </h3>
-                                        <span class="notification-title">{{_('In Your Cart')}}</span>
+                                    
+                                       
+
+                                            <span class="notification-title">{{_('In Your Cart')}}</span>
+                                    
+
+                                   
                                     </div>
                                 </li>
+                                @if(session('cart') )
+                                @foreach(session('cart') as $id => $details)
                                 <li class="scrollable-container media-list">
-                                    @if(session('cart') )
-                                    @foreach(session('cart') as $id => $details)
                                         <a class="cart-item"
                                             href="#!">
                                             <div class="media">
@@ -128,14 +134,14 @@
                                                 </div>
                                             </div>
                                         </a>
-                                    @endforeach
-                                    @endif
-                                </li>
-                                <li class="dropdown-menu-footer"><a class="dropdown-item p-1 text-center text-primary"
+                                    </li>
+                                    <li class="dropdown-menu-footer"><a class="dropdown-item p-1 text-center text-primary"
                                         href="{{route('posts.checkout')}}"><i
-                                            class="feather icon-shopping-cart align-middle"></i><span
-                                            class="align-middle text-bold-600">{{__('Checkout')}}</span></a></li>
-                                <li class="empty-cart d-none p-2">{{__('Your Cart Is Empty.')}}</li>
+                                        class="feather icon-shopping-cart align-middle"></i><span
+                                        class="align-middle text-bold-600">{{__('Checkout')}}</span></a></li>
+                                        <li class="empty-cart d-none p-2">{{__('Your Cart Is Empty.')}}</li>
+                                        @endforeach
+                                        @endif
                             </ul>
                         </li>
                       @endauth
@@ -329,18 +335,17 @@
                     </li>
                     @endauth
 
-
-
                     <li class="{{ (request()->is('posts/wishlist')) ? 'active' : '' }}"><a
                             href="{{route('posts.wishlist')}}"><i class="feather icon-circle"></i><span
                                 class="menu-item" data-i18n="Wish List">{{__('Wish List')}}</span></a>
                     </li>
 
-                  
+                    @if(isset($cart)) {
                     <li class="{{ (request()->is('posts/checkout')) ? 'active' : '' }}"><a
                             href="{{route('posts.checkout')}}"><i class="feather icon-circle"></i><span
                                 class="menu-item" data-i18n="Checkout">{{__('Checkout')}}</span></a>
                     </li>
+                    @endif
                  
                 </ul>
             </li>
