@@ -52,8 +52,7 @@
                     <div class="card-content">
                         <div class="item-img text-center">
                             <a href="app-ecommerce-details.html">
-                                {{-- <img class="img-fluid w-100" src="{{true ? asset('image/' . $item->post->images[0]->images) : asset('assets/images/no-image.png')}}" alt="image not-found" /> --}}
-                                {{-- @dd($item->post->images[0]->images) --}}
+                                {{-- @dd($item->post->images[0]->images) --}} 
                                 <img src="{{asset('image/' . $item->post->images[0]->images)}}" class="img-fluid" alt="img-placeholder">
                             </a>
                         </div>

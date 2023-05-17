@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 class WishlistController extends Controller
 {
 
+
     public function add(Request $request){
         $c = Wishlist::where('user_id', auth()->user()->id)->where('post_id' , (int)$request->input('post_id'))->count();
         if ($c==0)
@@ -26,6 +27,16 @@ class WishlistController extends Controller
 
         return redirect()->route('posts.index');
     }
+
+    public function wishlist(Request $request)
+    {
+        return view('pages.wishlist', [
+            'posts' => Post::all(),
+            'wishlist' => Wishlist::all(),
+
+        ]);
+    }
+
     // public function index()
     // {
     //     $wishlist = auth()->user()->wishlist; // Assuming you have a relationship set up between User and Wishlist

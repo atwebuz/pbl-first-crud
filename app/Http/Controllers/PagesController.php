@@ -12,14 +12,7 @@ class PagesController extends Controller
     // public function __construct(){
     //     $this->middleware('auth')->except(['index', 'show']);
     //  }
-    public function wishlist()
-    {
-        return view('pages.wishlist', [
-            'posts' => Post::all(),
-            'wishlist' => Wishlist::all(),
-
-        ]);
-    }
+  
 
     public function checkout()
     {

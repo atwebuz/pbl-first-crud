@@ -186,6 +186,7 @@
                                         <div class="wishlist">
                                             <input type="hidden" name="post_id" value="{{$post->id}}">
                                            <button style="border: none;outline: none; background: transparent" type="submit"> <i class="fa fa-heart-o"></i> {{__('Wishlist')}}</button>
+                                  
                                         </div>
                                     </form>
                                     {{-- <div class="wishlist">

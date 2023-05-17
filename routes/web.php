@@ -21,10 +21,17 @@ use App\Http\Controllers\PostsController;
 |
 */
 
-// Route::get('/', function () {
-//     return view('index');
-// });
+Route::get('/', function () {
 
+    if(!false){
+        return redirect()->route('posts.index');
+    }
+});
+
+Route::get('/statistic', function () {
+
+  return view('pages.statistic');
+});
 Route::get('/clear', function(Request $request){
     
     Session::flush();
@@ -33,9 +40,8 @@ Route::get('/clear', function(Request $request){
 Route::get('/carousel', function () {
     return view('pages.carousel');
 });
-Route::get('/', [PostsController::class, 'index'])->name('pages.index');
 Route::get('/search',[PostsController::class, 'search'])->name('search');
-Route::get('posts/wishlist', [PagesController::class, 'wishlist'])->name('posts.wishlist');
+Route::get('posts/wishlist', [WishlistController::class, 'wishlist'])->name('posts.wishlist');
 Route::any('posts/wishlist_add', [WishlistController::class, 'add'])->name('wishlist.add');
 Route::any('posts/wishlist_remove', [WishlistController::class, 'remove'])->name('wishlist.remove');
 Route::get('posts/checkout', [PagesController::class, 'checkout'])->name('posts.checkout');
