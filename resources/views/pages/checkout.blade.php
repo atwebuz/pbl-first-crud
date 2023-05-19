@@ -47,7 +47,10 @@
  
                             @php $total = 0 @endphp 
                             @if(session('cart'))
+
                                 @foreach(session('cart') as $id => $details)
+
+
                                     @php $total += $details['price'] * $details['quantity'] @endphp
                             {{-- @dd($details) --}}
                             <div class="card ecommerce-card" data-id="{{ $id }}">
@@ -70,7 +73,24 @@
                                         <div class="item-quantity">
                                             <p class="quantity-title">Quantity</p>
                                             <div class="input-group quantity-counter-wrapper">
-                                                <input type="text" class="quantity-counter" value="{{ $details['quantity'] }}">
+                                                <input type="number" class="quantity-counter" id="quantity_{{$id}}" value="{{ $details['quantity'] }}">
+
+                                                <script>
+                                                    const details_id = document.getElementById('quantity_{{$id}}');
+
+                                                    console.log(details_id);
+                                                    details_id.addEventListener('input', function(){
+                                                        const quantity=details_id.value
+                                                        
+                                                        const price={{$details['price'] }} * quantity
+
+                                                        document.getElementById('product_{{$id}}') . innerText = price
+
+                                                        console.log(price)
+                                                    })
+                                                    
+                                                    
+                                                </script>
                                             </div>
                                         </div>
                                         <p class="delivery-date">Delivery by, Wed Apr 25</p>
@@ -84,7 +104,7 @@
                                                 </div>
                                             </div>
                                             <div class="item-cost">
-                                                <h6 class="item-price">
+                                                <h6 class="item-price" id="product_{{$id}}">
                                                     ${{ $details['price'] }}
                                                 </h6>
                                                 <p class="shipping">
@@ -115,6 +135,8 @@
                               {{-- @endforeach --}}
                             @endforeach
                             @endif
+
+                            
 
                             
                              {{-- <td data-th="Price">${{ $details['price'] }}</td>
@@ -175,8 +197,10 @@
                                             <div class="detail-title detail-total">Total</div>
                                             <div class="detail-amt total-amt">
                                                 {{-- <td data-th="Price">${{ $details['price'] }}</td> --}}
+
+                                                
                                          
-                                                <td data-th="Subtotal" class="text-center">${{ $details['price'] * $details['quantity'] }}</td>
+                                                <td data-th="Subtotal" class="text-center" > {{$total}}  </td>
                                            
                                             </div>
                                         </div>
