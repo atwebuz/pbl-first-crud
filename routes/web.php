@@ -1,8 +1,10 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\FallbackController;
+use App\Http\Controllers\ItemController;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\WishlistController;
@@ -42,6 +44,8 @@ Route::get('/statistic', function () {
     return view('pages.statistic',['expensiveProducts' => $expensiveProducts],['getCheepestProducts'=> $getCheepestProducts],
      ['currentPrice' => $currentPrice, 'comparisonPrice' => $comparisonPrice]);
 });
+// Route::get('/statistic', [CategoryController::class, 'getCategoryStatistics'])->name('category.statistics');
+
 
 Route::get('/clear', function(Request $request){
     
@@ -98,3 +102,4 @@ Route::patch('update-cart', [PostsController::class, 'update'])->name('update.ca
 Route::delete('remove-from-cart', [PostsController::class, 'destroy'])->name('remove.from.cart');
 
 
+// Route::get('/sort', [PostsController::class, 'sorting'])->name('items.index');

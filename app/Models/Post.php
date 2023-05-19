@@ -17,7 +17,7 @@ class Post extends Model
         $this->reads++;
         return $this->save();
     }
-
+ 
     public static function getExpensiveProducts()
     {
         // return self::where('price', '>', 30000)->get();

@@ -53,6 +53,20 @@
                                         </div>
                                     </div>
                                     <div class="view-options d-flex">
+{{-- 
+                                        <form action="{{ route('items.index') }}" method="GET">
+                                            @csrf
+                                            <label for="sort_by">Sort By:</label>
+                                            <select name="sort_by" id="sort_by">
+                                                <option value="price" {{ request('sort_by') === 'price' ? 'selected' : '' }}>Price</option>
+                                                <option value="name" {{ request('sort_by') === 'name' ? 'selected' : '' }}>Name</option>
+                                                <option value="created_at" {{ request('sort_by') === 'created_at' ? 'selected' : '' }}>Date Created</option>
+                                                <!-- Add more options for different sorting criteria -->
+                                            </select>
+                                        
+                                        
+                                            <button type="submit">Sort</button>
+                                        </form> --}}
                                         <form action="" method="GET">
                                             @csrf
                                          <select name="filter" class="price-options form-control" id="ecommerce-price-options">

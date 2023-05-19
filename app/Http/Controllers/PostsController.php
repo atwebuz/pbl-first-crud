@@ -18,7 +18,19 @@ class PostsController extends Controller
      public function __construct(){
         $this->middleware('auth')->except(['index', 'show', 'search']);
      }
+    //  public function sorting(Request $request)
+    //  {
+    //      // dd($request);
+    //      $sortBy = $request->query('sort_by', 'price');
+    //      $sortOrder = $request->query('sort_order', 'asc');
+     
+    //      $posts = Post::orderBy($sortBy, $sortOrder)->get();
+     
+ 
+    //      return view('pages.index', compact('posts','sortBy', 'sortOrder'));
+    //  }
 
+     
      public function search(Request $request)
      {
      if($request->ajax()){
@@ -273,6 +285,7 @@ class PostsController extends Controller
             session()->flash('success', 'post removed successfully');
         }
     }
+
 
 
 }
