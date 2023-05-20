@@ -96,19 +96,19 @@
                                     {{-- @dd($post->reads) --}}
 
                                     {{-- @dd($post->user) --}}
-                                    {{-- <div class="ecommerce-details-price d-flex flex-wrap">
+                                    <div class="ecommerce-details-price d-flex flex-wrap">
 
                                         
-                                        <p class="text-primary font-medium-3 mr-0 mb-0 pr-1 " style="font-size: 1.8rem;font-weight:700" >${{$post->price}}</p>
-                                        <span class="pl-1 font-medium-3 border-left">
+                                        <p class="text-primary font-medium-5 mr-0 mb-0 pr-1 " style="font-size: 2rem;font-weight:700" >${{$post->price}}</p>
+                                        {{-- <span class="pl-1 font-medium-3 border-left">
                                             <i class="feather icon-star text-warning"></i>
                                             <i class="feather icon-star text-warning"></i>
                                             <i class="feather icon-star text-warning"></i>
                                             <i class="feather icon-star text-warning"></i>
                                             <i class="feather icon-star text-secondary"></i>
                                         </span>
-                                        <span class="ml-50 text-dark font-medium-1">{{$post->rating}} {{__('ratings')}}</span>
-                                    </div> --}}
+                                        <span class="ml-50 text-dark font-medium-1">{{$post->rating}} {{__('ratings')}}</span> --}}
+                                    </div>
                                     <hr>
 
                                 
@@ -309,8 +309,8 @@
                                                             
                                                                 <div class="col-md-8">
                                                                     {{-- <input type="text" id="contact-info" class="form-control py-2" value="" name="message" placeholder="message"> --}}
-                                                                    <textarea name="message" class="form-control" cols="30" rows="3" required></textarea>
-
+                                                                    <textarea name="message" id="mytextarea" class="form-control" cols="30" rows="3" required></textarea>
+                                                                 
                                                                 </div>
                                                             </div>
                                                         </div>

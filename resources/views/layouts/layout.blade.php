@@ -39,7 +39,6 @@
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/pages/error.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/pages/faq.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/pages/search.css')}}">
-    
 
 
 

@@ -67,7 +67,7 @@
                                         
                                             <button type="submit">Sort</button>
                                         </form> --}}
-                                        <form action="" method="GET">
+                                        {{-- <form action="" method="GET">
                                             @csrf
                                          <select name="filter" class="price-options form-control" id="ecommerce-price-options">
                                             <option selected>{{__('Featured')}}</option>
@@ -75,7 +75,7 @@
                                             <option value="asc">{{__('Highest')}}</option>
                                         </select>
                                         </form>
-                                     
+                                      --}}
                                         <div class="view-btn-option">
                                             <button class="btn btn-white view-btn grid-view-btn active">
                                                 <i class="feather icon-grid"></i>
@@ -133,16 +133,8 @@
                             <div class="card-content">
                                 <div class="item-img text-center">
                                     <a href="{{route('posts.show', $post->id)}}">
-                                        {{-- @dd(asset('image/' . $post->images[0]->images)) --}}
-                                      {{-- @dd($post->oneimage[0]->images)) --}}
-                                      {{-- @dd($post->images[0]->images) --}}
-                                        @php
-                                            //  dd($post->oneimage)
-                                            //  dd($post->oneimage->images)
-                                            //  dd($post->oneimage[0]->images)
-                                        @endphp
+                                
                                         <img class="img-fluid w-100" src="{{true ? asset('image/' . $post->images[0]->images) : asset('assets/images/no-image.png')}}" alt="image not-found" />
-                                        {{-- <img class="img-fluid" src="{{count($post->oneimage)==1 ? asset('image/' . $post->oneimage[0]->images) : asset('assets/images/no-image.png')}}" alt="image not-found" /> --}}
                                     </a>
                                 </div>
                                 <div class="card-body">
@@ -186,18 +178,16 @@
                                   
                                         </div>
                                     </form>
+
+                              
                                
                                     <a class="cart" href="{{ route('add.to.cart', $post->id) }}">
-                                        
                                         <i class="feather icon-shopping-cart"></i> <span class="add-to-carts">{{__('Add to cart')}}</span> <a href="{{ route('posts.checkout') }}" class="view-in-cart d-none">{{__('View In Cart')}}</a>
+
                                     </a>
 
-                                 
-                             
-
                                     @else
-                                 
-                                                            
+                                                                                     
                                     @endauth
                                 </div>
                             </div>

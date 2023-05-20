@@ -36,8 +36,13 @@ class PostsController extends Controller
      {
      if($request->ajax()){
             $output="";
-         
-            $posts = Post::with('images')->where('title','LIKE','%'.$request->search."%")->get();
+            
+            $posts = Post::with('images')
+            ->where('title','LIKE','%'.$request->search."%")
+            ->orWhere('address', 'LIKE', '%'.$request->search.'%')
+            ->orWhere('transmission', 'LIKE', '%'.$request->search.'%')
+            ->orWhere('price', '=', $request->search)
+            ->get();
             foreach ($posts as $post) {
             $output.='<tr>'.
             '<td>'.$post->id.'</td>'.
