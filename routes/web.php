@@ -5,6 +5,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\FallbackController;
 use App\Http\Controllers\ItemController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\WishlistController;
@@ -58,6 +59,7 @@ Route::get('/carousel', function () {
 Route::get('/search',[PostsController::class, 'search'])->name('search');
 Route::get('posts/wishlist', [WishlistController::class, 'wishlist'])->name('posts.wishlist');
 Route::any('posts/wishlist_add', [WishlistController::class, 'add'])->name('wishlist.add');
+Route::any('posts/order_add', [OrderController::class, 'add'])->name('order.add');
 Route::any('posts/wishlist_remove', [WishlistController::class, 'remove'])->name('wishlist.remove');
 Route::get('posts/checkout', [PagesController::class, 'checkout'])->name('posts.checkout');
 // Route::any('posts/settings', [PagesController::class, 'settings'])->name('posts.settings');

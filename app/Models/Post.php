@@ -11,7 +11,7 @@ class Post extends Model
 
     protected $table = 'posts';
 
-    protected $fillable = ['user_id','category_id', 'title', 'paragraph', 'price', 'color', 'image','reads','date_of_year','millage','transmission','oil_type','condition','address'];
+    protected $fillable = ['user_id','category_id', 'title', 'paragraph', 'price', 'color', 'image','reads','date_of_year','millage','transmission','oil_type','condition','address', 'is_salled'];
 
     public function incrementReadCount() {
         $this->reads++;
@@ -76,5 +76,10 @@ class Post extends Model
     public function wishlist()
 {
     return $this->hasMany(Wishlist::class);
+}
+
+public function order()
+{
+    return $this->hasMany(Order::class);
 }
 }

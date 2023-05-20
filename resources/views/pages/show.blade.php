@@ -26,14 +26,14 @@
                         </div>
                     </div>
                 </div>
-                <div class="content-header-right text-md-right col-md-3 col-12 d-md-block d-none">
+                {{-- <div class="content-header-right text-md-right col-md-3 col-12 d-md-block d-none">
                     <div class="form-group breadcrum-right">
                         <div class="dropdown">
                             <button class="btn-icon btn btn-primary btn-round btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="feather icon-settings"></i></button>
                             <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="#">{{__('Chat')}}</a><a class="dropdown-item" href="#">Email</a><a class="dropdown-item" href="#">Calendar</a></div>
                         </div>
                     </div>
-                </div>
+                </div> --}}
             </div>
             <div class="content-body">
                 <!-- app ecommerce details start -->
@@ -96,7 +96,7 @@
                                     {{-- @dd($post->reads) --}}
 
                                     {{-- @dd($post->user) --}}
-                                    <div class="ecommerce-details-price d-flex flex-wrap">
+                                    {{-- <div class="ecommerce-details-price d-flex flex-wrap">
 
                                         
                                         <p class="text-primary font-medium-3 mr-0 mb-0 pr-1 " style="font-size: 1.8rem;font-weight:700" >${{$post->price}}</p>
@@ -108,7 +108,7 @@
                                             <i class="feather icon-star text-secondary"></i>
                                         </span>
                                         <span class="ml-50 text-dark font-medium-1">{{$post->rating}} {{__('ratings')}}</span>
-                                    </div>
+                                    </div> --}}
                                     <hr>
 
                                 
@@ -189,10 +189,24 @@
                                         @endforeach
                                       </ul>
 
-                                   
 
+                                @if(count($post->order) !== 0 )
+                                   @foreach($post->order as $ord)
+                                   {{-- @dump($ord->post->id) --}}
+                                        @unless($ord->post->id)
+                                        
+                                        <p>{{__('Available')}} - <span class="text-success">{{__('In stock')}}</span></p>
+                                        @else
+                                        
+                                        <p style="font-size: 20px">{{__('Maxsulot')}} - <span class="text-danger " style="font-weight: bold">{{__('sotuvda mavjud emas')}}</span></p>
+                                        @endunless
+
+                                        {{-- @dump($post->order ) --}}
+                                        {{-- <p>{{__('Maxsulot')}} - <span class="text-danger">{{__('sotuvda mavjud emas')}}</span></p> --}}
+
+                                   @endforeach
+                                @endif
                                     
-                                    <p>{{__('Available')}} - <span class="text-success">{{__('In stock')}}</span></p>
 
 
                                     
@@ -332,6 +346,7 @@
             </div>
         </section>
 
+   
 
                 <!-- app ecommerce details end -->
 

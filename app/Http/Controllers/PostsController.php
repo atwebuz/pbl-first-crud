@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Images;
+use App\Models\Order;
 use App\Models\Post;
 use App\Models\Tag;
 use Illuminate\Http\Request;
@@ -145,6 +146,7 @@ class PostsController extends Controller
         return view('pages.show',[
             'post' => Post::with('images')->findOrFail($id),
             'tags' => Tag::all(),
+            'orders' => Order::all(),
             'categories' => Category::all()
         ]);
 
@@ -285,6 +287,8 @@ class PostsController extends Controller
             session()->flash('success', 'post removed successfully');
         }
     }
+
+    
 
 
 

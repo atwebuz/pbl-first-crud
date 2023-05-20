@@ -51,7 +51,7 @@
                             <div class="card ecommerce-card">
                     <div class="card-content">
                         <div class="item-img text-center">
-                            <a href="app-ecommerce-details.html">
+                            <a href="{{route('posts.show', $item->post->id)}}">
                                 {{-- @dd($item->post->images[0]->images) --}} 
                                 <img src="{{asset('image/' . $item->post->images[0]->images)}}" class="img-fluid" alt="img-placeholder">
                             </a>

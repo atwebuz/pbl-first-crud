@@ -28,6 +28,7 @@ return new class extends Migration
             $table->string('oil_type');
             $table->string('condition')->nullable();
             $table->string('address');
+            $table->boolean('is_salled')->default(false);
             $table->timestamps();
         });
     }

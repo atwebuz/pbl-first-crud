@@ -38,7 +38,7 @@
             </div>
         </div>
         <div class="content-body">
-            <form action="#" class="icons-tab-steps checkout-tab-steps wizard-circle">
+            <div action="#" class="icons-tab-steps checkout-tab-steps wizard-circle">
                 <!-- Checkout Place order starts -->
                 <h6><i class="step-icon step feather icon-shopping-cart"></i>Cart</h6>
                 <fieldset class="checkout-step-1 px-0">
@@ -125,6 +125,8 @@
                                         <div class="cart remove-wishlist">
                                             <i class="fa fa-heart-o mr-25"></i> Wishlist
                                         </div>
+
+                               
                                         {{-- <div class="" id="remove-from-cart" style="background:red">
                                             <i class="feather icon-x align-middle"></i> Removerr
                                         </div> --}}
@@ -204,7 +206,21 @@
                                            
                                             </div>
                                         </div>
-                                        <div class="btn btn-primary btn-block place-order">PLACE ORDER</div>
+                                        {{-- <div class="btn btn-primary btn-block place-order">PLACE ORDER</div> --}}
+                                        <form action="{{ route('order.add') }}" method="POST">
+                                            @csrf
+
+                                            <div class="wishlist">
+                                                @foreach(session('cart') as $id => $details)
+
+                                                 <input type="hidden" name="post_id[]" value="{{$id}}">
+                                                    
+                                                @endforeach
+                                               
+                                                <button class="btn btn-primary" type="submit">  {{__('Sotib olish')}}</button>
+                                      
+                                            </div>
+                                        </form>
                                     </div>
                                 </div>
                             </div>
@@ -216,7 +232,7 @@
                 <!-- Checkout Place order Ends -->
 
            
-            </form>
+            </div>
 
         </div>
         

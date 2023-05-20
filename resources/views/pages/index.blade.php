@@ -25,14 +25,14 @@
                         </div>
                     </div>
                 </div>
-                <div class="content-header-right text-md-right col-md-3 col-12 d-md-block d-none">
+                {{-- <div class="content-header-right text-md-right col-md-3 col-12 d-md-block d-none">
                     <div class="form-group breadcrum-right">
                         <div class="dropdown">
                             <button class="btn-icon btn btn-primary btn-round btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="feather icon-settings"></i></button>
                             <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="#">{{__('Chat')}}</a><a class="dropdown-item" href="#">{{__('Email')}}</a><a class="dropdown-item" href="#">Calendar</a></div>
                         </div>
                     </div>
-                </div>
+                </div> --}}
             </div>
             {{-- content-right --}}
             <div class="content-detached ">
@@ -148,10 +148,10 @@
                                 <div class="card-body">
                                     <div class="item-wrapper">
                                         <div class="item-rating">
-                                            <div class="badge badge-primary badge-md">
+                                            {{-- <div class="badge badge-primary badge-md">
                                                
                                                 <span >{{$post->rating}}</span> <i class="feather icon-star"></i>
-                                            </div>
+                                            </div> --}}
                                            
                                         </div>
                                         <div>
@@ -172,30 +172,13 @@
                                         <p><b>{{__('Created at')}}:</b> {{$post->created_at}}</p>
                                     </div>
                                 </div>
-                                <div class="item-options text-center">
-                                    <div class="item-wrapper">
-                                        <div class="item-rating">
-                                            <div class="badge badge-primary badge-md">
-                                                <span>4</span> <i class="feather icon-star"></i>
-                                            </div>
-                                        </div>
-                                        <div class="item-cost">
-                                            <h6 class="item-price">
-                                                $39.99
-                                            </h6>
-                                        </div>
-                                    </div>
-
+                                <div class="item-options text-center d-flex">
+                                 
                                     @auth
                                         
-                                    {{-- <form method="POST" action="{{ route('wishlist.add') }}">
+                                  
+                                  <form action="{{ route('wishlist.add') }}" method="POST">
                                         @csrf
-                                        <input type="hidden" name="post_id" value="{{ $post->id }}">
-                                        <button type="submit">Add to Wishlist</button>
-                                    </form> --}}
-                                    <form action="{{ route('wishlist.add') }}" method="POST">
-                                        @csrf
-                                        {{-- <button type="submit">Add to Wishlist</button> --}}
 
                                         <div class="wishlist">
                                             <input type="hidden" name="post_id" value="{{$post->id}}">
@@ -203,20 +186,17 @@
                                   
                                         </div>
                                     </form>
-                                    {{-- <div class="wishlist">
-                                        <i class="fa fa-heart-o"></i> <span>{{__('Wishlist')}}</span>
-                                    </div> --}}
-
-                                 
-                                    
+                               
                                     <a class="cart" href="{{ route('add.to.cart', $post->id) }}">
+                                        
                                         <i class="feather icon-shopping-cart"></i> <span class="add-to-carts">{{__('Add to cart')}}</span> <a href="{{ route('posts.checkout') }}" class="view-in-cart d-none">{{__('View In Cart')}}</a>
                                     </a>
 
+                                 
+                             
+
                                     @else
-                                    {{-- <a class="cart" href="{{ route('add.to.cart', $post->id) }}">
-                                        <i class="feather icon-shopping-cart"></i> <span class="add-to-carts">{{__('Add to cart')}}</span> <a href="{{ route('posts.checkout') }}" class="view-in-cart d-none">{{__('View In Cart')}}</a>
-                                    </a> --}}
+                                 
                                                             
                                     @endauth
                                 </div>
