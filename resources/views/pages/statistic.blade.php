@@ -35,6 +35,8 @@
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/pages/dashboard-analytics.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/pages/card-analytics.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/plugins/tour/tour.css')}}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
     <!-- END: Page CSS-->
 
     <!-- BEGIN: Custom CSS-->
@@ -197,14 +199,18 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                 
+                        </div>  
+                        
+                        <div class="col-lg-8 my-4">
+                            <canvas id="product-price-chart"></canvas>
 
-                            
+                        </div>
                     </div>
               
 
-                 
+                  
+    
+                                    
                 </section>
                 <!-- Dashboard Analytics end -->
 
@@ -218,6 +224,7 @@
 
   
 
+    
 
     <!-- BEGIN: Vendor JS-->
     <script src="{{asset('assets/vendors/js/vendors.min.js')}}"></script>
@@ -239,7 +246,36 @@
     <script src="{{asset('assets/js/scripts/pages/dashboard-analytics.js')}}"></script>
     <!-- END: Page JS-->
 
+    <script>
+        var ctx = document.getElementById('product-price-chart').getContext('2d');
+        var labels = {!! json_encode($labels) !!};
+        var data = {!! json_encode($data) !!};
+
+        var chart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: 'Product Prices',
+                    data: data,
+                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                    borderColor: '#7367f0 ',
+                    borderWidth: 3
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+
 </body>
 <!-- END: Body-->
 
 </html>
+
