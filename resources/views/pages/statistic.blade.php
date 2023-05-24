@@ -201,8 +201,13 @@
                             </div>
                         </div>  
                         
-                        <div class="col-lg-8 my-4">
+                        <div class="col-lg-6 my-4">
                             <canvas id="product-price-chart"></canvas>
+
+                        </div>
+
+                        <div class="col-lg-6 my-4">
+                            <canvas id="product-price-chart1"></canvas>
 
                         </div>
                     </div>
@@ -248,15 +253,18 @@
 
     <script>
         var ctx = document.getElementById('product-price-chart').getContext('2d');
+        var ctx1 = document.getElementById('product-price-chart1').getContext('2d');
         var labels = {!! json_encode($labels) !!};
         var data = {!! json_encode($data) !!};
+        var labels1 = {!! json_encode($labels1) !!};
+        var data1 = {!! json_encode($data1) !!};
 
         var chart = new Chart(ctx, {
             type: 'line',
             data: {
                 labels: labels,
                 datasets: [{
-                    label: 'Product Prices',
+                    label: 'Narxlari bo`yicha',
                     data: data,
                     backgroundColor: 'rgba(75, 192, 192, 0.2)',
                     borderColor: '#7367f0 ',
@@ -272,7 +280,30 @@
                 }
             }
         });
+
+        var chart1 = new Chart(ctx1, {
+            type: 'line',
+            data: {
+                labels: labels1,
+                datasets: [{
+                    label: 'Ko`rilganlar soni bo`yicha',
+                    data: data1,
+                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                    borderColor: 'green ',
+                    borderWidth: 3
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: false
+                    }
+                }
+            }
+        });
     </script>
+
 
 </body>
 <!-- END: Body-->

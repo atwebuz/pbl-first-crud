@@ -38,7 +38,7 @@ Route::get('/statistic', function () {
     $posts = Post::all();
     $labels = $posts->pluck('title')->toArray(); // Replace 'name' with the actual field name containing the product names in your database
 
-    return view('pages.statistic')->with('labels', $labels);;
+    return view('pages.statistic')->with('labels', $labels);
     // return view('pages.statistic', ['labels' => $labels]);
     
 //   return view('pages.statistic');
@@ -48,12 +48,14 @@ Route::get('/statistic', function () {
     $posts = Post::all();
     $labels = $posts->pluck('title')->toArray(); // Replace 'name' with the actual field name containing the product names in your database
     $data = $posts->pluck('price')->toArray();
+    $labels1 = $posts->pluck('title')->toArray(); // Replace 'name' with the actual field name containing the product names in your database
+    $data1 = $posts->pluck('reads')->toArray();
     $currentPrice = 750; 
     $comparisonPrice = 500; 
     $expensiveProducts = Post::getExpensiveProducts();
     $getCheepestProducts = Post::getCheepestProducts();
     return view('pages.statistic',['expensiveProducts' => $expensiveProducts],['getCheepestProducts'=> $getCheepestProducts],
-     ['currentPrice' => $currentPrice, 'comparisonPrice' => $comparisonPrice])->with('labels', $labels)->with('data', $data);;
+     ['currentPrice' => $currentPrice, 'comparisonPrice' => $comparisonPrice])->with('labels', $labels)->with('data', $data)->with('data1', $data1)->with('labels1', $labels1);
 });
 // Route::get('/statistic', [CategoryController::class, 'getCategoryStatistics'])->name('category.statistics');
 
