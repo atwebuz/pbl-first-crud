@@ -52,7 +52,6 @@
 
 
                                     @php $total += $details['price'] * $details['quantity'] @endphp
-                            {{-- @dd($details) --}}
                             <div class="card ecommerce-card" data-id="{{ $id }}">
                                 <div class="card-content">
                                     <div class="item-img text-center">

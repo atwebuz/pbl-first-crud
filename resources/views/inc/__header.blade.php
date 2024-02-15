@@ -149,7 +149,6 @@
                             href="#" data-toggle="dropdown">
 
                             @auth
-                            {{-- @dd(auth()->user()->image)  --}}
                             <div class="user-nav d-sm-flex d-none"><span
                                     class="user-name text-bold-600">{{auth()->user()->name}}</span><span
                                     class="user-status">{{__('Available')}}</span></div><span>
@@ -320,25 +319,38 @@
                 <ul class="menu-content">
                     <li class="{{ (request()->is('posts')) ? 'active' : '' }} "><a href="{{route('posts.index')}}"><i
                                 class="feather icon-circle"></i><span class="menu-item" data-i18n="Shop">{{__('Shop')}}</span></a>
-                    </>
-
+                    
                     @auth
+                    @if(auth()->user()->id == 2 || 1 && 2 > auth()->user()->id)
                     <li class="{{ (request()->is('posts/create')) ? 'active' : '' }}"><a
                             href="{{route('posts.create')}}"><i class="feather icon-circle"></i><span class="menu-item"
                                 data-i18n="Wish List">{{__('Create')}}</span></a>
                     </li>
 
-                    @else
-                    <li class="{{ (request()->is('login')) ? 'active' : '' }}"><a href="{{route('login')}}"><i
-                                class="feather icon-circle"></i><span class="menu-item"
-                                data-i18n="Login">{{__('Login')}}</span></a>
-                    </li>
+                   
+                    @endif
+                    {{-- <li class="{{ (request()->is('login')) ? 'active' : '' }}"><a href="{{route('login')}}"><i
+                        class="feather icon-circle"></i><span class="menu-item"
+                        data-i18n="Login">{{__('Login')}}</span></a>
+            </li> --}}
+
                     @endauth
+                    {{-- @else
+                            <li><a
+                                href="#"><i class="feather icon-circle"></i><span class="menu-item"
+                                    data-i18n="Wish List">{{__('ERROR')}}</span></a>
+                        </li> --}}
 
                     <li class="{{ (request()->is('posts/wishlist')) ? 'active' : '' }}"><a
                             href="{{route('posts.wishlist')}}"><i class="feather icon-circle"></i><span
                                 class="menu-item" data-i18n="Wish List">{{__('Wish List')}}</span></a>
                     </li>
+                    @php $total = $details['quantity'] @endphp
+
+                    <li class="{{ (request()->is('posts/checkout')) ? 'active' : '' }}"><a
+                        href="{{route('posts.checkout')}}"><i class="feather icon-circle"></i><span
+                            class="menu-item" data-i18n="Wish List">{{__('Savat')}}</span><span class="mx-2 px-1 text-danger bg-white" style="border-radius: 50px">{{$total}}</span></a>
+                </li>
 
                     @if(isset($cart)) {
                     <li class="{{ (request()->is('posts/checkout')) ? 'active' : '' }}"><a
