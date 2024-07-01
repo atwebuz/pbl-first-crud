@@ -345,7 +345,7 @@
                             href="{{route('posts.wishlist')}}"><i class="feather icon-circle"></i><span
                                 class="menu-item" data-i18n="Wish List">{{__('Wish List')}}</span></a>
                     </li>
-                    @php $total = $details['quantity'] @endphp
+                    @php $total = $details['quantity'] ?? null @endphp
 
                     <li class="{{ (request()->is('posts/checkout')) ? 'active' : '' }}"><a
                         href="{{route('posts.checkout')}}"><i class="feather icon-circle"></i><span
